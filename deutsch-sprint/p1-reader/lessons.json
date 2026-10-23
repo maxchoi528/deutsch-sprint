@@ -1031,7 +1031,12 @@
           "plural": "",
           "zh": "提出进一步询问",
           "de_def": "eine zusätzliche Frage stellen, um etwas genauer zu verstehen",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "eine Nachfrage ___",
+              "answer": "stellen"
+            }
+          ],
           "register": "neutral",
           "id": "b2-wohnen-g06"
         },
@@ -1142,8 +1147,11 @@
           "evidence_sentence_index": 15
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "找房时先整理问题和个人底线，看房时检查房屋状况、附加费用及押金。准备申请材料、确认约定内容并理性对待拒绝，有助于避免在压力下仓促决定。",
+      "grammar_focus": [
+        "条件从句：Wenn etwas unklar ist, können sie eine Nachfrage stellen.",
+        "被动态不定式：mündliche Absprachen sind später schwer nachzuweisen."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     },
@@ -1211,7 +1219,12 @@
           "plural": "",
           "zh": "掌握整体情况",
           "de_def": "wissen, was gerade wichtig ist und zusammenhängt",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "den Überblick ___",
+              "answer": "behalten"
+            }
+          ],
           "register": "neutral",
           "id": "b2-beruf-g05"
         },
@@ -1335,8 +1348,11 @@
           "evidence_sentence_index": 15
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "这个虚构团队通过核心联络时段、任务清单和明确的会议议程改善混合办公。共同规则要让责任与期望清楚可见，也要给专注工作留出空间，并随任务变化进行调整。",
+      "grammar_focus": [
+        "过去时被动态：Eine gemeinsame Kernarbeitszeit wurde vereinbart.",
+        "间接疑问句：wer gerade woran arbeitet und wann ein Ergebnis gebraucht wird."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     },
@@ -1439,7 +1455,12 @@
           "plural": "",
           "zh": "弥补知识缺口",
           "de_def": "fehlendes Wissen ergänzen",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "eine Lücke ___",
+              "answer": "schließen"
+            }
+          ],
           "register": "neutral",
           "id": "b2-bildung-g08"
         },
@@ -1526,8 +1547,11 @@
           "evidence_sentence_index": 12
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "学习小组需要共同目标和时间安排。先独立练习再比较思路，鼓励提问弥补知识缺口，并用笔记记录进展和待解决的问题，让每个人都有解释和参与的机会。",
+      "grammar_focus": [
+        "目的或结果衔接：So wird sichtbar, welche Lösungswege ähnlich sind.",
+        "反身动词与介词：sich auf den nächsten Termin vorbereiten."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     },
@@ -1630,7 +1654,12 @@
           "plural": "",
           "zh": "申请退款或费用偿还",
           "de_def": "offiziell darum bitten, einen Teil des Geldes zurückzubekommen",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "eine Erstattung ___",
+              "answer": "beantragen"
+            }
+          ],
           "register": "neutral",
           "id": "b2-reisen-g08"
         },
@@ -1718,8 +1747,11 @@
           "evidence_sentence_index": 13
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "这封虚构读者来信讲述错过接续车次后的处理思路：核对时刻表、询问车票适用范围，并记录延误和额外费用。退款与替代交通的具体安排须查看相应车票和运营方说明。",
+      "grammar_focus": [
+        "ob 引导的间接疑问句：ob mein Ticket für die andere Verbindung gilt.",
+        "可能性表达：ob sich eine Erstattung beantragen lässt."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     },
@@ -1870,7 +1902,12 @@
           "plural": "",
           "zh": "提出投诉",
           "de_def": "offiziell mitteilen, dass man mit einer Leistung nicht zufrieden ist",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "eine Beschwerde ___",
+              "answer": "einreichen"
+            }
+          ],
           "register": "neutral",
           "id": "b2-konsum-g12"
         }
@@ -1909,8 +1946,11 @@
           "evidence_sentence_index": 13
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "设备出问题时，可以先检查保修、维修可能性和使用寿命，再比较维修投入与收益。购买时留意备件和退货条件，必要时清楚描述故障并投诉，避免冲动购买或丢弃。",
+      "grammar_focus": [
+        "bevor 从句：bevor man etwas Neues kauft.",
+        "条件从句：Wenn eine Reparatur nicht möglich ist, lässt sich ein Gerät vielleicht noch weiterverwenden."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     },
@@ -1989,7 +2029,12 @@
           "plural": "",
           "zh": "为一项说法提供证据",
           "de_def": "zeigen, welche nachvollziehbaren Hinweise für eine Aussage sprechen",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "eine Behauptung ___",
+              "answer": "belegen"
+            }
+          ],
           "register": "neutral",
           "id": "b2-medien-g06"
         },
@@ -2100,8 +2145,11 @@
           "evidence_sentence_index": 10
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "阅读网络内容时，应检查原始来源，比较标题、图片说明和正文背景，并寻找可核对的证据。没有证据不等于一定错误，但转发前应交叉核查，对尚未确定的内容说明不确定性。",
+      "grammar_focus": [
+        "宾语从句：wer den ursprünglichen Beitrag veröffentlicht hat.",
+        "方式从句：indem sie vor dem Teilen kurz innehalten."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     },
@@ -2254,7 +2302,12 @@
           "plural": "",
           "zh": "作出承诺",
           "de_def": "verbindlich sagen, dass man etwas tun wird",
-          "collocations": [],
+          "collocations": [
+            {
+              "prompt": "eine Zusage ___",
+              "answer": "machen"
+            }
+          ],
           "register": "neutral",
           "id": "b2-ehrenamt-g12"
         }
@@ -2293,8 +2346,11 @@
           "evidence_sentence_index": 14
         }
       ],
-      "summary_zh": "AI 生成的练习摘要，尚未导师审校。",
-      "grammar_focus": [],
+      "summary_zh": "开始志愿活动时先承担范围明确的任务，接受指导并找到联系人。与团队协调时间、坦诚表达边界和及时反馈，有助于履行承诺并持续参与，避免过度承担。",
+      "grammar_focus": [
+        "反身动词：sich mit dem Team absprechen.",
+        "否定宾语从句：Ein Nein bedeutet nicht, dass ihr bisheriger Beitrag unwichtig ist."
+      ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
     }

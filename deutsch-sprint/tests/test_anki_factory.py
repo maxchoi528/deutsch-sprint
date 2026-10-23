@@ -25,6 +25,15 @@ class AnkiFactoryTests(unittest.TestCase):
         for note in notes:
             self.assertLessEqual(len(re.findall(r"\{\{c\d+::", note.front)), 2)
 
+    def test_full_lesson_collection_generates_all_marked_clozes(self):
+        collection = json.loads((PROJECT_ROOT / "p1-reader/lessons.json").read_text())
+        notes, marked = [], 0
+        for lesson in collection["lessons"]:
+            marked += len(re.findall(r"\{[^{}|]+\|[^{}|]+\}", lesson["text"]))
+            notes.extend(factory.sentence_notes(lesson["text"], lesson["glosses"], lesson["id"]))
+        unique, _ = factory.unique_notes(notes)
+        self.assertGreaterEqual(len(unique), marked)
+
     def test_duplicate_notes_are_removed(self):
         note = factory.Note("error", "falsch", "richtig", "test")
         unique, removed = factory.unique_notes([note, note])
