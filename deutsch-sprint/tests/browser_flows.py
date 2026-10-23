@@ -188,3 +188,64 @@ def extra_flows(browser, base_url, errors):
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
     print('PASS: P1 direct file:// use, mobile tap tooltip, dismissal and viewport containment.')
     mobile.close()
+
+
+def shadow_flow(browser, base_url, errors):
+    """Exercise manual dictation and audio UI with synthetic audio / stub ASR only."""
+    import io
+    import wave
+    with io.BytesIO() as buffer:
+        with wave.open(buffer, 'wb') as wav:
+            wav.setnchannels(1)
+            wav.setsampwidth(2)
+            wav.setframerate(8000)
+            wav.writeframes(b'\0\0' * 8000 * 6)
+        audio = buffer.getvalue()
+    page = browser.new_page()
+    page.on('pageerror', lambda error: errors.append(str(error)))
+    page.add_init_script('''(() => {
+      navigator.mediaDevices.getUserMedia = async () => {
+        window.testAudioContext = new AudioContext();
+        return window.testAudioContext.createMediaStreamDestination().stream;
+      };
+    })();''')
+    page.goto(base_url + '/p5-shadow/index.html')
+    page.locator('#reference').fill('Heute lernen wir gemeinsam. Morgen üben wir weiter.')
+    page.locator('#reference').press('Tab')
+    assert page.locator('.sentence-card').count() == 2
+    assert page.locator('[data-play="0"]').is_disabled()
+    page.locator('[data-dictation="0"]').fill('Heute lernen wir.')
+    page.locator('[data-compare="0"]').click()
+    assert 'gemeinsam' in page.locator('#missed-list').inner_text(), str((page.locator('#missed-list').inner_text(), page.locator('#diff-0').inner_text(), errors))
+    with page.expect_download() as info:
+        page.locator('#export-missed').click()
+    lesson = json.loads(Path(info.value.path()).read_text())
+    import anki_factory
+    notes = anki_factory.sentence_notes(lesson['text'], lesson['glosses'], 'p5-browser')
+    assert len(notes) == 1
+    page.locator('#audio-file').set_input_files(dict(name='silence.wav', mimeType='audio/wav', buffer=audio))
+    page.wait_for_function("document.querySelector('#audio').readyState >= 1")
+    page.route('**/api/transcribe', lambda route: route.fulfill(json={
+        'language': 'de', 'duration': 6,
+        'segments': [{'start': 1, 'end': 2, 'text': 'Heute lernen wir gemeinsam.'},
+                     {'start': 3, 'end': 4, 'text': 'Morgen üben wir weiter.'}]}))
+    page.locator('#transcribe').click()
+    page.wait_for_function("!document.querySelector('[data-loop]').disabled")
+    page.locator('[data-loop="0"]').click()
+    position = page.evaluate("() => { const a=document.querySelector('#audio');a.currentTime=2.1;a.dispatchEvent(new Event('timeupdate'));return a.currentTime; }")
+    assert 1 <= position < 1.3, 'Sentence loop stopped instead of repeating'
+    page.locator('#stop-loop').click()
+    assert page.locator('#audio').evaluate('(a) => a.paused')
+    # Recording ASR must not replace source-audio timestamps or reference material.
+    page.unroute('**/api/transcribe')
+    page.route('**/api/transcribe', lambda route: route.fulfill(json={
+        'language': 'de', 'duration': 1,
+        'segments': [{'start': 0, 'end': 1, 'text': 'Heute lernen wir.'}]}))
+    page.locator('#record-start').click()
+    page.locator('#record-stop').click()
+    page.locator('#shadow-result').wait_for(state='visible')
+    assert page.locator('.sentence-card').count() == 2
+    assert '1.0–2.0' in page.locator('.sentence-time').first.inner_text()
+    assert 'gemeinsam' in page.locator('#shadow-result').inner_text()
+    print('PASS: P5 manual dictation -> Anki; synthetic-audio loop; stub-ASR recording preserves source timestamps (no real ASR/mic test).')
+    page.close()

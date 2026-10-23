@@ -167,8 +167,9 @@ def main():
             hours_rule = page.locator(".rule-item", has_text="本周主动学习少于 30 小时")
             assert hours_rule.locator(".tag").inner_text() == "已触发", "A week with five recorded days should evaluate the low-hours rule"
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
-            from browser_flows import extra_flows
+            from browser_flows import extra_flows, shadow_flow
             extra_flows(browser, base_url, console_errors)
+            shadow_flow(browser, base_url, console_errors)
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
             browser.close()
             print("PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.")
@@ -183,5 +184,7 @@ if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except AssertionError as exc:
+        import traceback
+        traceback.print_exc()
         print(f"FAIL: {exc}", file=sys.stderr)
         raise SystemExit(1)
