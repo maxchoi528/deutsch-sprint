@@ -60,6 +60,19 @@ def main():
             for expected in (surface, gloss["lemma"], gloss["zh"], gloss["de_def"]):
                 assert expected in tooltip_text, f"Tooltip is missing {expected!r}"
 
+            page.select_option("#level-filter", "B2+")
+            assert "Im hybriden Team klare Absprachen finden" in page.locator(".article-head").inner_text(), (
+                "The B2+ filter did not select a B2+ lesson"
+            )
+            lesson = next(item for item in embedded["lessons"] if item["id"] == "b2-beruf")
+            no_plural = next(gloss for gloss in lesson["glosses"] if gloss.get("plural_note"))
+            gloss_button = page.locator(
+                f'[aria-describedby^="tip-{no_plural["id"]}-"]'
+            ).first
+            gloss_button.hover()
+            note_tooltip = page.locator("#" + gloss_button.get_attribute("aria-describedby"))
+            assert "通常无复数" in note_tooltip.inner_text(), "plural_note was not shown in the tooltip"
+
             page.goto(f"{base_url}/p7-practice/index.html", wait_until="load")
             has_nested_blocks = page.evaluate(
                 """() => {

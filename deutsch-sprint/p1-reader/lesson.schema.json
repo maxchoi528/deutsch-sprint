@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://deutsch-sprint.local/lesson.schema.json",
-  "title": "Deutsch Sprint C1 reading lesson collection",
+  "title": "Deutsch Sprint B2–C1 reading lesson collection",
   "type": "object",
   "required": ["schemaVersion", "lessons"],
   "properties": {
@@ -26,6 +26,7 @@
         "pos": {"type": "string"},
         "article": {"type": "string"},
         "plural": {"type": "string"},
+        "plural_note": {"type": "string"},
         "zh": {"type": "string"},
         "de_def": {"type": "string"},
         "collocations": {"type": "array", "items": {"$ref": "#/$defs/collocation"}},
@@ -51,14 +52,15 @@
       "properties": {
         "id": {"type": "string", "minLength": 1},
         "title": {"type": "string", "minLength": 1},
-        "level": {"enum": ["B2", "C1"]},
-        "genre": {"enum": ["Kommentar", "Bericht", "Erklärung", "Brief", "评论", "报道", "说明文", "书信"]},
+        "level": {"enum": ["B2", "B2+", "C1"]},
+        "genre": {"enum": ["Kommentar", "Bericht", "Erklärung", "Brief", "Erfahrungsbericht", "Informationstext", "Leserbrief", "Interviewzusammenfassung", "Porträt", "评论", "报道", "说明文", "书信"]},
         "text": {"type": "string", "minLength": 1, "description": "Use {surface|gloss_id} to mark a glossable word or phrase."},
         "glosses": {"type": "array", "items": {"$ref": "#/$defs/gloss"}},
         "questions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/question"}},
         "summary_zh": {"type": "string"},
         "grammar_focus": {"type": "array", "items": {"type": "string"}},
-        "recycled_words": {"type": "array", "items": {"type": "string"}}
+        "recycled_words": {"type": "array", "items": {"type": "string"}},
+        "review_status": {"const": "ai-generated-unreviewed"}
       },
       "additionalProperties": false
     }

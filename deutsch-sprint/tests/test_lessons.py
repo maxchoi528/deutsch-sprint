@@ -1,7 +1,9 @@
 import contextlib
 import io
 import json
+import math
 from pathlib import Path
+import re
 import sys
 import unittest
 
@@ -41,6 +43,21 @@ class LessonEvidenceTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertIn("[digitale-verwaltung Q1 · sentence 20]", output.getvalue())
         self.assertIn("[digitale-verwaltung Q3 · sentence 14]", output.getvalue())
+
+    def test_new_b2_lessons_meet_content_and_review_requirements(self):
+        lessons = [lesson for lesson in self.collection["lessons"] if lesson["id"].startswith("b2-")]
+        self.assertGreaterEqual(len(lessons), 6)
+        for lesson in lessons:
+            with self.subTest(lesson=lesson["id"]):
+                plain_text = re.sub(r"\{([^{}|]+)\|[^{}|]+\}", r"\1", lesson["text"])
+                word_count = len(re.findall(r"\S+", plain_text))
+                self.assertIn(lesson["level"], {"B2", "B2+"})
+                self.assertGreaterEqual(word_count, 180)
+                self.assertLessEqual(word_count, 260)
+                self.assertGreaterEqual(len(lesson["glosses"]), 12)
+                self.assertGreaterEqual(len(lesson["glosses"]), math.ceil(word_count * 0.05))
+                self.assertEqual(lesson["review_status"], "ai-generated-unreviewed")
+                self.assertEqual(len(lesson["questions"]), 3)
 
 
 if __name__ == "__main__":
