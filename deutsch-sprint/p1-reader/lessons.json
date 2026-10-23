@@ -1,0 +1,957 @@
+{
+  "schemaVersion": 1,
+  "lessons": [
+    {
+      "id": "stadt-hitze",
+      "title": "Wem gehört der Schatten?",
+      "level": "C1",
+      "genre": "Kommentar",
+      "text": "Wenn eine Stadt auf mehrere heiße Tage vorbereitet sein will, reicht es nicht, einzelne Plätze nachträglich mit Sonnenschirmen auszustatten. Entscheidend ist vielmehr, ob Wege, Haltestellen und öffentliche Gebäude auch dann nutzbar bleiben, wenn die {Hitzebelastung|h1} zunimmt. Zwar schafft jeder neu gepflanzte Baum einen konkreten Ort der Erholung; dennoch muss die Planung das gesamte Viertel {in den Blick nehmen|h3}. {Versiegelte|h2} Flächen speichern Wärme, während begrünte Dächer und offene Böden Wasser aufnehmen und langsam wieder abgeben können.\n\nBefürworter argumentieren, eine konsequente Begrünung könne die {Aufenthaltsqualität|h6} erheblich verbessern. Kritiker halten dagegen, solche Maßnahmen konkurrierten mit Wohnraum, Parkplätzen und Leitungen, die unter der Erde verlaufen. Dieser Einwand ist insofern {ernst zu nehmen|h7}, als der verfügbare Raum begrenzt ist. Eine verständliche Planung sollte deshalb {offenlegen|h8}, welche Ziele miteinander {abgewogen werden|h9} und wer an der Entscheidung beteiligt war. So lässt sich vermeiden, dass eine gut gemeinte Maßnahme an den Bedürfnissen der {Anwohnenden|h4} {vorbeigeht|h10}.\n\nBei der Auswahl der Orte zählt nicht allein die erwartete Wirkung. Auch die Erreichbarkeit für Menschen mit {eingeschränkter Mobilität|h11} spielt {eine Rolle|h12}; ein kühler Innenhof hilft wenig, wenn der Zugang nur über eine steile Treppe möglich ist. Zudem muss geklärt werden, wer die Pflege übernimmt, damit neu angelegte Flächen nicht nach kurzer Zeit {verwahrlosen|h13}. Demzufolge braucht wirksame Anpassung sowohl bauliche Veränderungen als auch eine verlässliche {Zuständigkeit|h5}.\n\nDie Debatte sollte daher nicht bei der Frage stehen bleiben, ob eine Stadt „mehr Grün“ braucht. Vielmehr sind konkrete Maßnahmen, ihre Kosten und ihre Verteilung zu prüfen. Wenn Bewohnerinnen und Bewohner {frühzeitig einbezogen werden|h14}, kann aus einem abstrakten Klimaziel eine nachvollziehbare Entscheidung werden. Gerade darin liegt der Unterschied zwischen einer dekorativen Geste und einer öffentlichen Infrastruktur, die im Alltag tatsächlich schützt.",
+      "glosses": [
+        {
+          "id": "h1",
+          "surface": "Hitzebelastung",
+          "lemma": "Hitzebelastung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Hitzebelastungen",
+          "zh": "高温负担；热应激",
+          "de_def": "Belastung des Körpers oder des Alltags durch sehr hohe Temperaturen.",
+          "collocations": [
+            {
+              "prompt": "die Hitzebelastung ___",
+              "answer": "verringern",
+              "zh": "减轻高温负担"
+            }
+          ],
+          "register": "sachlich"
+        },
+        {
+          "id": "h2",
+          "surface": "Versiegelte",
+          "lemma": "versiegeln",
+          "pos": "Partizip II",
+          "article": "",
+          "plural": "",
+          "zh": "被铺装覆盖的",
+          "de_def": "Mit einer dichten, meist wasserundurchlässigen Oberfläche bedeckt.",
+          "collocations": [
+            {
+              "prompt": "Flächen ___",
+              "answer": "versiegeln",
+              "zh": "封闭铺装地面"
+            }
+          ],
+          "register": "sachlich"
+        },
+        {
+          "id": "h3",
+          "surface": "in den Blick nehmen",
+          "lemma": "in den Blick nehmen",
+          "pos": "Funktionsverbgefüge",
+          "article": "",
+          "plural": "",
+          "zh": "纳入考量；关注",
+          "de_def": "Etwas bei einer Untersuchung oder Entscheidung berücksichtigen.",
+          "collocations": [
+            {
+              "prompt": "ein ganzes Viertel ___",
+              "answer": "in den Blick nehmen",
+              "zh": "把整个街区纳入考虑"
+            }
+          ],
+          "register": "gehoben"
+        },
+        {
+          "id": "h4",
+          "surface": "Anwohnenden",
+          "lemma": "Anwohnende",
+          "pos": "Nomen",
+          "article": "der/die",
+          "plural": "Anwohnenden",
+          "zh": "居民；附近住户",
+          "de_def": "Personen, die in der näheren Umgebung eines Ortes wohnen.",
+          "collocations": [
+            {
+              "prompt": "die ___ frühzeitig beteiligen",
+              "answer": "Anwohnenden",
+              "zh": "尽早让居民参与"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "h5",
+          "surface": "Zuständigkeit",
+          "lemma": "Zuständigkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Zuständigkeiten",
+          "zh": "职责；管辖责任",
+          "de_def": "Verantwortung für eine bestimmte Aufgabe oder einen bestimmten Bereich.",
+          "collocations": [
+            {
+              "prompt": "eine klare ___ festlegen",
+              "answer": "Zuständigkeit",
+              "zh": "明确职责"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "h6",
+          "surface": "Aufenthaltsqualität",
+          "lemma": "Aufenthaltsqualität",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Aufenthaltsqualitäten",
+          "zh": "停留环境质量",
+          "de_def": "Eigenschaft eines Ortes, an dem Menschen sich gern und sicher aufhalten.",
+          "collocations": [
+            {
+              "prompt": "die Aufenthaltsqualität ___",
+              "answer": "verbessern",
+              "zh": "停留环境质量"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "h7",
+          "surface": "ernst zu nehmen",
+          "lemma": "ernst nehmen",
+          "pos": "Funktionsverbgefüge",
+          "article": "",
+          "plural": "",
+          "zh": "认真对待",
+          "de_def": "Etwas als wichtig anerkennen und bei einer Entscheidung berücksichtigen.",
+          "collocations": [
+            {
+              "prompt": "einen Einwand ___",
+              "answer": "ernst nehmen",
+              "zh": "认真对待"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "h8",
+          "surface": "offenlegen",
+          "lemma": "offenlegen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "公开说明；披露",
+          "de_def": "Informationen so mitteilen, dass sie für andere nachvollziehbar sind.",
+          "collocations": [
+            {
+              "prompt": "Ziele und Kosten ___",
+              "answer": "offenlegen",
+              "zh": "公开说明；披露"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "h9",
+          "surface": "abgewogen werden",
+          "lemma": "abwägen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "被权衡",
+          "de_def": "Verschiedene Möglichkeiten oder Interessen miteinander vergleichen.",
+          "collocations": [
+            {
+              "prompt": "Ziele gegeneinander ___",
+              "answer": "abwägen",
+              "zh": "被权衡"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "h10",
+          "surface": "vorbeigeht",
+          "lemma": "an jemandem vorbeigehen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "忽视；未顾及",
+          "de_def": "Die Bedürfnisse einer Person nicht berücksichtigen.",
+          "collocations": [
+            {
+              "prompt": "an den Bedürfnissen ___",
+              "answer": "vorbeigehen",
+              "zh": "忽视；未顾及"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "h11",
+          "surface": "eingeschränkter Mobilität",
+          "lemma": "eingeschränkte Mobilität",
+          "pos": "Nominalgruppe",
+          "article": "",
+          "plural": "",
+          "zh": "行动能力受限",
+          "de_def": "Begrenzte Möglichkeit, sich selbstständig und ohne Hindernisse fortzubewegen.",
+          "collocations": [
+            {
+              "prompt": "Menschen mit eingeschränkter ___",
+              "answer": "Mobilität",
+              "zh": "行动能力受限"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "h12",
+          "surface": "eine Rolle",
+          "lemma": "eine Rolle spielen",
+          "pos": "Funktionsverbgefüge",
+          "article": "",
+          "plural": "",
+          "zh": "起作用；有影响",
+          "de_def": "Für eine Entscheidung oder Entwicklung wichtig sein.",
+          "collocations": [
+            {
+              "prompt": "bei der Auswahl eine ___ spielen",
+              "answer": "Rolle",
+              "zh": "起作用；有影响"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "h13",
+          "surface": "verwahrlosen",
+          "lemma": "verwahrlosen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "荒废；失于维护",
+          "de_def": "Durch fehlende Pflege in einen ungepflegten Zustand geraten.",
+          "collocations": [
+            {
+              "prompt": "eine Fläche verwahrlosen ___",
+              "answer": "lassen",
+              "zh": "荒废；失于维护"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "h14",
+          "surface": "frühzeitig einbezogen werden",
+          "lemma": "einbeziehen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "被及早纳入；尽早参与",
+          "de_def": "Schon in einer frühen Phase an einer Planung oder Entscheidung beteiligt sein.",
+          "collocations": [
+            {
+              "prompt": "Bewohner frühzeitig ___",
+              "answer": "einbeziehen",
+              "zh": "被及早纳入；尽早参与"
+            }
+          ],
+          "register": "formal"
+        }
+      ],
+      "questions": [
+        {
+          "type": "对错",
+          "q": "Der Text vertritt die Auffassung, dass zusätzliche Bäume allein eine ausreichende Anpassung an Hitze darstellen.",
+          "options": [
+            "对",
+            "错"
+          ],
+          "answer": "错",
+          "evidence_sentence_index": 2
+        },
+        {
+          "type": "选择",
+          "q": "Warum soll die Planung laut Text transparent sein?",
+          "options": [
+            "Damit Zielkonflikte und Beteiligung nachvollziehbar werden.",
+            "Damit alle Parkplätze erhalten bleiben.",
+            "Damit Pflegekosten vollständig entfallen."
+          ],
+          "answer": "Damit Zielkonflikte und Beteiligung nachvollziehbar werden.",
+          "evidence_sentence_index": 7
+        },
+        {
+          "type": "配对",
+          "q": "Was macht einen kühlen Innenhof im Alltag tatsächlich zugänglich?",
+          "options": [
+            "Ein stufenlos erreichbarer Zugang.",
+            "Eine dekorative Bepflanzung.",
+            "Ein höherer Zaun."
+          ],
+          "answer": "Ein stufenlos erreichbarer Zugang.",
+          "evidence_sentence_index": 10
+        }
+      ],
+      "summary_zh": "文章认为，城市热适应不能只靠零散增绿，还要公开权衡空间冲突，让居民参与，并明确维护责任和无障碍要求。",
+      "grammar_focus": [
+        "名词化：die Auswahl, die Zuständigkeit",
+        "分词定语：Versiegelte Flächen",
+        "Konjunktiv I：Befürworter argumentieren, … könne …",
+        "Funktionsverbgefüge：etwas in den Blick nehmen; eine Rolle spielen"
+      ],
+      "recycled_words": []
+    },
+    {
+      "id": "hybrid-arbeit",
+      "title": "Flexibilität braucht gemeinsame Regeln",
+      "level": "C1",
+      "genre": "Bericht",
+      "text": "Hybride Arbeit wird häufig als individuelle Freiheit beschrieben: Beschäftigte können konzentrierte Aufgaben zu Hause erledigen und für Besprechungen ins Büro kommen. Diese Beschreibung {greift jedoch zu kurz|a6}, denn Flexibilität entsteht nicht automatisch durch die {Bereitstellung eines Laptops|a7}. Sie hängt auch davon ab, ob Teams gemeinsame Erwartungen an {Erreichbarkeit|a1}, Übergaben und {Entscheidungswege|a8} entwickeln. Ohne solche Absprachen kann die vermeintliche Freiheit in eine {dauernde Bereitschaft|a9} {umschlagen|a2}.\n\nIn einer Arbeitsgruppe, die ortsunabhängig zusammenarbeitet, müssen Informationen so dokumentiert werden, dass sie nicht nur den zufällig Anwesenden {zugutekommen|a10}. Eine nachvollziehbare Ablage hilft dabei, Wissen zu teilen und {unnötige Rückfragen|a11} zu vermeiden. Zugleich sollte nicht jede kurze Abstimmung zu einem formellen Protokoll werden; ein {überladenes System|a12} kostet Zeit und wird bald umgangen. Entscheidend ist vielmehr, für {wiederkehrende Entscheidungen|a13} einen passenden Ort und eine klare Form festzulegen.\n\nBefürworter betonen, die Wahl des Arbeitsortes ermögliche eine bessere {Vereinbarkeit|a3} von Beruf und Privatleben. Beschäftigte mit {Betreuungsaufgaben|a14} könnten davon besonders profitieren. Andere weisen darauf hin, dass {informeller Austausch|a15} und Zugehörigkeitsgefühl schwerer zu sichern seien, wenn sich Kolleginnen und Kollegen selten begegneten. Beide Perspektiven sind insofern berechtigt, als die Wirkung von den Aufgaben, den persönlichen Umständen und der Teamkultur abhängt.\n\nDaher sollte eine Organisation nicht allein die Anwesenheitstage zählen. Sie kann stattdessen gemeinsam prüfen, wann ein Treffen einen konkreten Zweck erfüllt und welche Tätigkeiten ungestörte Zeit benötigen. Eine regelmäßige {Rückmeldung|a4} macht sichtbar, ob die getroffenen Vereinbarungen funktionieren oder angepasst werden müssen. Zudem muss der Zugang zu wichtigen Informationen unabhängig vom Arbeitsort {gewährleistet|a5} sein.\n\nGute Regeln schreiben nicht jeden Schritt vor. Sie schaffen einen Rahmen, in dem Mitarbeitende Entscheidungen treffen können, ohne ständig ihre Verfügbarkeit beweisen zu müssen. Wenn Führungskräfte Ergebnisse klar benennen und zugleich Grenzen respektieren, wird Flexibilität zu einer verlässlichen Arbeitsform. Fehlt dieses Vertrauen, bleibt selbst ein freier Kalender nur eine andere Form der Kontrolle.",
+      "glosses": [
+        {
+          "id": "a1",
+          "surface": "Erreichbarkeit",
+          "lemma": "Erreichbarkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Erreichbarkeiten",
+          "zh": "可联系性；可联络程度",
+          "de_def": "Möglichkeit, eine Person zu kontaktieren oder von ihr eine Antwort zu erhalten.",
+          "collocations": [
+            {
+              "prompt": "klare Regeln zur ___ vereinbaren",
+              "answer": "Erreichbarkeit",
+              "zh": "约定清晰的联络规则"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a2",
+          "surface": "umschlagen",
+          "lemma": "umschlagen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "转变成；演变为",
+          "de_def": "Sich in etwas anderes, oft in sein Gegenteil, verwandeln.",
+          "collocations": [
+            {
+              "prompt": "in dauernde Bereitschaft ___",
+              "answer": "umschlagen",
+              "zh": "演变成持续待命"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a3",
+          "surface": "Vereinbarkeit",
+          "lemma": "Vereinbarkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Vereinbarkeiten",
+          "zh": "兼顾；协调",
+          "de_def": "Möglichkeit, mehrere Anforderungen gleichzeitig zu erfüllen.",
+          "collocations": [
+            {
+              "prompt": "die ___ von Beruf und Privatleben",
+              "answer": "Vereinbarkeit",
+              "zh": "兼顾工作与私人生活"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a4",
+          "surface": "Rückmeldung",
+          "lemma": "Rückmeldung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Rückmeldungen",
+          "zh": "反馈",
+          "de_def": "Reaktion oder Information darüber, wie etwas wahrgenommen oder bewertet wird.",
+          "collocations": [
+            {
+              "prompt": "regelmäßig ___ geben",
+              "answer": "Rückmeldung",
+              "zh": "定期提供反馈"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a5",
+          "surface": "gewährleistet",
+          "lemma": "gewährleisten",
+          "pos": "Partizip II",
+          "article": "",
+          "plural": "",
+          "zh": "得到保障的",
+          "de_def": "So sichergestellt, dass etwas zuverlässig möglich ist.",
+          "collocations": [
+            {
+              "prompt": "den Zugang zu Informationen ___",
+              "answer": "gewährleisten",
+              "zh": "保障信息获取"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a6",
+          "surface": "greift jedoch zu kurz",
+          "lemma": "zu kurz greifen",
+          "pos": "Funktionsverbgefüge",
+          "article": "",
+          "plural": "",
+          "zh": "说得不全面；过于简单",
+          "de_def": "Einen Sachverhalt nur teilweise erfassen und wichtige Aspekte auslassen.",
+          "collocations": [
+            {
+              "prompt": "mit einer Erklärung zu kurz ___",
+              "answer": "greifen",
+              "zh": "说得不全面；过于简单"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a7",
+          "surface": "Bereitstellung eines Laptops",
+          "lemma": "Bereitstellung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Bereitstellungen",
+          "zh": "提供；配备",
+          "de_def": "Das Zurverfügungstellen einer Sache, die benötigt wird.",
+          "collocations": [
+            {
+              "prompt": "die Bereitstellung von ___",
+              "answer": "Arbeitsmitteln",
+              "zh": "提供；配备"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a8",
+          "surface": "Entscheidungswege",
+          "lemma": "Entscheidungsweg",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Entscheidungswege",
+          "zh": "决策流程",
+          "de_def": "Festgelegter Ablauf, auf dem eine Entscheidung vorbereitet und getroffen wird.",
+          "collocations": [
+            {
+              "prompt": "klare Entscheidungswege ___",
+              "answer": "entwickeln",
+              "zh": "决策流程"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a9",
+          "surface": "dauernde Bereitschaft",
+          "lemma": "Bereitschaft",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Bereitschaften",
+          "zh": "持续待命状态",
+          "de_def": "Zustand, in dem jemand jederzeit mit einer Anfrage oder Aufgabe rechnet.",
+          "collocations": [
+            {
+              "prompt": "in dauernder Bereitschaft ___",
+              "answer": "sein",
+              "zh": "持续待命状态"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a10",
+          "surface": "zugutekommen",
+          "lemma": "zugutekommen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "使……受益",
+          "de_def": "Für jemanden hilfreich oder vorteilhaft sein.",
+          "collocations": [
+            {
+              "prompt": "allen Teammitgliedern ___",
+              "answer": "zugutekommen",
+              "zh": "使……受益"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a11",
+          "surface": "unnötige Rückfragen",
+          "lemma": "Rückfrage",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Rückfragen",
+          "zh": "不必要的追问",
+          "de_def": "Frage, die gestellt wird, weil eine Information fehlt oder unklar ist.",
+          "collocations": [
+            {
+              "prompt": "unnötige Rückfragen ___",
+              "answer": "vermeiden",
+              "zh": "不必要的追问"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a12",
+          "surface": "überladenes System",
+          "lemma": "überladen",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "zh": "过于复杂的；负担过重的",
+          "de_def": "Mit mehr Elementen oder Anforderungen versehen, als nötig oder hilfreich sind.",
+          "collocations": [
+            {
+              "prompt": "ein überladenes ___",
+              "answer": "System",
+              "zh": "过于复杂的；负担过重的"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a13",
+          "surface": "wiederkehrende Entscheidungen",
+          "lemma": "wiederkehrend",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "zh": "反复出现的",
+          "de_def": "Regelmäßig erneut auftretend.",
+          "collocations": [
+            {
+              "prompt": "wiederkehrende Entscheidungen ___",
+              "answer": "dokumentieren",
+              "zh": "反复出现的"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "a14",
+          "surface": "Betreuungsaufgaben",
+          "lemma": "Betreuungsaufgabe",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Betreuungsaufgaben",
+          "zh": "照护责任",
+          "de_def": "Aufgaben, die mit der Unterstützung oder Versorgung anderer Personen verbunden sind.",
+          "collocations": [
+            {
+              "prompt": "berufliche und private ___",
+              "answer": "Betreuungsaufgaben",
+              "zh": "照护责任"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "a15",
+          "surface": "informeller Austausch",
+          "lemma": "Austausch",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Austausche",
+          "zh": "非正式交流",
+          "de_def": "Gespräch oder Weitergabe von Informationen ohne festes Verfahren.",
+          "collocations": [
+            {
+              "prompt": "informeller Austausch im ___",
+              "answer": "Team",
+              "zh": "非正式交流"
+            }
+          ],
+          "register": "neutral"
+        }
+      ],
+      "questions": [
+        {
+          "type": "对错",
+          "q": "Der Text empfiehlt, jede kurze Abstimmung verbindlich zu protokollieren.",
+          "options": [
+            "对",
+            "错"
+          ],
+          "answer": "错",
+          "evidence_sentence_index": 6
+        },
+        {
+          "type": "选择",
+          "q": "Was kann laut Text gegen unnötige Rückfragen helfen?",
+          "options": [
+            "Eine nachvollziehbare Ablage gemeinsamer Informationen.",
+            "Mehr Anwesenheitstage ohne weitere Regeln.",
+            "Eine dauernde Erreichbarkeit aller Teammitglieder."
+          ],
+          "answer": "Eine nachvollziehbare Ablage gemeinsamer Informationen.",
+          "evidence_sentence_index": 5
+        },
+        {
+          "type": "配对",
+          "q": "Was soll eine regelmäßige Rückmeldung leisten?",
+          "options": [
+            "Sie zeigt, ob Vereinbarungen funktionieren.",
+            "Sie ersetzt jede Teamentscheidung.",
+            "Sie misst nur die Anwesenheit."
+          ],
+          "answer": "Sie zeigt, ob Vereinbarungen funktionieren.",
+          "evidence_sentence_index": 14
+        }
+      ],
+      "summary_zh": "文章指出，混合办公需要共同约定联络、信息记录和决策方式；规则既要保证协作，也要保护专注时间与信任。",
+      "grammar_focus": [
+        "名词化：die Bereitstellung, die Vereinbarkeit",
+        "分词定语：eine nachvollziehbare Ablage",
+        "Konjunktiv I：Befürworter betonen, … ermögliche …",
+        "Funktionsverbgefüge：eine Entscheidung treffen; Rückmeldung geben"
+      ],
+      "recycled_words": [
+        "in den Blick nehmen",
+        "Zuständigkeit"
+      ]
+    },
+    {
+      "id": "digitale-verwaltung",
+      "title": "Ein digitales Formular ist noch kein guter Service",
+      "level": "C1",
+      "genre": "Erklärung",
+      "text": "Wenn eine Behörde ein Formular online anbietet, gilt das oft bereits als Zeichen für Modernisierung. Für die Nutzerinnen und Nutzer ist jedoch wichtiger, ob sie {den gesamten Vorgang|v7} verstehen und abschließen können. Ein digitaler Antrag, der dieselben unklaren Begriffe wie sein {Papierpendant|v6} verwendet, {verlagert|v1} die Schwierigkeit lediglich auf einen Bildschirm. Gute Gestaltung beginnt deshalb mit der Frage, welche Information eine Person in jedem Schritt tatsächlich benötigt.\n\nEin verständlicher Dienst erklärt {Fachbegriffe|v8} dort, wo sie gebraucht werden, und macht deutlich, welche Unterlagen noch fehlen. Zugleich sollte die {Dateneingabe|v2} {auf das notwendige Maß|v9} begrenzt bleiben. Werden Angaben {mehrfach abgefragt|v10}, entsteht nicht nur {zusätzlicher Aufwand|v11}; auch die Bereitschaft, den Vorgang fortzusetzen, kann sinken. Eine {sorgfältige Überprüfung|v12} der Formulierungen hilft, Missverständnisse schon vor der Veröffentlichung zu erkennen.\n\nBefürworter digitaler Angebote sagen, ein zentral erreichbarer Dienst spare Wege und erleichtere den Zugang. Das kann zutreffen, sofern Menschen mit {unterschiedlichen Kenntnissen|v13} und Fähigkeiten berücksichtigt werden. Wer etwa ein Gerät gemeinsam nutzt oder Unterstützung beim Lesen braucht, hat nicht immer die {gleichen Voraussetzungen|v14} wie eine routinierte Nutzerin. Insofern ist {Barrierefreiheit|v3} kein Zusatz, der erst am Ende geprüft werden darf. Sie gehört zur Entwicklung von Anfang an.\n\nAuch ein digitaler Vorgang benötigt eine klare Zuständigkeit. Wenn eine Eingabe an mehreren Stellen bearbeitet wird, muss erkennbar sein, wer Rückfragen beantwortet und wie sich der {Bearbeitungsstand|v4} verfolgen lässt. Andernfalls bleibt die technische Bestätigung ohne praktischen Wert. Die Verwaltung sollte außerdem eine {erreichbare Alternative|v15} anbieten, falls der Onlineweg nicht funktioniert.\n\nDemzufolge besteht Fortschritt nicht darin, möglichst viele Formulare ins Netz zu stellen. Entscheidend ist, ob ein Service verständlich, zugänglich und verlässlich ist. Regelmäßige {Rückmeldungen|v5} der Nutzenden können aufzeigen, an welcher Stelle Schwierigkeiten auftreten. Werden diese Hinweise ernst genommen, lässt sich ein digitales Angebot Schritt für Schritt verbessern, ohne den persönlichen Kontakt als notwendige Ergänzung auszuschließen.",
+      "glosses": [
+        {
+          "id": "v1",
+          "surface": "verlagert",
+          "lemma": "verlagern",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "转移；挪到别处",
+          "de_def": "Etwas an einen anderen Ort oder in einen anderen Bereich verschieben.",
+          "collocations": [
+            {
+              "prompt": "die Schwierigkeit auf einen Bildschirm ___",
+              "answer": "verlagern",
+              "zh": "把困难转移到屏幕上"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "v2",
+          "surface": "Dateneingabe",
+          "lemma": "Dateneingabe",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Dateneingaben",
+          "zh": "数据录入",
+          "de_def": "Eintragen von Informationen in ein digitales System.",
+          "collocations": [
+            {
+              "prompt": "die ___ auf das notwendige Maß begrenzen",
+              "answer": "Dateneingabe",
+              "zh": "把数据录入限制在必要范围内"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v3",
+          "surface": "Barrierefreiheit",
+          "lemma": "Barrierefreiheit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "meist ohne Plural",
+          "zh": "无障碍；可及性",
+          "de_def": "Gestaltung, die Menschen mit unterschiedlichen Fähigkeiten eine Nutzung ermöglicht.",
+          "collocations": [
+            {
+              "prompt": "___ von Anfang an mitdenken",
+              "answer": "Barrierefreiheit",
+              "zh": "从一开始就考虑无障碍"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v4",
+          "surface": "Bearbeitungsstand",
+          "lemma": "Bearbeitungsstand",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Bearbeitungsstände",
+          "zh": "处理进度；办理状态",
+          "de_def": "Aktueller Stand, den ein Vorgang innerhalb seiner Bearbeitung erreicht hat.",
+          "collocations": [
+            {
+              "prompt": "den ___ nachvollziehen können",
+              "answer": "Bearbeitungsstand",
+              "zh": "能够了解办理进度"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v5",
+          "surface": "Rückmeldungen",
+          "lemma": "Rückmeldung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Rückmeldungen",
+          "zh": "反馈；意见",
+          "de_def": "Informationen von Nutzenden darüber, wie sie ein Angebot erleben.",
+          "collocations": [
+            {
+              "prompt": "___ der Nutzenden ernst nehmen",
+              "answer": "Rückmeldungen",
+              "zh": "认真对待使用者反馈"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "v6",
+          "surface": "Papierpendant",
+          "lemma": "Papierpendant",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Papierpendants",
+          "zh": "纸质对应版本",
+          "de_def": "Die entsprechende Ausführung eines digitalen Angebots auf Papier.",
+          "collocations": [
+            {
+              "prompt": "das digitale Formular und sein ___",
+              "answer": "Papierpendant",
+              "zh": "纸质对应版本"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v7",
+          "surface": "den gesamten Vorgang",
+          "lemma": "Vorgang",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Vorgänge",
+          "zh": "整个办理流程",
+          "de_def": "Abfolge zusammengehöriger Schritte, durch die etwas erledigt wird.",
+          "collocations": [
+            {
+              "prompt": "einen Vorgang ___",
+              "answer": "abschließen",
+              "zh": "整个办理流程"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v8",
+          "surface": "Fachbegriffe",
+          "lemma": "Fachbegriff",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Fachbegriffe",
+          "zh": "专业术语",
+          "de_def": "Wort oder Ausdruck, der in einem bestimmten Wissensgebiet verwendet wird.",
+          "collocations": [
+            {
+              "prompt": "einen Fachbegriff verständlich ___",
+              "answer": "erklären",
+              "zh": "专业术语"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v9",
+          "surface": "auf das notwendige Maß",
+          "lemma": "notwendiges Maß",
+          "pos": "Nominalgruppe",
+          "article": "das",
+          "plural": "",
+          "zh": "必要范围",
+          "de_def": "Der Umfang, der für einen Zweck tatsächlich gebraucht wird.",
+          "collocations": [
+            {
+              "prompt": "auf das notwendige Maß ___",
+              "answer": "begrenzen",
+              "zh": "必要范围"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v10",
+          "surface": "mehrfach abgefragt",
+          "lemma": "abfragen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "zh": "被重复询问／录入",
+          "de_def": "Eine Information wiederholt erfragen oder in ein System eintragen lassen.",
+          "collocations": [
+            {
+              "prompt": "Angaben mehrfach ___",
+              "answer": "abfragen",
+              "zh": "被重复询问／录入"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v11",
+          "surface": "zusätzlicher Aufwand",
+          "lemma": "Aufwand",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Aufwände",
+          "zh": "额外工作量",
+          "de_def": "Zeit und Mühe, die zusätzlich für eine Aufgabe benötigt werden.",
+          "collocations": [
+            {
+              "prompt": "zusätzlichen Aufwand ___",
+              "answer": "verursachen",
+              "zh": "额外工作量"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v12",
+          "surface": "sorgfältige Überprüfung",
+          "lemma": "Überprüfung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Überprüfungen",
+          "zh": "仔细核查",
+          "de_def": "Genaues Kontrollieren, ob etwas richtig und verständlich ist.",
+          "collocations": [
+            {
+              "prompt": "eine sorgfältige Überprüfung ___",
+              "answer": "durchführen",
+              "zh": "仔细核查"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v13",
+          "surface": "unterschiedlichen Kenntnissen",
+          "lemma": "Kenntnis",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Kenntnisse",
+          "zh": "不同的知识水平",
+          "de_def": "Wissen oder Vertrautheit mit einem Thema oder einer Tätigkeit.",
+          "collocations": [
+            {
+              "prompt": "über unterschiedliche Kenntnisse ___",
+              "answer": "verfügen",
+              "zh": "不同的知识水平"
+            }
+          ],
+          "register": "neutral"
+        },
+        {
+          "id": "v14",
+          "surface": "gleichen Voraussetzungen",
+          "lemma": "Voraussetzung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Voraussetzungen",
+          "zh": "相同的条件",
+          "de_def": "Bedingung, die erfüllt sein muss, damit etwas möglich ist.",
+          "collocations": [
+            {
+              "prompt": "nicht dieselben Voraussetzungen ___",
+              "answer": "haben",
+              "zh": "相同的条件"
+            }
+          ],
+          "register": "formal"
+        },
+        {
+          "id": "v15",
+          "surface": "erreichbare Alternative",
+          "lemma": "Alternative",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Alternativen",
+          "zh": "可联系到的替代方式",
+          "de_def": "Andere Möglichkeit, die tatsächlich genutzt werden kann.",
+          "collocations": [
+            {
+              "prompt": "eine erreichbare Alternative ___",
+              "answer": "anbieten",
+              "zh": "可联系到的替代方式"
+            }
+          ],
+          "register": "formal"
+        }
+      ],
+      "questions": [
+        {
+          "type": "对错",
+          "q": "Der Text setzt digitale Verwaltung mit einer vollständigen Abschaffung persönlicher Hilfe gleich.",
+          "options": [
+            "对",
+            "错"
+          ],
+          "answer": "错",
+          "evidence_sentence_index": 20
+        },
+        {
+          "type": "选择",
+          "q": "Wann kann ein digitaler Dienst den Zugang tatsächlich erleichtern?",
+          "options": [
+            "Wenn unterschiedliche Kenntnisse und Fähigkeiten berücksichtigt werden.",
+            "Wenn alle Nutzerinnen und Nutzer dieselben Geräte verwenden.",
+            "Wenn Fachbegriffe nicht erklärt werden."
+          ],
+          "answer": "Wenn unterschiedliche Kenntnisse und Fähigkeiten berücksichtigt werden.",
+          "evidence_sentence_index": 9
+        },
+        {
+          "type": "配对",
+          "q": "Welche Informationen sind für die Nachverfolgung eines digitalen Vorgangs wichtig?",
+          "options": [
+            "Wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.",
+            "Wie viele Pflichtfelder andere Formulare enthalten.",
+            "Welche Papierformulare vollständig abgeschafft werden."
+          ],
+          "answer": "Wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.",
+          "evidence_sentence_index": 14
+        }
+      ],
+      "summary_zh": "文章认为，数字政务的质量取决于流程是否清晰、数据采集是否必要、无障碍是否从设计之初考虑，以及是否有明确责任人与线下替代方式。",
+      "grammar_focus": [
+        "名词化：die Dateneingabe, die Überprüfung",
+        "分词定语：ein zentral erreichbarer Dienst",
+        "Konjunktiv I：Befürworter sagen, … spare …",
+        "Funktionsverbgefüge：Rückmeldungen ernst nehmen; eine Alternative anbieten"
+      ],
+      "recycled_words": [
+        "Zuständigkeit",
+        "Rückmeldung",
+        "insofern"
+      ]
+    }
+  ]
+}

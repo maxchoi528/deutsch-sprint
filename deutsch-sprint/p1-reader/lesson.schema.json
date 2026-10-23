@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://deutsch-sprint.local/lesson.schema.json",
+  "title": "Deutsch Sprint C1 reading lesson collection",
+  "type": "object",
+  "required": ["schemaVersion", "lessons"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "lessons": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/lesson"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "collocation": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "object", "required": ["prompt", "answer"], "properties": {"prompt": {"type": "string"}, "answer": {"type": "string"}, "zh": {"type": "string"}}, "additionalProperties": false}
+      ]
+    },
+    "gloss": {
+      "type": "object",
+      "required": ["id", "surface", "lemma", "pos", "article", "plural", "zh", "de_def", "collocations", "register"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "surface": {"type": "string", "minLength": 1},
+        "lemma": {"type": "string", "minLength": 1},
+        "pos": {"type": "string"},
+        "article": {"type": "string"},
+        "plural": {"type": "string"},
+        "zh": {"type": "string"},
+        "de_def": {"type": "string"},
+        "collocations": {"type": "array", "items": {"$ref": "#/$defs/collocation"}},
+        "register": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "question": {
+      "type": "object",
+      "required": ["type", "q", "options", "answer", "evidence_sentence_index"],
+      "properties": {
+        "type": {"enum": ["对错", "选择", "配对"]},
+        "q": {"type": "string", "minLength": 1},
+        "options": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+        "answer": {"type": "string", "minLength": 1},
+        "evidence_sentence_index": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "lesson": {
+      "type": "object",
+      "required": ["id", "title", "level", "genre", "text", "glosses", "questions", "summary_zh", "grammar_focus", "recycled_words"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "level": {"enum": ["B2", "C1"]},
+        "genre": {"enum": ["Kommentar", "Bericht", "Erklärung", "Brief", "评论", "报道", "说明文", "书信"]},
+        "text": {"type": "string", "minLength": 1, "description": "Use {surface|gloss_id} to mark a glossable word or phrase."},
+        "glosses": {"type": "array", "items": {"$ref": "#/$defs/gloss"}},
+        "questions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/question"}},
+        "summary_zh": {"type": "string"},
+        "grammar_focus": {"type": "array", "items": {"type": "string"}},
+        "recycled_words": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/deutsch-sprint/data-schema.json",
+  "title": "Deutsch Sprint local dashboard backup",
+  "description": "The JSON data format exported by the offline Deutsch Sprint dashboard.",
+  "type": "object",
+  "required": ["schemaVersion", "settings", "checkins", "gates", "mocks", "errors"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "exportedAt": {"type": "string", "format": "date-time"},
+    "settings": {
+      "type": "object",
+      "required": ["startDate", "theme"],
+      "properties": {
+        "startDate": {"type": "string", "format": "date"},
+        "theme": {"enum": ["system", "light", "dark"]}
+      },
+      "additionalProperties": false
+    },
+    "checkins": {
+      "type": "object",
+      "propertyNames": {"pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+      "additionalProperties": {"$ref": "#/$defs/checkin"}
+    },
+    "gates": {
+      "type": "object",
+      "required": ["w4", "w9", "w13"],
+      "properties": {
+        "w4": {"$ref": "#/$defs/gateW4"},
+        "w9": {"$ref": "#/$defs/gateW9"},
+        "w13": {"$ref": "#/$defs/gateW13"}
+      },
+      "additionalProperties": false
+    },
+    "mocks": {"type": "array", "items": {"$ref": "#/$defs/mock"}},
+    "errors": {"type": "array", "items": {"$ref": "#/$defs/error"}}
+  },
+  "$defs": {
+    "minutes": {"type": "integer", "minimum": 0, "maximum": 600},
+    "block": {
+      "type": "object",
+      "required": ["done", "minutes"],
+      "properties": {
+        "done": {"type": "boolean"},
+        "minutes": {"$ref": "#/$defs/minutes"}
+      },
+      "additionalProperties": false
+    },
+    "checkin": {
+      "type": "object",
+      "required": ["blocks", "newChunks", "retention", "note"],
+      "properties": {
+        "blocks": {
+          "type": "object",
+          "properties": {
+            "anki": {"$ref": "#/$defs/block"},
+            "deep": {"$ref": "#/$defs/block"},
+            "speaking": {"$ref": "#/$defs/block"},
+            "listening": {"$ref": "#/$defs/block"},
+            "writing": {"$ref": "#/$defs/block"}
+          },
+          "additionalProperties": false
+        },
+        "newChunks": {"type": "integer", "minimum": 0, "maximum": 500},
+        "retention": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "note": {"type": "string", "maxLength": 2000}
+      },
+      "additionalProperties": false
+    },
+    "gateW4": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "boolean"}},
+    "gateW9": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "boolean"}},
+    "gateW13": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "boolean"}},
+    "score": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "mock": {
+      "type": "object",
+      "required": ["id", "date", "title", "mode", "scores"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "date": {"type": "string", "format": "date"},
+        "title": {"type": "string", "minLength": 1, "maxLength": 100},
+        "mode": {"enum": ["full", "single"]},
+        "scores": {
+          "type": "object",
+          "required": ["reading", "listening", "writing", "speaking"],
+          "properties": {
+            "reading": {"$ref": "#/$defs/score"},
+            "listening": {"$ref": "#/$defs/score"},
+            "writing": {"$ref": "#/$defs/score"},
+            "speaking": {"$ref": "#/$defs/score"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "required": ["id", "date", "type", "original", "correction", "rule"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "date": {"type": "string", "format": "date"},
+        "type": {"type": "string", "minLength": 1, "maxLength": 40},
+        "original": {"type": "string", "minLength": 1, "maxLength": 1000},
+        "correction": {"type": "string", "minLength": 1, "maxLength": 1000},
+        "rule": {"type": "string", "minLength": 1, "maxLength": 500}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

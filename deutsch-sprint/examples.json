@@ -1,0 +1,30 @@
+{
+  "dailyCheckin": {
+    "date": "2026-10-23",
+    "newChunks": 12,
+    "retention": 86.5,
+    "note": "示例：从精读中整理了 12 个搭配。",
+    "blocks": {
+      "anki": {"done": true, "minutes": 60},
+      "deep": {"done": false, "minutes": 0},
+      "speaking": {"done": false, "minutes": 0},
+      "listening": {"done": false, "minutes": 0},
+      "writing": {"done": false, "minutes": 0}
+    }
+  },
+  "mock": {
+    "id": "example-mock-1",
+    "date": "2026-11-20",
+    "title": "示例模考（虚构）",
+    "mode": "full",
+    "scores": {"reading": null, "listening": null, "writing": null, "speaking": null}
+  },
+  "error": {
+    "id": "example-error-1",
+    "date": "2026-10-23",
+    "type": "词序",
+    "original": "Ich denke, dass es ist wichtig.",
+    "correction": "Ich denke, dass es wichtig ist.",
+    "rule": "dass 从句的变位动词放在从句末尾。"
+  }
+}

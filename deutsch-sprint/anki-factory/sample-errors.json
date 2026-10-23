@@ -1,0 +1,8 @@
+[
+  {
+    "type": "error",
+    "source": {"date": "2026-10-23"},
+    "front": "Ich helfe meine Bruder.",
+    "back": {"correct": "Ich helfe meinem Bruder.", "rule": "helfen 后面接第三格（Dativ）。"}
+  }
+]

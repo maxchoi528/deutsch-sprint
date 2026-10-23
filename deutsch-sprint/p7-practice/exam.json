@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "label": "Ergänzende C1-Übung · frei erstellt, keine offiziellen Prüfungsaufgaben",
+  "sections": [
+    {
+      "id": "lesen",
+      "kind": "reading",
+      "title": "Lesen · Öffentliche Bibliotheken",
+      "duration_minutes": 65,
+      "text": "Öffentliche Bibliotheken werden oft vor allem mit der Ausleihe von Büchern verbunden. Diese Sicht beschreibt nur einen Teil ihrer Funktion. Wer einen ruhigen Arbeitsplatz, verlässlichen Internetzugang oder Unterstützung bei der Suche nach Informationen benötigt, kann die Bibliothek ebenfalls nutzen. Dadurch wird sie zu einem Ort, an dem Lernen und gesellschaftliche Teilhabe unabhängig vom privaten Wohnraum möglich werden.\n\nEine solche Öffnung stellt Anforderungen an Gebäude und Personal. Unterschiedliche Bedürfnisse müssen berücksichtigt werden: Manche Besucherinnen und Besucher suchen konzentrierte Stille, andere arbeiten in kleinen Gruppen. Eine klare Zonierung kann helfen, Nutzungskonflikte zu verringern. Sie ersetzt jedoch nicht die Entscheidung darüber, welche Angebote Vorrang haben und zu welchen Zeiten sie zugänglich sind. Werden Regeln ausschließlich aus der Perspektive der Verwaltung festgelegt, besteht die Gefahr, dass bestimmte Gruppen ihre Anliegen nicht wiederfinden.\n\nAuch die digitale Ausstattung ist nicht automatisch inklusiv. Ein öffentliches Gerät kann Zugang schaffen, zugleich aber Fragen zum Datenschutz, zur Barrierefreiheit und zur Unterstützung bei der Bedienung aufwerfen. Bibliotheken sollten deshalb nicht nur Geräte bereitstellen, sondern erklären, welche Hilfe verfügbar ist und welche Daten bei der Nutzung anfallen. Das erfordert Zeit und fachliche Zuständigkeit.\n\nBefürworter einer stärkeren sozialen Rolle argumentieren, Bibliotheken könnten ein niedrigschwelliger Treffpunkt sein. Kritische Stimmen geben zu bedenken, dass eine Institution nicht jede kommunale Aufgabe übernehmen kann. Beide Einwände verdienen Beachtung. Eine Bibliothek ist weder Ersatz für Beratungsstellen noch bloß ein Aufbewahrungsort für Medien. Ihre Stärke liegt darin, verschiedene Angebote an einem vertrauten Ort miteinander zu verbinden.\n\nDemzufolge sollte die Weiterentwicklung nicht allein an der Zahl neuer Geräte gemessen werden. Entscheidend ist, ob Nutzerinnen und Nutzer passende Arbeitsbedingungen vorfinden, verständliche Unterstützung erhalten und an der Gestaltung beteiligt werden. Eine regelmäßige Rückmeldung kann zeigen, welche Angebote tatsächlich gebraucht werden. So bleibt die Bibliothek ein öffentlicher Raum, dessen Nutzen sich im Alltag bewähren muss.",
+      "questions": [
+        {"type":"对错","q":"Der Text beschreibt die Ausleihe von Büchern als die einzige wichtige Funktion einer Bibliothek.","options":["对","错"],"answer":"错","evidence_sentence_index":1},
+        {"type":"选择","q":"Was kann eine klare Zonierung leisten?","options":["Sie kann Nutzungskonflikte verringern.","Sie macht Personal vollständig überflüssig.","Sie entscheidet automatisch über Öffnungszeiten."],"answer":"Sie kann Nutzungskonflikte verringern.","evidence_sentence_index":5},
+        {"type":"选择","q":"Warum reicht es laut Text nicht, öffentliche Geräte einfach bereitzustellen?","options":["Nutzende brauchen auch Informationen zu Hilfe, Datenschutz und Bedienung.","Geräte dürfen nur von Mitarbeitenden verwendet werden.","Digitale Angebote machen Rückmeldungen unnötig."],"answer":"Nutzende brauchen auch Informationen zu Hilfe, Datenschutz und Bedienung.","evidence_sentence_index":11},
+        {"type":"对错","q":"Der Text fordert, Bibliotheken sollten sämtliche kommunalen Beratungsaufgaben übernehmen.","options":["对","错"],"answer":"错","evidence_sentence_index":16},
+        {"type":"选择","q":"Woran soll die Weiterentwicklung vor allem gemessen werden?","options":["Daran, ob passende Bedingungen, Unterstützung und Beteiligung vorhanden sind.","An der Anzahl neu gekaufter Geräte.","An der Menge ausgeliehener Medien allein."],"answer":"Daran, ob passende Bedingungen, Unterstützung und Beteiligung vorhanden sind.","evidence_sentence_index":19}
+      ]
+    },
+    {
+      "id": "hoeren",
+      "kind": "listening",
+      "title": "Hören · Ein geplanter Bürgerdialog",
+      "duration_minutes": 40,
+      "fictional": true,
+      "transcript": "Fiktiver Gesprächsausschnitt: Eine Mitarbeiterin einer kommunalen Planungsstelle erläutert, wie ein Bürgerdialog zu einer Umgestaltung vorbereitet wird.\n\nZunächst soll geklärt werden, welche Fragen tatsächlich offen sind. Der Dialog ist nicht dafür gedacht, einen bereits fertigen Entwurf nachträglich bestätigen zu lassen. Vielmehr möchte das Team erfahren, welche Wege im Viertel besonders wichtig sind und wo sich verschiedene Nutzungen überschneiden.\n\nDie Veranstaltung wird an einem Abend stattfinden und sowohl vor Ort als auch online zugänglich sein. Eine Anmeldung ist erwünscht, aber nicht zwingend. Wer nicht teilnehmen kann, darf eine schriftliche Rückmeldung einreichen. Die Beiträge werden anschließend thematisch geordnet; Namen sollen in der öffentlichen Zusammenfassung nicht erscheinen.\n\nDie Mitarbeiterin betont, dass nicht jeder Vorschlag sofort umgesetzt werden könne. Die Zuständigkeit für bestimmte Fragen liege bei anderen Stellen, und manche Veränderungen müssten zunächst auf ihre Folgen geprüft werden. Das Team werde jedoch offenlegen, welche Hinweise in die nächste Planungsfassung aufgenommen werden und warum andere Punkte vorerst zurückgestellt bleiben.\n\nNach der Veranstaltung wird eine kurze Zusammenfassung veröffentlicht. Sie soll offene Fragen, die nächsten Arbeitsschritte und eine Kontaktmöglichkeit nennen. Der Dialog ersetzt keine formelle Entscheidung. Er soll vielmehr dafür sorgen, dass die Abwägung nachvollziehbar bleibt und zusätzliche Perspektiven rechtzeitig berücksichtigt werden.",
+      "questions": [
+        {"type":"选择","q":"Was soll vor dem Dialog zunächst geklärt werden?","options":["Welche Fragen noch offen sind.","Wer den fertigen Entwurf bereits bestätigt hat.","Welche Beiträge sofort umgesetzt werden."],"answer":"Welche Fragen noch offen sind.","evidence_sentence_index":1},
+        {"type":"对错","q":"Eine Anmeldung ist zwingend erforderlich.","options":["对","错"],"answer":"错","evidence_sentence_index":5},
+        {"type":"选择","q":"Wie sollen die Beiträge weiterverarbeitet werden?","options":["Thematisch geordnet und ohne Namen in der öffentlichen Zusammenfassung.","Unverändert mit allen Namen veröffentlicht.","Nur mündlich an die Planungsstelle weitergegeben."],"answer":"Thematisch geordnet und ohne Namen in der öffentlichen Zusammenfassung.","evidence_sentence_index":7},
+        {"type":"对错","q":"Laut Sprecherin können sämtliche Vorschläge unmittelbar umgesetzt werden.","options":["对","错"],"answer":"错","evidence_sentence_index":8},
+        {"type":"选择","q":"Was ist das erklärte Ziel des Dialogs?","options":["Die Abwägung nachvollziehbar zu machen und Perspektiven einzubeziehen.","Eine formelle Entscheidung zu ersetzen.","Alle offenen Fragen an andere Stellen abzugeben."],"answer":"Die Abwägung nachvollziehbar zu machen und Perspektiven einzubeziehen.","evidence_sentence_index":14}
+      ]
+    },
+    {
+      "id": "schreiben-forum",
+      "kind": "writing",
+      "title": "Schreiben · Forumbeitrag",
+      "duration_minutes": 75,
+      "task": "In einem Onlineforum wird diskutiert, ob öffentliche Einrichtungen ihre Räume auch abends für selbstorganisierte Lerngruppen öffnen sollten. Schreiben Sie einen Beitrag.",
+      "points": ["Stellen Sie Ihre Position klar dar.","Nennen Sie zwei nachvollziehbare Gründe.","Gehen Sie auf einen möglichen Einwand ein.","Schließen Sie mit einer konkreten Empfehlung."],
+      "structure": ["Thema knapp einführen und Position nennen","Argumente erläutern und mit Beispiel verdeutlichen","Einwand fair darstellen und abwägen","Empfehlung oder Schlussfolgerung formulieren"]
+    },
+    {
+      "id": "schreiben-email",
+      "kind": "writing",
+      "title": "Schreiben · Formelle Nachricht",
+      "duration_minutes": 75,
+      "task": "Sie haben sich für einen berufsbegleitenden Sprachkurs angemeldet. Der angekündigte Unterrichtstermin wurde geändert und überschneidet sich nun mit einer festen Verpflichtung. Schreiben Sie der Kursleitung eine formelle Nachricht.",
+      "points": ["Beziehen Sie sich auf Ihre Anmeldung und die Terminänderung.","Erklären Sie knapp, warum der neue Termin schwierig ist.","Fragen Sie nach einer geeigneten Alternative.","Bitten Sie um Rückmeldung bis zu einem selbst gewählten Datum."],
+      "structure": ["Betreff und höfliche Anrede","Anlass und konkrete Auswirkung nennen","Sachliche Bitte oder zwei Lösungsmöglichkeiten formulieren","Dank, Frist und passende Grußformel"]
+    },
+    {
+      "id": "sprechen",
+      "kind": "speaking",
+      "title": "Sprechen · Themenkarten",
+      "duration_minutes": 20,
+      "cards": [
+        {"topic":"Sollten Innenstädte weitgehend autofrei werden?","pro":"Weniger Verkehr kann öffentliche Räume für andere Nutzungen öffnen.","contra":"Eine Einschränkung kann Menschen mit langen oder schlecht angebundenen Wegen belasten."},
+        {"topic":"Sollte hybrides Arbeiten in vielen Berufen der Normalfall sein?","pro":"Ortsflexibilität kann konzentriertes Arbeiten und private Verpflichtungen besser verbinden.","contra":"Weniger gemeinsame Präsenz kann Abstimmung und Zugehörigkeit erschweren."},
+        {"topic":"Sollen öffentliche Bibliotheken stärker als Lern- und Begegnungsorte dienen?","pro":"Ein gemeinsamer, zugänglicher Raum kann Lernen unabhängig von der Wohnsituation unterstützen.","contra":"Zusätzliche Aufgaben brauchen Personal, klare Prioritäten und passende Räume."},
+        {"topic":"Sollten Behörden ihre Dienstleistungen zuerst digital entwickeln?","pro":"Digitale Verfahren können Wege vermeiden und Abläufe nachvollziehbar machen.","contra":"Ohne erreichbare Alternativen können Menschen mit unterschiedlichen Voraussetzungen ausgeschlossen werden."},
+        {"topic":"Sollten Unternehmen eine kürzere Standardarbeitswoche erproben?","pro":"Ein klar begrenzter Zeitrahmen kann dazu anregen, Aufgaben und Besprechungen besser zu priorisieren.","contra":"Nicht jede Tätigkeit lässt sich gleich organisieren; Mehrarbeit könnte auf andere Beschäftigte verlagert werden."}
+      ]
+    }
+  ]
+}

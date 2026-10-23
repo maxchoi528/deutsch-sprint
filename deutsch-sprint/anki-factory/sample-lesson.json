@@ -1,0 +1,35 @@
+{
+  "source_id": "urban-heat-c1-sample-2026-10-23",
+  "title": "Städte im Sommer",
+  "level": "C1",
+  "genre": "Kommentar",
+  "text": "Wenn die Temperaturen über mehrere Tage steigen, wird die {Hitzebelastung|g1} in dicht bebauten Vierteln besonders spürbar. Bäume schaffen Schatten; zugleich kann eine gut geplante {Dachbegrünung|g2} Regenwasser zurückhalten und die Umgebung abkühlen. Fachleute betonen, dass solche Maßnahmen langfristig angelegt sein müssen. Für ältere Menschen braucht es außerdem einen kühlen Rückzugsort, den sie ohne großen Aufwand erreichen können.",
+  "glosses": [
+    {
+      "id": "g1",
+      "surface": "Hitzebelastung",
+      "lemma": "Hitzebelastung",
+      "pos": "Nomen",
+      "article": "die",
+      "plural": "Hitzebelastungen",
+      "zh": "高温负担；热应激",
+      "de_def": "Belastung des Körpers oder des Alltags durch sehr hohe Temperaturen.",
+      "collocations": [
+        {"prompt": "die Hitzebelastung ___", "answer": "verringern", "zh": "减轻高温负担"}
+      ]
+    },
+    {
+      "id": "g2",
+      "surface": "Dachbegrünung",
+      "lemma": "Dachbegrünung",
+      "pos": "Nomen",
+      "article": "die",
+      "plural": "Dachbegrünungen",
+      "zh": "屋顶绿化",
+      "de_def": "Bepflanzung eines Daches, die unter anderem Wasser speichert und das Gebäude schützt.",
+      "collocations": [
+        {"prompt": "eine Dachbegrünung ___", "answer": "anlegen", "zh": "建造屋顶绿化"}
+      ]
+    }
+  ]
+}
