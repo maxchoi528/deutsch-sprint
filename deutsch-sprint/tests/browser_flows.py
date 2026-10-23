@@ -90,7 +90,40 @@ def extra_flows(browser, base_url, errors):
         assert f'W{expected_week}' in page.locator('.page-heading h2').inner_text()
         rule = page.locator('.rule-item', has_text='本周主动学习少于 30 小时')
         assert rule.locator('.tag').inner_text() == expected_status
-    print('PASS: P6 W0/W1/W2 boundaries and pending/triggered/not-triggered rules.')
+    # Ended W1 with fewer than five records is evaluated; empty history stays pending.
+    value = saved(page, P6)
+    value['checkins'] = {value['settings']['startDate']: legacy['checkins'][today]}
+    seed(page, P6, value)
+    page.locator('[data-view="review"]').click()
+    page.select_option('#review-week', '1')
+    rule = page.locator('.rule-item', has_text='本周主动学习少于 30 小时')
+    assert rule.locator('.tag').inner_text() == '待观察'
+    previous_day = page.evaluate("() => { const d=new Date();d.setDate(d.getDate()-1);return d.toLocaleDateString('sv-SE'); }")
+    value['checkins'][previous_day] = legacy['checkins'][today]
+    seed(page, P6, value)
+    page.locator('[data-view="review"]').click()
+    page.select_option('#review-week', '1')
+    assert rule.locator('.tag').inner_text() == '已触发'
+    page.select_option('#review-week', '0')
+    assert all(s == '待观察' for s in page.locator('.rule-item .tag').all_inner_texts())
+    # W13 needs two complete, dated sets AND certificate acceptance confirmation.
+    for index, date in [(1, previous_day), (2, today)]:
+        prefix=f'w13.mock{index}'
+        edit(page, f'[data-gate-field="{prefix}.title"]', f'Full set {index}')
+        edit(page, f'[data-gate-field="{prefix}.date"]', date)
+        for skill in ['reading', 'listening']:
+            edit(page, f'[data-gate-field="{prefix}.{skill}"]', 70)
+        for skill in ['writing', 'speaking']:
+            page.select_option(f'[data-gate-field="{prefix}.{skill}.level"]', '接近 C1')
+            page.select_option(f'[data-gate-field="{prefix}.{skill}.evaluator"]', '导师')
+            edit(page, f'[data-gate-field="{prefix}.{skill}.date"]', date)
+    gate = page.locator('.gate-card').filter(has=page.locator('[data-gate-field="w13.siteConfirmed"]'))
+    assert '待评估' in gate.locator('h3').inner_text()
+    page.locator('[data-gate-field="w13.siteConfirmed"]').check()
+    assert '已达标' in gate.locator('h3').inner_text()
+    edit(page, '[data-gate-field="w13.mock2.listening"]', 69)
+    assert '未达标' in gate.locator('h3').inner_text()
+    print('PASS: P6 W0/W1/W2, all three rule states, ended-week selection, W13 two-set gate.')
     page.close()
 
     page = browser.new_page()
