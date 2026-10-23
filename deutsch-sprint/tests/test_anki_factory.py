@@ -1,4 +1,5 @@
 import contextlib
+import csv
 import io
 import json
 from pathlib import Path
@@ -27,12 +28,20 @@ class AnkiFactoryTests(unittest.TestCase):
 
     def test_full_lesson_collection_generates_all_marked_clozes(self):
         collection = json.loads((PROJECT_ROOT / "p1-reader/lessons.json").read_text())
-        notes, marked = [], 0
-        for lesson in collection["lessons"]:
-            marked += len(re.findall(r"\{[^{}|]+\|[^{}|]+\}", lesson["text"]))
-            notes.extend(factory.sentence_notes(lesson["text"], lesson["glosses"], lesson["id"]))
-        unique, _ = factory.unique_notes(notes)
-        self.assertGreaterEqual(len(unique), marked)
+        marked = sum(len(re.findall(r"\{[^{}|]+\|[^{}|]+\}", l["text"])) for l in collection["lessons"])
+        for payload in (collection, collection["lessons"]):
+            with self.subTest(shape=type(payload).__name__), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp)
+                input_path = root / "lessons.json"
+                input_path.write_text(json.dumps(payload, ensure_ascii=False))
+                output = io.StringIO()
+                with contextlib.redirect_stdout(output):
+                    result = factory.main([str(input_path), "--output", str(root / "cards"), "--stats"])
+                self.assertEqual(result, 0)
+                with (root / "cards/01-cloze.csv").open(encoding="utf-8-sig", newline="") as handle:
+                    notes = list(csv.reader(handle))[1:]
+                self.assertGreaterEqual(len(notes), marked)
+                self.assertNotIn("缺少原句", output.getvalue())
 
     def test_duplicate_notes_are_removed(self):
         note = factory.Note("error", "falsch", "richtig", "test")

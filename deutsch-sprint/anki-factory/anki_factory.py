@@ -271,12 +271,23 @@ def main(argv: list[str] | None = None) -> int:
         except ValueError as exc:
             print(str(exc), file=sys.stderr)
             return 2
-        if isinstance(data, dict) and ("glosses" in data or "text" in data):
-            unmarked.extend((source_name(data, path), gloss) for gloss in unmarked_glosses(data))
-            for note in lesson_notes(data, path, warnings):
-                all_notes[note.kind].append(note)
+        # P1 exports a single lesson, an array, or a {lessons: [...]} collection.
+        if isinstance(data, dict) and "lessons" in data:
+            if not isinstance(data["lessons"], list) or not data["lessons"]:
+                print(f"{path.name}: lessons 必须为非空课件数组。", file=sys.stderr)
+                return 2
+            items = data["lessons"]
+        elif isinstance(data, list) and any(isinstance(item, dict) and ("glosses" in item or "text" in item) for item in data):
+            items = data
         else:
-            for note in extract_errors(data, path.stem, warnings):
+            items = [data]
+        for item in items:
+            if isinstance(item, dict) and ("glosses" in item or "text" in item):
+                unmarked.extend((source_name(item, path), gloss) for gloss in unmarked_glosses(item))
+                notes = lesson_notes(item, path, warnings)
+            else:
+                notes = extract_errors(item, path.stem, warnings)
+            for note in notes:
                 all_notes[note.kind].append(note)
 
     try:
