@@ -96,6 +96,8 @@ def word_answer(gloss: dict[str, Any]) -> str:
         else:
             plural_form = f"Plural: die {plural.removeprefix('Plural:').strip()}"
         extras.append(plural_form)
+    elif clean(gloss.get("plural_note")):
+        extras.append(clean(gloss["plural_note"]))
     zh = clean(gloss.get("zh"))
     if zh:
         extras.append(zh)
@@ -199,6 +201,25 @@ def lesson_notes(data: dict[str, Any], path: Path, warnings: list[str]) -> list[
     return notes
 
 
+def unmarked_glosses(data: Any) -> list[dict[str, str]]:
+    """List lesson glosses with no matching in-text id marker."""
+    if not isinstance(data, dict) or not isinstance(data.get("glosses"), list):
+        return []
+    marked = {clean(gloss_id) for _, gloss_id in MARKER_RE.findall(clean(data.get("text")))}
+    result = []
+    for gloss in data["glosses"]:
+        if not isinstance(gloss, dict):
+            continue
+        gloss_id = clean(gloss.get("id"))
+        if gloss_id and gloss_id not in marked:
+            result.append({
+                "id": gloss_id,
+                "surface": clean(gloss.get("surface")),
+                "lemma": clean(gloss.get("lemma")),
+            })
+    return result
+
+
 def read_json(path: Path) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8-sig"))
@@ -221,7 +242,7 @@ def unique_notes(notes: list[Note]) -> tuple[list[Note], int]:
 
 def write_csv(path: Path, headers: tuple[str, str], rows: list[Note]) -> None:
     with path.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.writer(handle, quoting=csv.QUOTE_MINIMAL)
+        writer = csv.writer(handle, quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
         writer.writerow(headers)
         for note in rows:
             writer.writerow((note.front, note.back))
@@ -233,6 +254,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("inputs", nargs="+", help="P1 课件 JSON 或仪表盘导出的 JSON 备份")
     parser.add_argument("--output", "-o", type=Path, default=Path("anki-export"), help="CSV 输出目录（默认：./anki-export）")
+    parser.add_argument("--stats", action="store_true", help="列出各类卡片数量和未标记词条")
     return parser
 
 
@@ -241,6 +263,7 @@ def main(argv: list[str] | None = None) -> int:
     output: Path = args.output
     all_notes: dict[str, list[Note]] = {kind: [] for kind in VALID_TYPES}
     warnings: list[str] = []
+    unmarked: list[tuple[str, dict[str, str]]] = []
     for name in args.inputs:
         path = Path(name)
         try:
@@ -249,6 +272,7 @@ def main(argv: list[str] | None = None) -> int:
             print(str(exc), file=sys.stderr)
             return 2
         if isinstance(data, dict) and ("glosses" in data or "text" in data):
+            unmarked.extend((source_name(data, path), gloss) for gloss in unmarked_glosses(data))
             for note in lesson_notes(data, path, warnings):
                 all_notes[note.kind].append(note)
         else:
@@ -276,6 +300,17 @@ def main(argv: list[str] | None = None) -> int:
     print(f"完成：{total} 张卡，去重 {duplicates} 条 → {output.resolve()}")
     for kind, rows in all_notes.items():
         print(f"  {kind:12s} {len(rows):4d}")
+    if args.stats:
+        print("统计：")
+        for kind, rows in all_notes.items():
+            print(f"  {kind}: {len(rows)}")
+        print("未被标记、因此未生成 cloze 的 gloss：")
+        if unmarked:
+            for source, gloss in unmarked:
+                label = gloss["surface"] or gloss["lemma"] or "（无词面）"
+                print(f"  {source} · {gloss['id']} · {label}")
+        else:
+            print("  无")
     for warning in warnings:
         print(f"提示：{warning}", file=sys.stderr)
     return 0

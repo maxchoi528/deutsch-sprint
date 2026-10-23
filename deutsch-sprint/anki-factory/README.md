@@ -6,6 +6,8 @@
 
 ```bash
 python3 anki_factory.py sample-lesson.json sample-errors.json --output export
+# 可附加 --stats 查看各类卡片数量和未标记词条
+python3 anki_factory.py sample-lesson.json --output export --stats
 ```
 
 在 Anki 中分别导入输出文件：
@@ -18,14 +20,15 @@ python3 anki_factory.py sample-lesson.json sample-errors.json --output export
 ## 卡片规则
 
 - **Cloze**：从 P1 的 `{词面|gloss_id}` 标记定位句子，最多挖空两处；句子按句末标点切分。
-- **德德释义**：`de_def` 为正面，词条（包含名词冠词、复数和中文提示）为背面。
+- **德德释义**：`de_def` 为正面，词条（包含名词冠词、复数或 `plural_note`，以及中文提示）为背面。
 - **搭配产出**：支持 `{ "prompt": "eine Entscheidung ___", "answer": "treffen" }`，也支持 `prompt → answer` 字符串；只给出完整搭配时会跳过并提示，避免猜错挖空位置。
 - **错误卡**：正面使用错误原句，背面使用修正句和一句话规则。接受 P6 复制格式。
 - 完全重复的卡片会去重。CSV 使用 UTF-8 BOM，便于中文导入。
+- `--stats` 会显示各类去重后卡片数量，并列出课件中未用 `{词面|gloss_id}` 标记、因此没有 cloze 的词条。
 
 ## 示例数据
 
-`sample-lesson.json` 展示了两条词条、两种搭配和阅读文本标记；`sample-errors.json` 展示了 P6 复制卡片格式。运行命令后会生成四种 CSV 示例。
+`sample-lesson.json` 展示了词条、无复数提示、两种搭配和阅读文本标记；`sample-errors.json` 展示了 P6 复制卡片格式。运行命令后会生成四种 CSV 示例。
 
 ## 已知限制
 
