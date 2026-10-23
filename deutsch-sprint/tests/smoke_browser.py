@@ -4,6 +4,7 @@
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import importlib.util
+import os
 import json
 from pathlib import Path
 import re
@@ -15,10 +16,15 @@ ROOT = Path(__file__).resolve().parents[1]
 MARKER_RE = re.compile(r"\{([^{}|]+)\|([^{}|]+)\}")
 
 
+def skip_browser(reason):
+    strict = os.environ.get("REQUIRE_BROWSER") == "1"
+    print(f"{'FAIL' if strict else 'SKIP'}: {reason}")
+    return 1 if strict else 0
+
+
 def main():
     if importlib.util.find_spec("playwright") is None:
-        print("SKIP: Playwright is not installed; browser smoke tests were not run.")
-        return 0
+        return skip_browser("Playwright is not installed; browser smoke tests were not run.")
 
     handler = partial(SimpleHTTPRequestHandler, directory=str(ROOT))
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
@@ -32,8 +38,7 @@ def main():
             try:
                 browser = playwright.chromium.launch(headless=True)
             except Exception as exc:
-                print(f"SKIP: Playwright is installed, but Chromium is unavailable: {exc}")
-                return 0
+                return skip_browser(f"Chromium could not launch; browser smoke tests were not run: {exc}")
             page = browser.new_page(viewport={"width": 1280, "height": 900})
             console_errors = []
             page.on("pageerror", lambda error: console_errors.append(str(error)))
@@ -74,8 +79,9 @@ def main():
             assert "通常无复数" in note_tooltip.inner_text(), "plural_note was not shown in the tooltip"
 
             page.add_init_script(
-                """() => {
-                  if (!location.pathname.endsWith('/p7-practice/index.html')) return;
+                """(() => {
+                  if (!location.pathname.endsWith('/p7-practice/index.html') || sessionStorage.p7Seeded) return;
+                  sessionStorage.p7Seeded = 'yes';
                   localStorage.setItem('deutschSprint.p7.v1', JSON.stringify({
                     currentId: 'schreiben-forum',
                     attempts: {
@@ -83,7 +89,7 @@ def main():
                       'schreiben-email': {response: 'Alter E-Mail-Entwurf'}
                     }
                   }));
-                }"""
+                })();"""
             )
             page.goto(f"{base_url}/p7-practice/index.html", wait_until="load")
             legacy_p7 = page.evaluate("JSON.parse(localStorage.getItem('deutschSprint.p7.v1'))")
@@ -108,13 +114,15 @@ def main():
             assert durations.count() == 2, "Custom writing mode should expose two task timers"
             durations.nth(0).fill("30")
             durations.nth(1).fill("45")
+            durations.nth(1).dispatch_event("change")
             assert page.locator("#timer").inner_text() == "75:00", "Custom per-task durations should be shown before starting"
             page.get_by_role("button", name="开始限时练习").click()
             assert "任务 1/2" in page.locator(".timer-label").inner_text()
 
             page.add_init_script(
-                """() => {
-                  if (location.pathname !== '/index.html') return;
+                """(() => {
+                  if (location.pathname !== '/index.html' || sessionStorage.p6Seeded) return;
+                  sessionStorage.p6Seeded = 'yes';
                   const d = new Date();
                   const date = [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-');
                   localStorage.setItem('deutschSprint.dashboard.v1', JSON.stringify({
@@ -124,7 +132,7 @@ def main():
                     gates: {w4: [true,true,true,true,true], w9: [true,true,true,true], w13: [true,true,true]},
                     mocks: [], errors: [{id:'legacy-error',date,type:'词序',original:'falsch',correction:'richtig',rule:'test'}]
                   }));
-                }"""
+                })();"""
             )
             page.goto(f"{base_url}/index.html", wait_until="load")
             assert page.locator(".backup-reminder.is-stale").count() == 1, "Old export timestamp should trigger the backup reminder"
@@ -156,6 +164,9 @@ def main():
             page.get_by_role("button", name="周复盘").click()
             hours_rule = page.locator(".rule-item", has_text="本周主动学习少于 30 小时")
             assert hours_rule.locator(".tag").inner_text() == "已触发", "A week with five recorded days should evaluate the low-hours rule"
+            assert not console_errors, "Browser errors: " + "; ".join(console_errors)
+            from browser_flows import extra_flows
+            extra_flows(browser, base_url, console_errors)
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
             browser.close()
             print("PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.")

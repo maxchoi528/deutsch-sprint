@@ -24,7 +24,7 @@
     legacyIds.forEach((id,index)=>{
       const legacy=attempts[id];
       const task=writing.tasks[index];
-      if(legacy&&typeof legacy.response==='string'&&!existing.responses[task.id]){
+      if(store.schemaVersion!==2&&legacy&&typeof legacy.response==='string'&&!Object.hasOwn(existing.responses,task.id)){
         existing.responses[task.id]=legacy.response;
         legacyDraftMigrated=true;
       }
@@ -111,7 +111,7 @@
       const left=remaining(value,exam);timerEl.textContent=timeText(left);
       if(left<=0){
         if(exam.kind==='writing'&&value.customTiming&&value.activeTaskIndex<exam.tasks.length-1){
-          const oldIndex=value.activeTaskIndex;value.taskTimers[oldIndex].submittedAt=Date.now();beginCustomTask(value,exam,oldIndex+1);persist();render();toast(`任务 ${oldIndex+1} 计时结束，已开始下一项。`);return;
+          const oldIndex=value.activeTaskIndex,deadline=value.taskTimers[oldIndex].expiresAt;value.taskTimers[oldIndex].submittedAt=deadline;beginCustomTask(value,exam,oldIndex+1,deadline);persist();render();toast(`任务 ${oldIndex+1} 计时结束，已开始下一项。`);return;
         }
         finish(true);return;
       }
@@ -172,7 +172,7 @@
     const answer=event.target.closest('[data-answer]');
     if(answer){const value=attempts[currentId]||{answers:{}};if(!value.submittedAt){value.answers=value.answers||{};value.answers[answer.dataset.answer]=answer.value;attempts[currentId]=value;persist()}return}
     if(event.target.matches('[data-writing-custom]')){const value=attempts[currentId]||{};if(!value.startedAt&&!value.submittedAt){value.customTiming=event.target.checked;value.taskDurations=value.taskDurations||[35,40];attempts[currentId]=value;persist();render()}return}
-    if(event.target.matches('[data-writing-duration]')){const value=attempts[currentId]||{};const index=Number(event.target.dataset.writingDuration);value.taskDurations=value.taskDurations||[35,40];value.taskDurations[index]=Math.max(1,Math.min(120,Number(event.target.value)||1));attempts[currentId]=value;persist();return}
+    if(event.target.matches('[data-writing-duration]')){const value=attempts[currentId]||{};const index=Number(event.target.dataset.writingDuration);value.taskDurations=value.taskDurations||[35,40];value.taskDurations[index]=Math.max(1,Math.min(120,Math.round(Number(event.target.value)||1)));event.target.value=value.taskDurations[index];attempts[currentId]=value;persist();document.getElementById('timer').textContent=timeText(value.taskDurations.reduce((sum,minutes)=>sum+minutes,0)*60);return}
     if(event.target.id==='card-select'){const value=attempts[currentId]||{};if(!value.submittedAt){value.cardIndex=Number(event.target.value);attempts[currentId]=value;persist();render()}return}
     const selfcheck=event.target.closest('[data-selfcheck]');
     if(selfcheck){const value=attempts[currentId];if(!value)return;if(section().kind==='writing'){const task=writingTask(value,section());value.selfchecks=value.selfchecks||{};value.selfchecks[task.id]=value.selfchecks[task.id]||[];value.selfchecks[task.id][Number(selfcheck.dataset.selfcheck)]=selfcheck.checked}else{value.selfcheck=value.selfcheck||[];value.selfcheck[Number(selfcheck.dataset.selfcheck)]=selfcheck.checked}persist()}
