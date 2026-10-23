@@ -630,6 +630,19 @@
       const percent = Math.max(0, Math.min(100, Math.round(((phase.week-activeStage.start+1)/ (activeStage.end-activeStage.start+1))*100)));
       return `
         ${currentView==='overview'?backupReminder():''}
+        <section class="panel" aria-labelledby="toolkit-title" style="margin-bottom:16px">
+          <div class="panel-heading"><div><h3 id="toolkit-title">开始学习</h3><p>先确认起始日，再从 B2 精读开始；每次练习结束回到这里打卡。</p></div><button class="table-action" data-view="settings">设置起始日</button></div>
+          <nav aria-label="学习工具入口" style="display:flex;flex-wrap:wrap;gap:12px 20px">
+            <a href="p1-reader/index.html">P1 · B2–C1 精读</a>
+            <a href="anki-factory/README.md">P2 · Anki 卡片</a>
+            <a href="p3-p4-prompts/speaking-coach.md">P3 · 口语教练提示词</a>
+            <a href="p3-p4-prompts/writing-coach.md">P4 · 写作批改提示词</a>
+            <a href="p5-shadow/index.html">P5 · 跟读与手动听写</a>
+            <a href="p7-practice/index.html">P7 · 补充练习</a>
+            <a href="START_HERE.md">W0 · 三天启动清单</a>
+          </nav>
+          <p class="small-muted" style="margin:12px 0 0">P5 自动语音识别需另备本地模型；未装模型时可先用音频播放器和参考文本练习听写。</p>
+        </section>
         <div class="overview-grid">
           <section class="hero-panel panel"><p class="eyebrow">TODAY'S DIRECTION</p><h2>${phase.week===0 ? '先测出真实起点' : '让每天的练习留下证据'}</h2><p>${esc(focus)}。听力优势继续保持；口语和写作每天都要有一次主动产出与订正。</p><div class="hero-bottom"><strong>${phase.week===0 ? '诊断周' : `W${phase.week}`}</strong><span aria-hidden="true">/</span><span>${esc(activeStage.label)} · ${esc(activeStage.focus)}</span></div></section>
           <section class="stat-strip" aria-label="今日关键数据">

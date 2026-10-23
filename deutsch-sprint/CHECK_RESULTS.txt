@@ -1,0 +1,206 @@
+Deutsch Sprint · 实际验收输出
+2026-10-23T22:50:27.036454+08:00
+REQUIRE_BROWSER=1（浏览器不可用即失败）
+所有浏览器数据均在临时测试上下文中，不使用真实学习记录。
+
+
+$ python3 p1-reader/validate_lessons.py
+[stadt-hitze Q1 · sentence 2] Zwar schafft jeder neu gepflanzte Baum einen konkreten Ort der Erholung; dennoch muss die Planung das gesamte Viertel in den Blick nehmen.
+[stadt-hitze Q2 · sentence 7] Eine verständliche Planung sollte deshalb offenlegen, welche Ziele miteinander abgewogen werden und wer an der Entscheidung beteiligt war.
+[stadt-hitze Q3 · sentence 10] Auch die Erreichbarkeit für Menschen mit eingeschränkter Mobilität spielt eine Rolle; ein kühler Innenhof hilft wenig, wenn der Zugang nur über eine steile Treppe möglich ist.
+[hybrid-arbeit Q1 · sentence 6] Zugleich sollte nicht jede kurze Abstimmung zu einem formellen Protokoll werden; ein überladenes System kostet Zeit und wird bald umgangen.
+[hybrid-arbeit Q2 · sentence 5] Eine nachvollziehbare Ablage hilft dabei, Wissen zu teilen und unnötige Rückfragen zu vermeiden.
+[hybrid-arbeit Q3 · sentence 14] Eine regelmäßige Rückmeldung macht sichtbar, ob die getroffenen Vereinbarungen funktionieren oder angepasst werden müssen.
+[digitale-verwaltung Q1 · sentence 20] Werden diese Hinweise ernst genommen, lässt sich ein digitales Angebot Schritt für Schritt verbessern, ohne den persönlichen Kontakt als notwendige Ergänzung auszuschließen.
+[digitale-verwaltung Q2 · sentence 9] Das kann zutreffen, sofern Menschen mit unterschiedlichen Kenntnissen und Fähigkeiten berücksichtigt werden.
+[digitale-verwaltung Q3 · sentence 14] Wenn eine Eingabe an mehreren Stellen bearbeitet wird, muss erkennbar sein, wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.
+[b2-wohnen Q1 · sentence 3] So bleibt die Entscheidung besser nachvollziehbar.
+[b2-wohnen Q2 · sentence 12] Vor der Unterschrift sollten alle zugesagten Punkte im Mietvertrag stehen; mündliche Absprachen sind später schwer nachzuweisen.
+[b2-wohnen Q3 · sentence 15] Eine Übergangszeit hilft, Entscheidungen zu vergleichen, statt aus Sorge sofort jede Wohnung anzunehmen.
+[b2-beruf Q1 · sentence 5] In diesem Zeitraum sollte die Erreichbarkeit möglichst verlässlich sein.
+[b2-beruf Q2 · sentence 10] Eine einfache Liste zeigt, wer gerade woran arbeitet und wann ein Ergebnis gebraucht wird.
+[b2-beruf Q3 · sentence 15] Eine kurze Besprechungsregel hilft: Jede Person nennt zuerst, was entschieden werden muss.
+[b2-bildung Q1 · sentence 1] Ohne ein klares Lernziel wird oft lange über einzelne Fragen gesprochen, während wichtige Themen liegen bleiben.
+[b2-bildung Q2 · sentence 9] Sie helfen dabei, eine Lücke zu schließen, bevor sie beim nächsten Thema größer wird.
+[b2-bildung Q3 · sentence 12] Am Ende nennt jede Person eine Sache, die nun klarer ist, und eine Frage für das nächste Treffen.
+[b2-reisen Q1 · sentence 5] Gleichzeitig fragte ich am Informationsschalter nach, ob mein Ticket für die andere Verbindung gilt.
+[b2-reisen Q2 · sentence 9] Wer wegen der Änderung zusätzliche Kosten hatte, kann prüfen, ob sich eine Erstattung beantragen lässt.
+[b2-reisen Q3 · sentence 13] Dabei ist es hilfreich, auf den Abfahrtsort und die nächste Haltestelle zu achten.
+[b2-konsum Q1 · sentence 2] Dafür sollte man prüfen, wie alt das Gerät ist und ob noch eine Garantie gilt.
+[b2-konsum Q2 · sentence 5] Ein niedriger Preis ist nicht automatisch günstig, wenn ein Gegenstand nur kurze Zeit verwendet werden kann.
+[b2-konsum Q3 · sentence 13] Bleibt ein Problem trotz eines Versuchs ungelöst, kann man eine Beschwerde einreichen und den Fehler sachlich beschreiben.
+[b2-medien Q1 · sentence 3] Wichtig ist auch, wer den ursprünglichen Beitrag veröffentlicht hat und ob sich die Angaben an anderer Stelle finden lassen.
+[b2-medien Q2 · sentence 6] Eine Bildunterschrift hilft, ein Foto einzuordnen, ersetzt aber keine Prüfung des Zusammenhangs.
+[b2-medien Q3 · sentence 10] Ein Beitrag ohne Belege ist nicht automatisch falsch, aber man sollte ihn nicht sofort weiterleiten.
+[b2-ehrenamt Q1 · sentence 2] Es kann sinnvoll sein, zunächst eine klar begrenzte Aufgabe zu übernehmen und den eigenen Kalender ehrlich zu prüfen.
+[b2-ehrenamt Q2 · sentence 5] Eine feste Ansprechperson erleichtert den Start.
+[b2-ehrenamt Q3 · sentence 14] Ein realistischer Zeitaufwand schützt davor, nach kurzer Zeit ganz aufzuhören.
+Lesson validation passed.
+
+退出码：0
+
+
+$ python3 p1-reader/build_reader.py
+[stadt-hitze Q1 · sentence 2] Zwar schafft jeder neu gepflanzte Baum einen konkreten Ort der Erholung; dennoch muss die Planung das gesamte Viertel in den Blick nehmen.
+[stadt-hitze Q2 · sentence 7] Eine verständliche Planung sollte deshalb offenlegen, welche Ziele miteinander abgewogen werden und wer an der Entscheidung beteiligt war.
+[stadt-hitze Q3 · sentence 10] Auch die Erreichbarkeit für Menschen mit eingeschränkter Mobilität spielt eine Rolle; ein kühler Innenhof hilft wenig, wenn der Zugang nur über eine steile Treppe möglich ist.
+[hybrid-arbeit Q1 · sentence 6] Zugleich sollte nicht jede kurze Abstimmung zu einem formellen Protokoll werden; ein überladenes System kostet Zeit und wird bald umgangen.
+[hybrid-arbeit Q2 · sentence 5] Eine nachvollziehbare Ablage hilft dabei, Wissen zu teilen und unnötige Rückfragen zu vermeiden.
+[hybrid-arbeit Q3 · sentence 14] Eine regelmäßige Rückmeldung macht sichtbar, ob die getroffenen Vereinbarungen funktionieren oder angepasst werden müssen.
+[digitale-verwaltung Q1 · sentence 20] Werden diese Hinweise ernst genommen, lässt sich ein digitales Angebot Schritt für Schritt verbessern, ohne den persönlichen Kontakt als notwendige Ergänzung auszuschließen.
+[digitale-verwaltung Q2 · sentence 9] Das kann zutreffen, sofern Menschen mit unterschiedlichen Kenntnissen und Fähigkeiten berücksichtigt werden.
+[digitale-verwaltung Q3 · sentence 14] Wenn eine Eingabe an mehreren Stellen bearbeitet wird, muss erkennbar sein, wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.
+[b2-wohnen Q1 · sentence 3] So bleibt die Entscheidung besser nachvollziehbar.
+[b2-wohnen Q2 · sentence 12] Vor der Unterschrift sollten alle zugesagten Punkte im Mietvertrag stehen; mündliche Absprachen sind später schwer nachzuweisen.
+[b2-wohnen Q3 · sentence 15] Eine Übergangszeit hilft, Entscheidungen zu vergleichen, statt aus Sorge sofort jede Wohnung anzunehmen.
+[b2-beruf Q1 · sentence 5] In diesem Zeitraum sollte die Erreichbarkeit möglichst verlässlich sein.
+[b2-beruf Q2 · sentence 10] Eine einfache Liste zeigt, wer gerade woran arbeitet und wann ein Ergebnis gebraucht wird.
+[b2-beruf Q3 · sentence 15] Eine kurze Besprechungsregel hilft: Jede Person nennt zuerst, was entschieden werden muss.
+[b2-bildung Q1 · sentence 1] Ohne ein klares Lernziel wird oft lange über einzelne Fragen gesprochen, während wichtige Themen liegen bleiben.
+[b2-bildung Q2 · sentence 9] Sie helfen dabei, eine Lücke zu schließen, bevor sie beim nächsten Thema größer wird.
+[b2-bildung Q3 · sentence 12] Am Ende nennt jede Person eine Sache, die nun klarer ist, und eine Frage für das nächste Treffen.
+[b2-reisen Q1 · sentence 5] Gleichzeitig fragte ich am Informationsschalter nach, ob mein Ticket für die andere Verbindung gilt.
+[b2-reisen Q2 · sentence 9] Wer wegen der Änderung zusätzliche Kosten hatte, kann prüfen, ob sich eine Erstattung beantragen lässt.
+[b2-reisen Q3 · sentence 13] Dabei ist es hilfreich, auf den Abfahrtsort und die nächste Haltestelle zu achten.
+[b2-konsum Q1 · sentence 2] Dafür sollte man prüfen, wie alt das Gerät ist und ob noch eine Garantie gilt.
+[b2-konsum Q2 · sentence 5] Ein niedriger Preis ist nicht automatisch günstig, wenn ein Gegenstand nur kurze Zeit verwendet werden kann.
+[b2-konsum Q3 · sentence 13] Bleibt ein Problem trotz eines Versuchs ungelöst, kann man eine Beschwerde einreichen und den Fehler sachlich beschreiben.
+[b2-medien Q1 · sentence 3] Wichtig ist auch, wer den ursprünglichen Beitrag veröffentlicht hat und ob sich die Angaben an anderer Stelle finden lassen.
+[b2-medien Q2 · sentence 6] Eine Bildunterschrift hilft, ein Foto einzuordnen, ersetzt aber keine Prüfung des Zusammenhangs.
+[b2-medien Q3 · sentence 10] Ein Beitrag ohne Belege ist nicht automatisch falsch, aber man sollte ihn nicht sofort weiterleiten.
+[b2-ehrenamt Q1 · sentence 2] Es kann sinnvoll sein, zunächst eine klar begrenzte Aufgabe zu übernehmen und den eigenen Kalender ehrlich zu prüfen.
+[b2-ehrenamt Q2 · sentence 5] Eine feste Ansprechperson erleichtert den Start.
+[b2-ehrenamt Q3 · sentence 14] Ein realistischer Zeitaufwand schützt davor, nach kurzer Zeit ganz aufzuhören.
+生成 /home/max/文档/ChatGPT/pc/deutsch-sprint/p1-reader/index.html（10 篇课件）
+
+退出码：0
+
+
+$ python3 p7-practice/build.py
+生成 /home/max/文档/ChatGPT/pc/deutsch-sprint/p7-practice/index.html（4 个练习模块）
+
+退出码：0
+
+
+$ python3 -m unittest discover -s tests
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.032s
+
+OK
+
+退出码：0
+
+
+$ python3 tests/smoke_browser.py
+PASS: P6 actual legacy JSON file import, daily persistence, W4/W9 boundaries, JSON download -> Anki.
+PASS: P6 W0/W1/W2, all three rule states, ended-week selection, W13 two-set gate.
+PASS: P7 shared deadline, both drafts, reload, expiry, reset, custom totals and elapsed time.
+PASS: P1 direct file:// use, mobile tap tooltip, dismissal and viewport containment.
+PASS: P5 manual dictation -> Anki; synthetic-audio loop; stub-ASR recording preserves source timestamps (no real ASR/mic test).
+PASS: all 10 P1 lessons, summaries and gloss counts; blind quiz persistence; P6/P7 direct file:// use and toolkit links.
+PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.
+
+退出码：0
+
+
+$ bash run_checks.sh
+[stadt-hitze Q1 · sentence 2] Zwar schafft jeder neu gepflanzte Baum einen konkreten Ort der Erholung; dennoch muss die Planung das gesamte Viertel in den Blick nehmen.
+[stadt-hitze Q2 · sentence 7] Eine verständliche Planung sollte deshalb offenlegen, welche Ziele miteinander abgewogen werden und wer an der Entscheidung beteiligt war.
+[stadt-hitze Q3 · sentence 10] Auch die Erreichbarkeit für Menschen mit eingeschränkter Mobilität spielt eine Rolle; ein kühler Innenhof hilft wenig, wenn der Zugang nur über eine steile Treppe möglich ist.
+[hybrid-arbeit Q1 · sentence 6] Zugleich sollte nicht jede kurze Abstimmung zu einem formellen Protokoll werden; ein überladenes System kostet Zeit und wird bald umgangen.
+[hybrid-arbeit Q2 · sentence 5] Eine nachvollziehbare Ablage hilft dabei, Wissen zu teilen und unnötige Rückfragen zu vermeiden.
+[hybrid-arbeit Q3 · sentence 14] Eine regelmäßige Rückmeldung macht sichtbar, ob die getroffenen Vereinbarungen funktionieren oder angepasst werden müssen.
+[digitale-verwaltung Q1 · sentence 20] Werden diese Hinweise ernst genommen, lässt sich ein digitales Angebot Schritt für Schritt verbessern, ohne den persönlichen Kontakt als notwendige Ergänzung auszuschließen.
+[digitale-verwaltung Q2 · sentence 9] Das kann zutreffen, sofern Menschen mit unterschiedlichen Kenntnissen und Fähigkeiten berücksichtigt werden.
+[digitale-verwaltung Q3 · sentence 14] Wenn eine Eingabe an mehreren Stellen bearbeitet wird, muss erkennbar sein, wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.
+[b2-wohnen Q1 · sentence 3] So bleibt die Entscheidung besser nachvollziehbar.
+[b2-wohnen Q2 · sentence 12] Vor der Unterschrift sollten alle zugesagten Punkte im Mietvertrag stehen; mündliche Absprachen sind später schwer nachzuweisen.
+[b2-wohnen Q3 · sentence 15] Eine Übergangszeit hilft, Entscheidungen zu vergleichen, statt aus Sorge sofort jede Wohnung anzunehmen.
+[b2-beruf Q1 · sentence 5] In diesem Zeitraum sollte die Erreichbarkeit möglichst verlässlich sein.
+[b2-beruf Q2 · sentence 10] Eine einfache Liste zeigt, wer gerade woran arbeitet und wann ein Ergebnis gebraucht wird.
+[b2-beruf Q3 · sentence 15] Eine kurze Besprechungsregel hilft: Jede Person nennt zuerst, was entschieden werden muss.
+[b2-bildung Q1 · sentence 1] Ohne ein klares Lernziel wird oft lange über einzelne Fragen gesprochen, während wichtige Themen liegen bleiben.
+[b2-bildung Q2 · sentence 9] Sie helfen dabei, eine Lücke zu schließen, bevor sie beim nächsten Thema größer wird.
+[b2-bildung Q3 · sentence 12] Am Ende nennt jede Person eine Sache, die nun klarer ist, und eine Frage für das nächste Treffen.
+[b2-reisen Q1 · sentence 5] Gleichzeitig fragte ich am Informationsschalter nach, ob mein Ticket für die andere Verbindung gilt.
+[b2-reisen Q2 · sentence 9] Wer wegen der Änderung zusätzliche Kosten hatte, kann prüfen, ob sich eine Erstattung beantragen lässt.
+[b2-reisen Q3 · sentence 13] Dabei ist es hilfreich, auf den Abfahrtsort und die nächste Haltestelle zu achten.
+[b2-konsum Q1 · sentence 2] Dafür sollte man prüfen, wie alt das Gerät ist und ob noch eine Garantie gilt.
+[b2-konsum Q2 · sentence 5] Ein niedriger Preis ist nicht automatisch günstig, wenn ein Gegenstand nur kurze Zeit verwendet werden kann.
+[b2-konsum Q3 · sentence 13] Bleibt ein Problem trotz eines Versuchs ungelöst, kann man eine Beschwerde einreichen und den Fehler sachlich beschreiben.
+[b2-medien Q1 · sentence 3] Wichtig ist auch, wer den ursprünglichen Beitrag veröffentlicht hat und ob sich die Angaben an anderer Stelle finden lassen.
+[b2-medien Q2 · sentence 6] Eine Bildunterschrift hilft, ein Foto einzuordnen, ersetzt aber keine Prüfung des Zusammenhangs.
+[b2-medien Q3 · sentence 10] Ein Beitrag ohne Belege ist nicht automatisch falsch, aber man sollte ihn nicht sofort weiterleiten.
+[b2-ehrenamt Q1 · sentence 2] Es kann sinnvoll sein, zunächst eine klar begrenzte Aufgabe zu übernehmen und den eigenen Kalender ehrlich zu prüfen.
+[b2-ehrenamt Q2 · sentence 5] Eine feste Ansprechperson erleichtert den Start.
+[b2-ehrenamt Q3 · sentence 14] Ein realistischer Zeitaufwand schützt davor, nach kurzer Zeit ganz aufzuhören.
+Lesson validation passed.
+[stadt-hitze Q1 · sentence 2] Zwar schafft jeder neu gepflanzte Baum einen konkreten Ort der Erholung; dennoch muss die Planung das gesamte Viertel in den Blick nehmen.
+[stadt-hitze Q2 · sentence 7] Eine verständliche Planung sollte deshalb offenlegen, welche Ziele miteinander abgewogen werden und wer an der Entscheidung beteiligt war.
+[stadt-hitze Q3 · sentence 10] Auch die Erreichbarkeit für Menschen mit eingeschränkter Mobilität spielt eine Rolle; ein kühler Innenhof hilft wenig, wenn der Zugang nur über eine steile Treppe möglich ist.
+[hybrid-arbeit Q1 · sentence 6] Zugleich sollte nicht jede kurze Abstimmung zu einem formellen Protokoll werden; ein überladenes System kostet Zeit und wird bald umgangen.
+[hybrid-arbeit Q2 · sentence 5] Eine nachvollziehbare Ablage hilft dabei, Wissen zu teilen und unnötige Rückfragen zu vermeiden.
+[hybrid-arbeit Q3 · sentence 14] Eine regelmäßige Rückmeldung macht sichtbar, ob die getroffenen Vereinbarungen funktionieren oder angepasst werden müssen.
+[digitale-verwaltung Q1 · sentence 20] Werden diese Hinweise ernst genommen, lässt sich ein digitales Angebot Schritt für Schritt verbessern, ohne den persönlichen Kontakt als notwendige Ergänzung auszuschließen.
+[digitale-verwaltung Q2 · sentence 9] Das kann zutreffen, sofern Menschen mit unterschiedlichen Kenntnissen und Fähigkeiten berücksichtigt werden.
+[digitale-verwaltung Q3 · sentence 14] Wenn eine Eingabe an mehreren Stellen bearbeitet wird, muss erkennbar sein, wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.
+[b2-wohnen Q1 · sentence 3] So bleibt die Entscheidung besser nachvollziehbar.
+[b2-wohnen Q2 · sentence 12] Vor der Unterschrift sollten alle zugesagten Punkte im Mietvertrag stehen; mündliche Absprachen sind später schwer nachzuweisen.
+[b2-wohnen Q3 · sentence 15] Eine Übergangszeit hilft, Entscheidungen zu vergleichen, statt aus Sorge sofort jede Wohnung anzunehmen.
+[b2-beruf Q1 · sentence 5] In diesem Zeitraum sollte die Erreichbarkeit möglichst verlässlich sein.
+[b2-beruf Q2 · sentence 10] Eine einfache Liste zeigt, wer gerade woran arbeitet und wann ein Ergebnis gebraucht wird.
+[b2-beruf Q3 · sentence 15] Eine kurze Besprechungsregel hilft: Jede Person nennt zuerst, was entschieden werden muss.
+[b2-bildung Q1 · sentence 1] Ohne ein klares Lernziel wird oft lange über einzelne Fragen gesprochen, während wichtige Themen liegen bleiben.
+[b2-bildung Q2 · sentence 9] Sie helfen dabei, eine Lücke zu schließen, bevor sie beim nächsten Thema größer wird.
+[b2-bildung Q3 · sentence 12] Am Ende nennt jede Person eine Sache, die nun klarer ist, und eine Frage für das nächste Treffen.
+[b2-reisen Q1 · sentence 5] Gleichzeitig fragte ich am Informationsschalter nach, ob mein Ticket für die andere Verbindung gilt.
+[b2-reisen Q2 · sentence 9] Wer wegen der Änderung zusätzliche Kosten hatte, kann prüfen, ob sich eine Erstattung beantragen lässt.
+[b2-reisen Q3 · sentence 13] Dabei ist es hilfreich, auf den Abfahrtsort und die nächste Haltestelle zu achten.
+[b2-konsum Q1 · sentence 2] Dafür sollte man prüfen, wie alt das Gerät ist und ob noch eine Garantie gilt.
+[b2-konsum Q2 · sentence 5] Ein niedriger Preis ist nicht automatisch günstig, wenn ein Gegenstand nur kurze Zeit verwendet werden kann.
+[b2-konsum Q3 · sentence 13] Bleibt ein Problem trotz eines Versuchs ungelöst, kann man eine Beschwerde einreichen und den Fehler sachlich beschreiben.
+[b2-medien Q1 · sentence 3] Wichtig ist auch, wer den ursprünglichen Beitrag veröffentlicht hat und ob sich die Angaben an anderer Stelle finden lassen.
+[b2-medien Q2 · sentence 6] Eine Bildunterschrift hilft, ein Foto einzuordnen, ersetzt aber keine Prüfung des Zusammenhangs.
+[b2-medien Q3 · sentence 10] Ein Beitrag ohne Belege ist nicht automatisch falsch, aber man sollte ihn nicht sofort weiterleiten.
+[b2-ehrenamt Q1 · sentence 2] Es kann sinnvoll sein, zunächst eine klar begrenzte Aufgabe zu übernehmen und den eigenen Kalender ehrlich zu prüfen.
+[b2-ehrenamt Q2 · sentence 5] Eine feste Ansprechperson erleichtert den Start.
+[b2-ehrenamt Q3 · sentence 14] Ein realistischer Zeitaufwand schützt davor, nach kurzer Zeit ganz aufzuhören.
+生成 /home/max/文档/ChatGPT/pc/deutsch-sprint/p1-reader/index.html（10 篇课件）
+生成 /home/max/文档/ChatGPT/pc/deutsch-sprint/p7-practice/index.html（4 个练习模块）
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.029s
+
+OK
+PASS: P6 actual legacy JSON file import, daily persistence, W4/W9 boundaries, JSON download -> Anki.
+PASS: P6 W0/W1/W2, all three rule states, ended-week selection, W13 two-set gate.
+PASS: P7 shared deadline, both drafts, reload, expiry, reset, custom totals and elapsed time.
+PASS: P1 direct file:// use, mobile tap tooltip, dismissal and viewport containment.
+PASS: P5 manual dictation -> Anki; synthetic-audio loop; stub-ASR recording preserves source timestamps (no real ASR/mic test).
+PASS: all 10 P1 lessons, summaries and gloss counts; blind quiz persistence; P6/P7 direct file:// use and toolkit links.
+PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.
+
+退出码：0
+
+
+$ python3 anki-factory/anki_factory.py p1-reader/lessons.json --output /tmp/deutsch-sprint-final-cards --stats
+完成：307 张卡，去重 0 条 → /tmp/deutsch-sprint-final-cards
+  cloze         128
+  definition    128
+  collocation    51
+  error           0
+统计：
+  cloze: 128
+  definition: 128
+  collocation: 51
+  error: 0
+未被标记、因此未生成 cloze 的 gloss：
+  无
+
+退出码：0
+
+
+$ git diff --check
+
+退出码：0

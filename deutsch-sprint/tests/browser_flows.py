@@ -249,3 +249,43 @@ def shadow_flow(browser, base_url, errors):
     assert 'gemeinsam' in page.locator('#shadow-result').inner_text()
     print('PASS: P5 manual dictation -> Anki; synthetic-audio loop; stub-ASR recording preserves source timestamps (no real ASR/mic test).')
     page.close()
+
+
+def reader_flow(browser, errors):
+    import re
+    page = browser.new_page()
+    page.on('pageerror', lambda error: errors.append(str(error)))
+    page.goto((ROOT / 'p1-reader/index.html').as_uri())
+    lessons = json.loads(page.locator('#lesson-data').text_content())['lessons']
+    for lesson in lessons:
+        page.locator(f'[data-lesson="{lesson["id"]}"]').click()
+        assert page.locator('.article-box .paragraph').count() == len([p for p in re.split(r'\n+', lesson['text']) if p.strip()])
+        assert page.locator('.gloss-word').count() == len(re.findall(r'\{[^{}|]+\|[^{}|]+\}', lesson['text']))
+        page.locator('[data-action="summary"]').first.click()
+        assert page.locator('.summary-text').inner_text() == lesson['summary_zh']
+    lesson = next(l for l in lessons if l['id'] == 'b2-wohnen')
+    page.locator('[data-lesson="b2-wohnen"]').click()
+    page.locator('[data-action="blind"]').click()
+    assert page.locator('.gloss-word').first.is_disabled()
+    for i, question in enumerate(lesson['questions']):
+        page.locator('.question').nth(i).get_by_role('radio', name=question['answer'], exact=True).check()
+    page.locator('[data-action="submit-quiz"]').click()
+    assert page.locator('.feedback.correct').count() == 3
+    page.reload()
+    progress = saved(page, 'deutschSprint.reader.v1')['progress']['b2-wohnen'][-1]
+    assert progress['blind'] and progress['score'] == 3
+    page.goto((ROOT / 'index.html').as_uri())
+    assert page.locator('[aria-label="学习工具入口"] a').count() == 7
+    for href in page.locator('[aria-label="学习工具入口"] a').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))'):
+        assert (ROOT / href).is_file()
+    edit(page, '[data-block-minutes="anki"]', 25)
+    page.reload()
+    assert page.locator('[data-block-minutes="anki"]').input_value() == '25'
+    page.goto((ROOT / 'p7-practice/index.html').as_uri())
+    page.locator('[data-task="schreiben"]').click()
+    page.locator('[data-action="start"]').click()
+    deadline = saved(page, P7)['attempts']['schreiben']['expiresAt']
+    page.reload()
+    assert saved(page, P7)['attempts']['schreiben']['expiresAt'] == deadline
+    print('PASS: all 10 P1 lessons, summaries and gloss counts; blind quiz persistence; P6/P7 direct file:// use and toolkit links.')
+    page.close()

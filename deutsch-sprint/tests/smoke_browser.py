@@ -16,6 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 MARKER_RE = re.compile(r"\{([^{}|]+)\|([^{}|]+)\}")
 
 
+class QuietHandler(SimpleHTTPRequestHandler):
+    def log_message(self, format, *args):
+        pass
+
+
 def skip_browser(reason):
     strict = os.environ.get("REQUIRE_BROWSER") == "1"
     print(f"{'FAIL' if strict else 'SKIP'}: {reason}")
@@ -26,7 +31,7 @@ def main():
     if importlib.util.find_spec("playwright") is None:
         return skip_browser("Playwright is not installed; browser smoke tests were not run.")
 
-    handler = partial(SimpleHTTPRequestHandler, directory=str(ROOT))
+    handler = partial(QuietHandler, directory=str(ROOT))
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
     thread = Thread(target=server.serve_forever, daemon=True)
     thread.start()
@@ -167,9 +172,10 @@ def main():
             hours_rule = page.locator(".rule-item", has_text="本周主动学习少于 30 小时")
             assert hours_rule.locator(".tag").inner_text() == "已触发", "A week with five recorded days should evaluate the low-hours rule"
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
-            from browser_flows import extra_flows, shadow_flow
+            from browser_flows import extra_flows, shadow_flow, reader_flow
             extra_flows(browser, base_url, console_errors)
             shadow_flow(browser, base_url, console_errors)
+            reader_flow(browser, console_errors)
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
             browser.close()
             print("PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.")
