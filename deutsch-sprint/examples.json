@@ -5,11 +5,26 @@
     "retention": 86.5,
     "note": "示例：从精读中整理了 12 个搭配。",
     "blocks": {
-      "anki": {"done": true, "minutes": 60},
-      "deep": {"done": false, "minutes": 0},
-      "speaking": {"done": false, "minutes": 0},
-      "listening": {"done": false, "minutes": 0},
-      "writing": {"done": false, "minutes": 0}
+      "anki": {
+        "done": true,
+        "minutes": 60
+      },
+      "deep": {
+        "done": false,
+        "minutes": 0
+      },
+      "speaking": {
+        "done": false,
+        "minutes": 0
+      },
+      "listening": {
+        "done": false,
+        "minutes": 0
+      },
+      "writing": {
+        "done": false,
+        "minutes": 0
+      }
     }
   },
   "mock": {
@@ -17,7 +32,12 @@
     "date": "2026-11-20",
     "title": "示例模考（虚构）",
     "mode": "full",
-    "scores": {"reading": null, "listening": null, "writing": null, "speaking": null}
+    "scores": {
+      "reading": null,
+      "listening": null,
+      "writing": null,
+      "speaking": null
+    }
   },
   "error": {
     "id": "example-error-1",
@@ -26,5 +46,136 @@
     "original": "Ich denke, dass es ist wichtig.",
     "correction": "Ich denke, dass es wichtig ist.",
     "rule": "dass 从句的变位动词放在从句末尾。"
+  },
+  "dashboardBackup": {
+    "schemaVersion": 2,
+    "exportedAt": "2026-10-23T12:00:00.000Z",
+    "lastExportAt": "2026-10-23T12:00:00.000Z",
+    "settings": {
+      "startDate": "2026-10-23",
+      "theme": "system"
+    },
+    "checkins": {
+      "2026-10-26": {
+        "date": "2026-10-23",
+        "newChunks": 12,
+        "retention": 86.5,
+        "note": "示例：从精读中整理了 12 个搭配。",
+        "blocks": {
+          "anki": {
+            "done": true,
+            "minutes": 60
+          },
+          "deep": {
+            "done": false,
+            "minutes": 0
+          },
+          "speaking": {
+            "done": false,
+            "minutes": 0
+          },
+          "listening": {
+            "done": false,
+            "minutes": 0
+          },
+          "writing": {
+            "done": false,
+            "minutes": 0
+          }
+        }
+      }
+    },
+    "gates": {
+      "w4": {
+        "reading": 76,
+        "listening": 78,
+        "retention": 86,
+        "writing": {
+          "level": "B2 稳定",
+          "evaluator": "导师",
+          "date": "2026-11-20"
+        },
+        "speaking": {
+          "level": "B2 稳定",
+          "evaluator": "导师",
+          "date": "2026-11-20"
+        }
+      },
+      "w9": {
+        "reading": 62,
+        "listening": 64,
+        "writing": {
+          "level": "接近 C1",
+          "evaluator": "导师",
+          "date": "2026-12-25"
+        },
+        "speaking": {
+          "level": "接近 C1",
+          "evaluator": "导师",
+          "date": "2026-12-25"
+        }
+      },
+      "w13": {
+        "mock1": {
+          "title": "完整模考示例一",
+          "date": "2027-01-22",
+          "mode": "full",
+          "reading": 72,
+          "listening": 73,
+          "writing": {
+            "level": "接近 C1",
+            "evaluator": "导师",
+            "date": "2027-01-22"
+          },
+          "speaking": {
+            "level": "接近 C1",
+            "evaluator": "导师",
+            "date": "2027-01-22"
+          }
+        },
+        "mock2": {
+          "title": "完整模考示例二",
+          "date": "2027-01-29",
+          "mode": "full",
+          "reading": 74,
+          "listening": 71,
+          "writing": {
+            "level": "接近 C1",
+            "evaluator": "导师",
+            "date": "2027-01-29"
+          },
+          "speaking": {
+            "level": "接近 C1",
+            "evaluator": "导师",
+            "date": "2027-01-29"
+          }
+        },
+        "siteConfirmed": true
+      }
+    },
+    "mocks": [
+      {
+        "id": "example-mock-1",
+        "date": "2026-11-20",
+        "title": "示例模考（虚构）",
+        "mode": "full",
+        "scores": {
+          "reading": null,
+          "listening": null,
+          "writing": null,
+          "speaking": null
+        }
+      }
+    ],
+    "errors": [
+      {
+        "id": "example-error-1",
+        "date": "2026-10-23",
+        "type": "词序",
+        "original": "Ich denke, dass es ist wichtig.",
+        "correction": "Ich denke, dass es wichtig ist.",
+        "rule": "dass 从句的变位动词放在从句末尾。"
+      }
+    ]
   }
 }

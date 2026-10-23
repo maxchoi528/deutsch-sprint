@@ -81,9 +81,54 @@ def main():
                 }"""
             )
             assert not has_nested_blocks, "P7 has a block element directly nested in a paragraph"
+
+            page.add_init_script(
+                """() => {
+                  if (!location.pathname.endsWith('/deutsch-sprint/index.html')) return;
+                  const d = new Date();
+                  const date = [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-');
+                  localStorage.setItem('deutschSprint.dashboard.v1', JSON.stringify({
+                    schemaVersion: 1, exportedAt: '2000-01-01T00:00:00.000Z',
+                    settings: {startDate: date, theme: 'system'},
+                    checkins: {[date]: {blocks: {}, newChunks: 2, retention: null, note: 'legacy'}},
+                    gates: {w4: [true,true,true,true,true], w9: [true,true,true,true], w13: [true,true,true]},
+                    mocks: [], errors: [{id:'legacy-error',date,type:'词序',original:'falsch',correction:'richtig',rule:'test'}]
+                  }));
+                }"""
+            )
+            page.goto(f"{base_url}/index.html", wait_until="load")
+            assert page.locator(".backup-reminder.is-stale").count() == 1, "Old export timestamp should trigger the backup reminder"
+            page.get_by_role("button", name="周复盘").click()
+            assert "W0" in page.locator(".page-heading h2").inner_text(), "Review did not use the diagnostic W0 label"
+            statuses = page.locator(".rule-item .tag").all_inner_texts()
+            assert statuses and all(status == "待观察" for status in statuses), f"W0 rules should all be pending: {statuses}"
+            assert page.locator('[data-gate-field="w4.reading"]').count() == 1
+            assert page.locator('[data-gate-field="w13.mock1.title"]').count() == 1
+            migrated = page.evaluate("JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'))")
+            assert migrated["schemaVersion"] == 2, "Legacy backup was not migrated"
+            assert migrated["checkins"] and migrated["errors"][0]["id"] == "legacy-error", "Legacy progress was lost"
+            assert isinstance(migrated["gates"]["w4"], dict), "Legacy checkbox gates should be safely ignored"
+            assert migrated["lastExportAt"].startswith("2000-01-01"), "Legacy export timestamp was not migrated"
+
+            page.evaluate(
+                """() => {
+                  const today = new Date();
+                  const key = d => [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-');
+                  const start = new Date(today); start.setDate(start.getDate()-21);
+                  const checkins = {};
+                  for (let i=0;i<5;i++) { const d=new Date(today); d.setDate(d.getDate()-i); checkins[key(d)]={blocks:{},newChunks:0,retention:null,note:''}; }
+                  const state=JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'));
+                  state.settings.startDate=key(start); state.checkins=checkins; state.gates={w4:{},w9:{},w13:{}};
+                  localStorage.setItem('deutschSprint.dashboard.v1',JSON.stringify(state));
+                }"""
+            )
+            page.reload(wait_until="load")
+            page.get_by_role("button", name="周复盘").click()
+            hours_rule = page.locator(".rule-item", has_text="本周主动学习少于 30 小时")
+            assert hours_rule.locator(".tag").inner_text() == "已触发", "A week with five recorded days should evaluate the low-hours rule"
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
             browser.close()
-            print("PASS: P1 gloss tooltip and paragraph structure; P7 paragraph nesting; no page errors.")
+            print("PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.")
     finally:
         server.shutdown()
         server.server_close()
