@@ -6,7 +6,7 @@
 
 - **b2-wohnen**：核对「unter Druck fühlen」是否应在卡片词条中完整呈现反身代词；核对「mündliche Absprachen sind später schwer nachzuweisen」是否表述过强、需要更谨慎的语气。
 - **b2-beruf**：核对「eine Rücksprache halten」「den Überblick behalten」「Punkte kurz abstimmen」在当前语境中的自然度；确认「Erreichbarkeit」和「Verbindlichkeit」的 `plural_note` 标注。
-- **b2-bildung**：核对「Lernstoff einteilen」「eine Lücke schließen」与学习语境是否自然；确认「Lernfortschritt」通常不用复数的标注。
+- **b2-bildung**：核对「Lernstoff einteilen」「eine Lücke schließen」与学习语境是否自然；复数已改为「Lernfortschritte」，请抽检释义与搭配。
 - **b2-reisen**：核对「vorgesehene Verbindung」「eine Erstattung beantragen」的搭配；「Ersatzverkehr」释义按一般语境写成公交或其他替代交通方式，请确认是否需要限定范围。
 - **b2-konsum**：核对「Aufwand und Nutzen abwägen」「fachgerecht zurückgeben」「eine Beschwerde einreichen」是否适合 B2 难度，且没有暗示统一的退货规则。
 - **b2-medien**：核对「Quelle prüfen」「eine Behauptung belegen」「eine Gegenprobe」是否清楚地区分事实、来源与观点；检查“已核对来源不等于信息必然正确”的语气是否充分。
@@ -19,3 +19,7 @@
 3. 对照题干、答案和校验器打印出的证据句，确认答案能由该句直接支持。
 4. 对词条中的词性、复数和「通常无复数」注释作词典级核验。
 5. 导师完成审校后，再更新对应课件状态；在此之前保留 `ai-generated-unreviewed`。
+
+## 2026-10-23 使用前补审
+
+已补齐新增 7 篇的 84 条中文释义，并将题型补为对错、选择、配对各一题；媒体篇第 1 题、学习篇第 3 题的证据改为直接支持答案的句子。租房与志愿篇体裁改标为建议类文章（Ratgeber），避免冒称报道或人物特写。此为 AI 自查，仍保留未获导师审校状态。

@@ -45,7 +45,9 @@ def main():
 
             page.goto(f"{base_url}/p1-reader/index.html", wait_until="load")
             embedded = json.loads(page.locator("#lesson-data").text_content())
-            lesson = embedded["lessons"][0]
+            active_id = page.locator("[data-lesson][aria-current=page]").get_attribute("data-lesson")
+            lesson = next(l for l in embedded["lessons"] if l["id"] == active_id)
+            assert lesson["level"] == "B2", "New learners should start with B2"
             expected_paragraphs = sum(bool(p.strip()) for p in re.split(r"\n+", lesson["text"]))
             paragraphs = page.locator(".article-box .paragraph")
             assert paragraphs.count() == expected_paragraphs, (

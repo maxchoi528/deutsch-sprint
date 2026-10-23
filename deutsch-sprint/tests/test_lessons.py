@@ -58,6 +58,9 @@ class LessonEvidenceTests(unittest.TestCase):
                 self.assertGreaterEqual(len(lesson["glosses"]), math.ceil(word_count * 0.05))
                 self.assertEqual(lesson["review_status"], "ai-generated-unreviewed")
                 self.assertEqual(len(lesson["questions"]), 3)
+                self.assertEqual({q["type"] for q in lesson["questions"]}, {"对错", "选择", "配对"})
+                for gloss in lesson["glosses"]:
+                    self.assertRegex(gloss["zh"], r"[\u3400-\u9fff]", "Chinese meanings must not be German placeholders")
 
 
 if __name__ == "__main__":
