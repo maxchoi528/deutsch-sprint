@@ -73,7 +73,28 @@ def main():
             note_tooltip = page.locator("#" + gloss_button.get_attribute("aria-describedby"))
             assert "通常无复数" in note_tooltip.inner_text(), "plural_note was not shown in the tooltip"
 
+            page.add_init_script(
+                """() => {
+                  if (!location.pathname.endsWith('/p7-practice/index.html')) return;
+                  localStorage.setItem('deutschSprint.p7.v1', JSON.stringify({
+                    currentId: 'schreiben-forum',
+                    attempts: {
+                      'schreiben-forum': {response: 'Alter Forumsentwurf'},
+                      'schreiben-email': {response: 'Alter E-Mail-Entwurf'}
+                    }
+                  }));
+                }"""
+            )
             page.goto(f"{base_url}/p7-practice/index.html", wait_until="load")
+            legacy_p7 = page.evaluate("JSON.parse(localStorage.getItem('deutschSprint.p7.v1'))")
+            migrated_writing = legacy_p7["attempts"]["schreiben"]
+            assert migrated_writing["responses"]["forum"] == "Alter Forumsentwurf"
+            assert migrated_writing["responses"]["email"] == "Alter E-Mail-Entwurf"
+            assert migrated_writing["legacyDraftMigrated"] is True
+            assert "75" in page.locator(".timer-label").inner_text(), "Writing tasks should share a 75-minute timer"
+            assert page.locator('[data-task="schreiben"]').count() == 1, "Writing must be one shared module"
+            page.locator('[data-task="lesen"]').click()
+            assert "缩小版练习，不是整套模考" in page.locator(".lede").inner_text()
             has_nested_blocks = page.evaluate(
                 """() => {
                   const block = new Set(['DIV','SECTION','ARTICLE','ASIDE','NAV','HEADER','FOOTER','FIELDSET','UL','OL','DETAILS']);
@@ -81,6 +102,15 @@ def main():
                 }"""
             )
             assert not has_nested_blocks, "P7 has a block element directly nested in a paragraph"
+            page.locator('[data-task="schreiben"]').click()
+            page.locator('[data-writing-custom]').check()
+            durations = page.locator('[data-writing-duration]')
+            assert durations.count() == 2, "Custom writing mode should expose two task timers"
+            durations.nth(0).fill("30")
+            durations.nth(1).fill("45")
+            assert page.locator("#timer").inner_text() == "75:00", "Custom per-task durations should be shown before starting"
+            page.get_by_role("button", name="开始限时练习").click()
+            assert "任务 1/2" in page.locator(".timer-label").inner_text()
 
             page.add_init_script(
                 """() => {

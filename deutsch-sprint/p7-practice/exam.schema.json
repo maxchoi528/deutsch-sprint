@@ -3,18 +3,333 @@
   "$id": "https://deutsch-sprint.local/exam.schema.json",
   "title": "Deutsch Sprint C1 supplementary practice set",
   "type": "object",
-  "required": ["schemaVersion", "label", "sections"],
+  "required": [
+    "schemaVersion",
+    "label",
+    "sections"
+  ],
   "properties": {
-    "schemaVersion": {"const": 1},
-    "label": {"type": "string"},
-    "sections": {"type": "array", "minItems": 1, "items": {"oneOf": [{"$ref":"#/$defs/reading"},{"$ref":"#/$defs/listening"},{"$ref":"#/$defs/writing"},{"$ref":"#/$defs/speaking"}]}}
+    "schemaVersion": {
+      "const": 1
+    },
+    "label": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/reading"
+          },
+          {
+            "$ref": "#/$defs/listening"
+          },
+          {
+            "$ref": "#/$defs/writing"
+          },
+          {
+            "$ref": "#/$defs/writingLegacy"
+          },
+          {
+            "$ref": "#/$defs/speaking"
+          }
+        ]
+      }
+    }
   },
   "additionalProperties": false,
   "$defs": {
-    "question": {"type":"object","required":["type","q","options","answer","evidence_sentence_index"],"properties":{"type":{"enum":["对错","选择","配对"]},"q":{"type":"string"},"options":{"type":"array","minItems":2,"items":{"type":"string"}},"answer":{"type":"string"},"evidence_sentence_index":{"type":"integer","minimum":0}},"additionalProperties":false},
-    "reading": {"type":"object","required":["id","kind","title","duration_minutes","text","questions"],"properties":{"id":{"type":"string"},"kind":{"const":"reading"},"title":{"type":"string"},"duration_minutes":{"type":"integer","minimum":1},"text":{"type":"string"},"questions":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/question"}}},"additionalProperties":false},
-    "listening": {"type":"object","required":["id","kind","title","duration_minutes","transcript","questions"],"properties":{"id":{"type":"string"},"kind":{"const":"listening"},"title":{"type":"string"},"duration_minutes":{"type":"integer","minimum":1},"fictional":{"type":"boolean"},"transcript":{"type":"string"},"questions":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/question"}}},"additionalProperties":false},
-    "writing": {"type":"object","required":["id","kind","title","duration_minutes","task","points","structure"],"properties":{"id":{"type":"string"},"kind":{"const":"writing"},"title":{"type":"string"},"duration_minutes":{"type":"integer","minimum":1},"task":{"type":"string"},"points":{"type":"array","items":{"type":"string"}},"structure":{"type":"array","items":{"type":"string"}}},"additionalProperties":false},
-    "speaking": {"type":"object","required":["id","kind","title","duration_minutes","cards"],"properties":{"id":{"type":"string"},"kind":{"const":"speaking"},"title":{"type":"string"},"duration_minutes":{"type":"integer","minimum":1},"cards":{"type":"array","minItems":1,"items":{"type":"object","required":["topic","pro","contra"],"properties":{"topic":{"type":"string"},"pro":{"type":"string"},"contra":{"type":"string"}},"additionalProperties":false}}},"additionalProperties":false}
+    "question": {
+      "type": "object",
+      "required": [
+        "type",
+        "q",
+        "options",
+        "answer",
+        "evidence_sentence_index"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "对错",
+            "选择",
+            "配对"
+          ]
+        },
+        "q": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          }
+        },
+        "answer": {
+          "type": "string"
+        },
+        "evidence_sentence_index": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "reading": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "duration_minutes",
+        "text",
+        "questions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "const": "reading"
+        },
+        "title": {
+          "type": "string"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "official_duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/question"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "listening": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "duration_minutes",
+        "transcript",
+        "questions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "const": "listening"
+        },
+        "title": {
+          "type": "string"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "official_duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fictional": {
+          "type": "boolean"
+        },
+        "transcript": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/question"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "writingTask": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "task",
+        "points",
+        "structure"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "task": {
+          "type": "string"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "structure": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "writing": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "duration_minutes",
+        "tasks"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "const": "writing"
+        },
+        "title": {
+          "type": "string"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "official_duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "tasks": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/writingTask"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "writingLegacy": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "duration_minutes",
+        "task",
+        "points",
+        "structure"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "const": "writing"
+        },
+        "title": {
+          "type": "string"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "official_duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "task": {
+          "type": "string"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "structure": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "speaking": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "duration_minutes",
+        "cards"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "const": "speaking"
+        },
+        "title": {
+          "type": "string"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cards": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "topic",
+              "pro",
+              "contra"
+            ],
+            "properties": {
+              "topic": {
+                "type": "string"
+              },
+              "pro": {
+                "type": "string"
+              },
+              "contra": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
   }
 }
