@@ -34,7 +34,8 @@
 - 按起始日重定义 W0/W1…；复盘规则改为三态，W0 不评估，缺关键数据时显示待观察。
 - 将 W4/W9/W13 改为分数与等级证据，注明为内部门槛；旧版 JSON 可迁移，旧关卡勾选安全忽略。
 - 增加上次导出时间和超过 7 天的备份提醒；更新数据 schema、示例和可选浏览器冒烟用例。
-- 验证：JavaScript 语法、JSON 语法和现有单元测试通过；Playwright 冒烟因未安装而跳过。
+- 复审补充：旧版 localStorage 在读取时即写回 schemaVersion 2；修正 P6 浏览器冒烟用例的根路径 fixture。
+- 验证：JavaScript/JSON 语法检查和 13 项 unittest 通过；Playwright 冒烟因未安装而跳过。
 
 ## T7 · P7 补充练习
 

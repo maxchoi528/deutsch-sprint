@@ -114,7 +114,7 @@ def main():
 
             page.add_init_script(
                 """() => {
-                  if (!location.pathname.endsWith('/deutsch-sprint/index.html')) return;
+                  if (location.pathname !== '/index.html') return;
                   const d = new Date();
                   const date = [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-');
                   localStorage.setItem('deutschSprint.dashboard.v1', JSON.stringify({

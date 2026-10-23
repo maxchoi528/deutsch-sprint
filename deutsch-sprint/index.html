@@ -436,7 +436,14 @@
     function loadState() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? normalizeState(JSON.parse(raw)) : defaultState();
+        if (!raw) return defaultState();
+        const imported=JSON.parse(raw);
+        const normalized=normalizeState(imported);
+        if (imported?.schemaVersion!==2) {
+          try { localStorage.setItem(STORAGE_KEY,JSON.stringify(normalized)); }
+          catch (error) { console.warn('无法立即升级本地进度格式；本次仍按兼容格式读取',error); }
+        }
+        return normalized;
       } catch (error) {
         console.warn('无法读取本地进度数据', error);
         return defaultState();
