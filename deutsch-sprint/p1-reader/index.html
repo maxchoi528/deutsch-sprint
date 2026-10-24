@@ -49,8 +49,9 @@
     let saved={};
     try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch{}
     let lessons=Array.isArray(saved.lessons)&&saved.lessons.length?saved.lessons:EMBEDDED.lessons;
-    let currentId=lessons.some(x=>x.id===saved.currentId)?saved.currentId:(lessons.find(l=>l.level==='B2')||lessons[0])?.id;
-    let theme=saved.theme||'system',levelFilter=saved.levelFilter||'all',blind=false,summaryOpen=false,visibleResults=null,toastTimer;
+    const requestedLesson=new URLSearchParams(location.search).get('lesson');
+    let currentId=lessons.some(x=>x.id===requestedLesson)?requestedLesson:lessons.some(x=>x.id===saved.currentId)?saved.currentId:(lessons.find(l=>l.level==='B2')||lessons[0])?.id;
+    let theme=saved.theme||'system',levelFilter=requestedLesson&&lessons.some(x=>x.id===requestedLesson)?'all':saved.levelFilter||'all',blind=false,summaryOpen=false,visibleResults=null,toastTimer;
     let progress=saved.progress&&typeof saved.progress==='object'?saved.progress:{};
     const app=document.getElementById('reader-app');
     const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

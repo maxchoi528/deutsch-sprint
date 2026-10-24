@@ -69,3 +69,9 @@
 - 实际检查：`python3 -m unittest tests.test_p5_shadow -v`（2 项通过）；`python3 p5-shadow/app.py --selftest --model ./models/nonexistent` 在当前缺少 faster-whisper 环境下输出中文依赖错误并退出 1；`python3 -m py_compile p5-shadow/app.py` 通过。
 - 未验证：真实 faster-whisper 模型、真实音频识别和物理麦克风仍未运行。
 
+# R7 复审落实（2026-10-24）
+- 新增 16 周 syllabus JSON、schema 和标准库验证器。各周含阶段、语法、对应 P1 lesson id、口语话题、写作类型、复盘点及 Anki/精读/口语/听力/写作五类今日任务。
+- 仪表盘首页按当前周显示计划；任务完成状态存于当日 checkin 的 `dailyTasks`，旧打卡记录会规范化为未勾选，不丢原数据。P1 深链接会打开对应课件。
+- 实际检查：`python3 validate_syllabus.py`；`python3 build_dashboard.py`；`python3 p1-reader/build_reader.py`；`python3 -m unittest tests.test_syllabus -v`（3 项通过）；`python3 tests/smoke_browser.py`（通过含桌面/手机任务检查和直接课件路由）。
+- 未解决：每日任务按同一周主题重复，使用者可按实际进度调整；本工具不自动适配临时休息日。
+

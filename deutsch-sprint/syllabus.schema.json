@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://deutsch-sprint.local/syllabus.schema.json",
+  "title": "Deutsch Sprint weekly syllabus",
+  "type": "object",
+  "required": ["schemaVersion", "weeks"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "weeks": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {"$ref": "#/$defs/week"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "week": {
+      "type": "object",
+      "required": ["week", "stage", "grammar_theme", "reading_lesson_id", "speaking_topic", "writing_task_type", "review_points", "daily_tasks"],
+      "properties": {
+        "week": {"type": "integer", "minimum": 1, "maximum": 16},
+        "stage": {"enum": ["A", "B", "C", "D"]},
+        "grammar_theme": {"type": "string", "minLength": 1},
+        "reading_lesson_id": {"type": "string", "minLength": 1},
+        "speaking_topic": {"type": "string", "minLength": 1},
+        "writing_task_type": {"type": "string", "minLength": 1},
+        "review_points": {"type": "string", "minLength": 1},
+        "daily_tasks": {
+          "type": "object",
+          "required": ["anki", "deep", "speaking", "listening", "writing"],
+          "properties": {
+            "anki": {"type": "string", "minLength": 1},
+            "deep": {"type": "string", "minLength": 1},
+            "speaking": {"type": "string", "minLength": 1},
+            "listening": {"type": "string", "minLength": 1},
+            "writing": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

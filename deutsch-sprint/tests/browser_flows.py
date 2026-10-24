@@ -41,6 +41,12 @@ def extra_flows(browser, base_url, errors):
     assert value['mocks'][0]['scores']['reading'] == 76
     assert value['checkins'][today]['note'] == 'old note'
     assert value['gates']['w4']['reading'] is None
+    assert page.locator('[data-syllabus-task]').count() == 5
+    assert 'b2-wohnen' in page.locator('.syllabus-panel a').get_attribute('href')
+    page.locator('[data-syllabus-task="anki"]').check()
+    assert saved(page, P6)['checkins'][today]['dailyTasks']['anki'] is True
+    page.reload()
+    assert page.locator('[data-syllabus-task="anki"]').is_checked()
     edit(page, '[data-block-minutes="anki"]', 50)
     page.reload()
     assert page.locator('[data-block-minutes="anki"]').input_value() == '50'
@@ -184,6 +190,21 @@ def extra_flows(browser, base_url, errors):
     assert 'etwa 20 Minuten' in page.locator('.notice').inner_text()
     print('PASS: P7 verified exam duration labels, interview, lecture-style listening and paired-speaking guidance.')
     page.close()
+
+    page = browser.new_page()
+    page.on('pageerror', lambda error: errors.append(str(error)))
+    page.goto(base_url + '/p1-reader/index.html?lesson=b2-wohnen')
+    assert page.locator('.article-head h2').inner_text() == 'Eine Wohnung finden, ohne sofort zuzuschlagen'
+    page.close()
+    print('PASS: P6 weekly syllabus checklist persistence and direct link to the selected P1 lesson.')
+
+    mobile_dashboard = browser.new_page(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
+    mobile_dashboard.add_init_script("""() => { const d=new Date();const key=d.toLocaleDateString('sv-SE');localStorage.setItem('deutschSprint.dashboard.v1',JSON.stringify({schemaVersion:3,settings:{startDate:key,w1Start:key,theme:'light'},checkins:{},gates:{w4:{},w9:{},w13:{}},mocks:[],errors:[]})); }""")
+    mobile_dashboard.goto(base_url + '/index.html')
+    assert mobile_dashboard.locator('[data-syllabus-task]').count() == 5
+    assert mobile_dashboard.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'P6 syllabus overflows a mobile viewport'
+    mobile_dashboard.close()
+    print('PASS: P6 weekly plan remains usable without horizontal overflow at mobile width.')
 
     mobile = browser.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
     page = mobile.new_page()

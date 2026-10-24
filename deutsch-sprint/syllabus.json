@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "weeks": [
+    {
+      "week": 1,
+      "stage": "A",
+      "grammar_theme": "Kasus、支配介词动词与 Wechselpräpositionen",
+      "reading_lesson_id": "b2-wohnen",
+      "speaking_topic": "Wohnungssuche und faire Mietbedingungen",
+      "writing_task_type": "短评：合适住房与租房条件",
+      "review_points": "支配介词格；位置与方向格；从句中介词动词搭配",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 2,
+      "stage": "A",
+      "grammar_theme": "从句语序：dass / weil / obwohl / während / indem 与 Relativsatz",
+      "reading_lesson_id": "b2-beruf",
+      "speaking_topic": "Hybride Arbeit und klare Teamregeln",
+      "writing_task_type": "邮件：提出团队协作建议",
+      "review_points": "从属连词动词后置；关系代词格；主句括号",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 3,
+      "stage": "A",
+      "grammar_theme": "Passiv：Vorgangs-/Zustandspassiv 与 Passiversatz",
+      "reading_lesson_id": "b2-medien",
+      "speaking_topic": "Digitale Informationen zuverlässig prüfen",
+      "writing_task_type": "说明文：解释信息核验流程",
+      "review_points": "werden/sein + Partizip II；lassen sich；man 句式转换",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 4,
+      "stage": "A",
+      "grammar_theme": "Konjunktiv II；核对 W4 内部门槛",
+      "reading_lesson_id": "b2-bildung",
+      "speaking_topic": "Lernen mit realistischen Wochenzielen",
+      "writing_task_type": "论坛帖：表达建议、假设与让步",
+      "review_points": "礼貌请求；不可实现条件；würde 与强变化动词",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 5,
+      "stage": "B",
+      "grammar_theme": "Nominalisierung 与 Nominalstil",
+      "reading_lesson_id": "b2-ehrenamt",
+      "speaking_topic": "Freiwilliges Engagement und eigene Grenzen",
+      "writing_task_type": "正式邮件：说明参与条件",
+      "review_points": "动词名词化；介词短语；名词化与动词化互换",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 6,
+      "stage": "B",
+      "grammar_theme": "Partizipialattribute 与 erweiterte Attribute",
+      "reading_lesson_id": "b2-reisen",
+      "speaking_topic": "Reisen bei Verspätungen und Anschlussproblemen",
+      "writing_task_type": "报道摘要：描述出行方案及限制",
+      "review_points": "第一/第二分词作定语；前置长定语拆解；关系从句改写",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 7,
+      "stage": "B",
+      "grammar_theme": "Funktionsverbgefüge 与固定表达",
+      "reading_lesson_id": "b2-konsum",
+      "speaking_topic": "Reparieren, Kaufen und bewusste Entscheidungen",
+      "writing_task_type": "评论：权衡修理与购买",
+      "review_points": "eine Entscheidung treffen；in Betracht ziehen；zur Verfügung stehen",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 8,
+      "stage": "B",
+      "grammar_theme": "Konjunktiv I 与 indirekte Rede（转述）",
+      "reading_lesson_id": "b2-beruf",
+      "speaking_topic": "Berichte aus dem hybriden Arbeitsalltag",
+      "writing_task_type": "采访整理：中性转述观点",
+      "review_points": "Konjunktiv I 变位；替代式 Konjunktiv II；间接问句",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 9,
+      "stage": "B",
+      "grammar_theme": "Konnektoren 与论证结构；核对 W9 内部门槛",
+      "reading_lesson_id": "b2-medien",
+      "speaking_topic": "Mediennutzung und unterschiedliche Interessen",
+      "writing_task_type": "议论文：提出主张、反方与回应",
+      "review_points": "因果、让步、对照、结果连接词；段落论证链",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周语法主题练习，并精读推荐课件，摘录可复用词块。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "精听一段材料，复述主旨并核对遗漏信息。",
+        "writing": "完成本周写作任务类型，收集批改反馈并重写重点句。"
+      }
+    },
+    {
+      "week": 10,
+      "stage": "C",
+      "grammar_theme": "考试模式：限时 Lesen/Hören；Schreiben 两项共用 75 分钟；配对口试",
+      "reading_lesson_id": "b2-wohnen",
+      "speaking_topic": "Öffentliche Räume und Wohnen",
+      "writing_task_type": "限时论坛文章 + 正式邮件",
+      "review_points": "阅读定位与推断；听力笔记；双任务时间分配",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周限时阅读练习，复盘定位/推断依据；推荐课件用于补弱。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "完成本周限时听力练习，写关键词并复盘干扰项。",
+        "writing": "按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"
+      }
+    },
+    {
+      "week": 11,
+      "stage": "C",
+      "grammar_theme": "考试模式：混合题型阅读/听力与配对讨论",
+      "reading_lesson_id": "b2-bildung",
+      "speaking_topic": "Weiterbildung und lebenslanges Lernen",
+      "writing_task_type": "限时观点文：论证与回应",
+      "review_points": "按题型分配时间；理由—例证—限制；口试接话",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周限时阅读练习，复盘定位/推断依据；推荐课件用于补弱。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "完成本周限时听力练习，写关键词并复盘干扰项。",
+        "writing": "按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"
+      }
+    },
+    {
+      "week": 12,
+      "stage": "C",
+      "grammar_theme": "考试模式：完整写作流程与模考复盘",
+      "reading_lesson_id": "b2-reisen",
+      "speaking_topic": "Mobilität, Zeitplanung und Alternativen",
+      "writing_task_type": "正式投诉/请求邮件 + 观点短文",
+      "review_points": "草拟、检查、修订；连接词准确性；听力摘要",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "完成本周限时阅读练习，复盘定位/推断依据；推荐课件用于补弱。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "完成本周限时听力练习，写关键词并复盘干扰项。",
+        "writing": "按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"
+      }
+    },
+    {
+      "week": 13,
+      "stage": "C",
+      "grammar_theme": "两套完整模考判断（若可用）；核对 W13 关卡",
+      "reading_lesson_id": "b2-medien",
+      "speaking_topic": "Digitale Öffentlichkeit und Medienkompetenz",
+      "writing_task_type": "限时综合输出与修订",
+      "review_points": "两套模考间留恢复时间；逐项复盘，不临时补新语法",
+      "daily_tasks": {
+        "anki": "复习所有到期卡；新卡控制在可稳定复习的数量。",
+        "deep": "安排两套完整模考中的 Lesen；两套之间留恢复和复盘时间。",
+        "speaking": "围绕本周话题主动表达，记录停顿处与至少一条修正。",
+        "listening": "安排两套完整模考中的 Hören，并复盘错误原因。",
+        "writing": "按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"
+      }
+    },
+    {
+      "week": 14,
+      "stage": "D",
+      "grammar_theme": "减量：维持复习与弱项练习；确认报考与材料",
+      "reading_lesson_id": "b2-ehrenamt",
+      "speaking_topic": "Engagement, Verantwortung und Alltag",
+      "writing_task_type": "短篇表达：总结个人立场",
+      "review_points": "复习高频错误；轻量听读；确认考试安排",
+      "daily_tasks": {
+        "anki": "复习到期卡，不集中增加新卡。",
+        "deep": "轻量阅读与弱项回顾；W16 加一篇长文摘要作为 C2 阅读预备。",
+        "speaking": "做短时、低压力表达，保持流利度，不新增高强度模拟。",
+        "listening": "选择熟悉难度的材料轻听并复述主旨。",
+        "writing": "做提纲或短段改写；优先回看已批改文本。"
+      }
+    },
+    {
+      "week": 15,
+      "stage": "D",
+      "grammar_theme": "减量与缓冲：睡眠、节奏、已掌握内容回收",
+      "reading_lesson_id": "b2-konsum",
+      "speaking_topic": "Konsum, Reparatur und Nachhaltigkeit",
+      "writing_task_type": "限时提纲练习，不追求新难点",
+      "review_points": "回顾个人错误表；口语框架；减少新卡",
+      "daily_tasks": {
+        "anki": "复习到期卡，不集中增加新卡。",
+        "deep": "轻量阅读与弱项回顾；W16 加一篇长文摘要作为 C2 阅读预备。",
+        "speaking": "做短时、低压力表达，保持流利度，不新增高强度模拟。",
+        "listening": "选择熟悉难度的材料轻听并复述主旨。",
+        "writing": "做提纲或短段改写；优先回看已批改文本。"
+      }
+    },
+    {
+      "week": 16,
+      "stage": "D",
+      "grammar_theme": "考试缓冲；建立 C2 阅读预备习惯",
+      "reading_lesson_id": "stadt-hitze",
+      "speaking_topic": "Stadtentwicklung und öffentliche Debatten",
+      "writing_task_type": "C2 预备：长文摘要与观点回应",
+      "review_points": "保持轻量输入；归档学习记录；规划后续 C2 阅读",
+      "daily_tasks": {
+        "anki": "复习到期卡，不集中增加新卡。",
+        "deep": "轻量阅读与弱项回顾；W16 加一篇长文摘要作为 C2 阅读预备。",
+        "speaking": "做短时、低压力表达，保持流利度，不新增高强度模拟。",
+        "listening": "选择熟悉难度的材料轻听并复述主旨。",
+        "writing": "做提纲或短段改写；优先回看已批改文本。"
+      }
+    }
+  ]
+}
