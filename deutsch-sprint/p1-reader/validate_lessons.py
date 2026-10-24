@@ -86,12 +86,27 @@ def validate_collection(collection):
         if len(gloss_ids) != len(set(gloss_ids)):
             errors.append(f"{lesson_id}: gloss ids must be unique")
         gloss_id_set = set(gloss_ids)
+        gloss_by_id = {
+            gloss.get("id"): gloss for gloss in glosses if isinstance(gloss, dict)
+        }
         counts = {gloss_id: 0 for gloss_id in gloss_id_set}
-        for surface, gloss_id in MARKER_RE.findall(text):
+        for match in MARKER_RE.finditer(text):
+            surface, gloss_id = match.groups()
             if gloss_id not in gloss_id_set:
                 errors.append(f"{lesson_id}: marker {{{surface}|{gloss_id}}} has no gloss")
             else:
                 counts[gloss_id] += 1
+                expected_surface = gloss_by_id[gloss_id].get("surface")
+                if expected_surface is not None and surface != expected_surface:
+                    errors.append(
+                        f"{lesson_id}: marker {{{surface}|{gloss_id}}} does not match "
+                        f"gloss surface {expected_surface!r}"
+                    )
+            if match.end() < len(text) and text[match.end()].isalnum():
+                errors.append(
+                    f"{lesson_id}: marker {{{surface}|{gloss_id}}} is followed by "
+                    "letters outside the gloss; include the complete inflected form"
+                )
         for gloss_id, count in counts.items():
             if count == 0:
                 errors.append(f"{lesson_id}: gloss {gloss_id!r} is not marked in the text")

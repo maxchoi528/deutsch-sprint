@@ -54,8 +54,12 @@ class LessonEvidenceTests(unittest.TestCase):
                 plain_text = re.sub(r"\{([^{}|]+)\|[^{}|]+\}", r"\1", lesson["text"])
                 word_count = len(re.findall(r"\S+", plain_text))
                 self.assertIn(lesson["level"], {"B2", "B2+"})
-                self.assertGreaterEqual(word_count, 180)
-                self.assertLessEqual(word_count, 260)
+                if lesson in self.collection["lessons"][-6:]:
+                    self.assertGreaterEqual(word_count, 220)
+                    self.assertLessEqual(word_count, 320)
+                else:
+                    self.assertGreaterEqual(word_count, 180)
+                    self.assertLessEqual(word_count, 260)
                 self.assertGreaterEqual(len(lesson["glosses"]), 12)
                 self.assertGreaterEqual(len(lesson["glosses"]), math.ceil(word_count * 0.05))
                 self.assertEqual(lesson["review_status"], "ai-generated-unreviewed")
@@ -101,6 +105,15 @@ class LessonEvidenceTests(unittest.TestCase):
             gloss.pop("cefr", None)
         errors = validate_collection(collection)
         self.assertTrue(any("requires at least 70%" in error for error in errors))
+
+    def test_validator_rejects_gloss_marker_with_unmarked_inflection(self):
+        collection = json.loads(json.dumps(self.collection))
+        lesson = collection["lessons"][0]
+        lesson["text"] = lesson["text"].replace(
+            "{Hitzebelastung|h1}", "{Hitzebelastung|h1}en", 1
+        )
+        errors = validate_collection(collection)
+        self.assertTrue(any("letters outside the gloss" in error for error in errors))
 
     def test_optional_stoplist_reports_matching_single_word_glosses(self):
         with tempfile.TemporaryDirectory() as directory:

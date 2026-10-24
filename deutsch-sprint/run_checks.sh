@@ -7,5 +7,10 @@ python3 validate_syllabus.py
 python3 build_dashboard.py
 python3 p1-reader/build_reader.py
 python3 p7-practice/build.py
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  git diff --exit-code -- p1-reader/index.html p7-practice/index.html
+else
+  echo "SKIP: git unavailable; generated-page commit consistency was not checked."
+fi
 python3 -m unittest discover -s tests
 python3 tests/smoke_browser.py
