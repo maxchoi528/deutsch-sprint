@@ -15,6 +15,8 @@ SENTENCE_SPLIT_RE = re.compile(
     r"(?<=[.!?。！？])\s+(?=[{„A-ZÄÖÜ])"
 )
 WORD_RE = re.compile(r"\S+")
+VALID_CEFR = {"B2", "C1", "chunk"}
+STYLE_PATTERNS = re.compile(r"\bsollte man\b|\bkann sinnvoll\b|\bhilft\b|\bhilfreich\b|\bkann helfen\b", re.I)
 
 
 def reader_sentences(text):
@@ -46,6 +48,28 @@ def validate_collection(collection):
             continue
 
         glosses = lesson.get("glosses", [])
+        tagged = [g.get("cefr") for g in glosses if isinstance(g, dict) and g.get("cefr") in VALID_CEFR]
+        invalid_cefr = [g.get("id", "<unknown>") for g in glosses if isinstance(g, dict) and g.get("cefr") and g.get("cefr") not in VALID_CEFR]
+        if invalid_cefr:
+            errors.append(f"{lesson_id}: gloss cefr must be B2, C1 or chunk: {', '.join(invalid_cefr)}")
+        if glosses and len(tagged) / len(glosses) < 0.70:
+            errors.append(f"{lesson_id}: only {len(tagged)}/{len(glosses)} glosses have B2/C1/chunk tags; requires at least 70%")
+        stoplist = ROOT / "data" / "stoplist.txt"
+        if stoplist.is_file():
+            blocked = {line.strip().casefold() for line in stoplist.read_text(encoding="utf-8").splitlines() if line.strip() and not line.lstrip().startswith("#")}
+            for gloss in glosses:
+                if not isinstance(gloss, dict) or gloss.get("pos", "").casefold() not in {"nomen", "verb", "adjektiv", "adverb"}:
+                    continue
+                lemma = re.sub(r"^(der|die|das|ein|eine)\s+", "", str(gloss.get("lemma", "")), flags=re.I).casefold()
+                if lemma in blocked:
+                    print(f"WARNUNG [{lesson_id}]: Gloss {gloss.get('id')} „{lemma}“ steht in der Stoppliste.")
+        words = len(WORD_RE.findall(MARKER_RE.sub(r"\1", text)))
+        tokens = MARKER_RE.sub(r"\1", text).split()
+        for offset in range(0, max(1, len(tokens)), 200):
+            section = " ".join(tokens[offset:offset+200])
+            style_count = len(STYLE_PATTERNS.findall(section))
+            if style_count > 3:
+                print(f"WARNUNG [{lesson_id}]: {style_count} typische Ratgeber-Phrasen innerhalb von höchstens 200 Wörtern; bitte gegenlesen.")
         gloss_ids = [g.get("id") for g in glosses if isinstance(g, dict)]
         if len(gloss_ids) != len(set(gloss_ids)):
             errors.append(f"{lesson_id}: gloss ids must be unique")
@@ -60,7 +84,6 @@ def validate_collection(collection):
             if count == 0:
                 errors.append(f"{lesson_id}: gloss {gloss_id!r} is not marked in the text")
 
-        words = len(WORD_RE.findall(MARKER_RE.sub(r"\1", text)))
         required_glosses = max(12, math.ceil(words * 0.05))
         if len(gloss_ids) < required_glosses:
             errors.append(
@@ -69,23 +92,37 @@ def validate_collection(collection):
             )
 
         sentences = reader_sentences(text)
+        question_types = set()
         for question_index, question in enumerate(lesson.get("questions", []), start=1):
+            question_types.add(question.get("type"))
+            if question.get("type") not in {"对错", "选择", "配对", "选择（细节）", "推断", "立场"}:
+                errors.append(f"{lesson_id}: question {question_index} has an unsupported type")
             answer = question.get("answer")
             options = question.get("options", [])
             if answer not in options:
                 errors.append(f"{lesson_id}: question {question_index} answer is not in options")
-            evidence_index = question.get("evidence_sentence_index")
-            if not isinstance(evidence_index, int) or isinstance(evidence_index, bool):
-                errors.append(f"{lesson_id}: question {question_index} evidence index must be an integer")
+            indices = question.get("evidence_sentence_indices")
+            if indices is None:
+                indices = [question.get("evidence_sentence_index")]
+            if not isinstance(indices, list) or not indices:
+                errors.append(f"{lesson_id}: question {question_index} evidence indices must be a nonempty array")
                 continue
-            if not 0 <= evidence_index < len(sentences):
-                errors.append(
-                    f"{lesson_id}: question {question_index} evidence index {evidence_index} "
-                    f"is outside 0..{len(sentences) - 1}"
-                )
-                continue
-            evidence = MARKER_RE.sub(r"\1", sentences[evidence_index])
-            print(f"[{lesson_id} Q{question_index} · sentence {evidence_index}] {evidence}")
+            if all(isinstance(index, int) and not isinstance(index, bool) for index in indices) and len(indices) != len(set(indices)):
+                errors.append(f"{lesson_id}: question {question_index} evidence indices must be unique")
+            for evidence_index in indices:
+                if not isinstance(evidence_index, int) or isinstance(evidence_index, bool):
+                    errors.append(f"{lesson_id}: question {question_index} evidence index must be an integer")
+                    continue
+                if not 0 <= evidence_index < len(sentences):
+                    errors.append(
+                        f"{lesson_id}: question {question_index} evidence index {evidence_index} "
+                        f"is outside 0..{len(sentences) - 1}"
+                    )
+                    continue
+                evidence = MARKER_RE.sub(r"\1", sentences[evidence_index])
+                print(f"[{lesson_id} Q{question_index} · sentence {evidence_index}] {evidence}")
+        if lesson.get("level") in {"B2+", "C1"} and not question_types.intersection({"推断", "立场"}):
+            errors.append(f"{lesson_id}: B2+/C1 lessons need at least one inference or stance question")
 
     return errors
 

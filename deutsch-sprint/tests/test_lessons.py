@@ -5,7 +5,9 @@ import math
 from pathlib import Path
 import re
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -60,9 +62,55 @@ class LessonEvidenceTests(unittest.TestCase):
                 self.assertEqual(len(lesson["questions"]), 3)
                 self.assertGreaterEqual(len(lesson["grammar_focus"]), 2)
                 self.assertNotEqual(lesson["summary_zh"], "AI 生成的练习摘要，尚未导师审校。")
-                self.assertEqual({q["type"] for q in lesson["questions"]}, {"对错", "选择", "配对"})
+                self.assertTrue({q["type"] for q in lesson["questions"]} <= {"对错", "选择", "选择（细节）", "推断", "立场"})
                 for gloss in lesson["glosses"]:
                     self.assertRegex(gloss["zh"], r"[\u3400-\u9fff]", "Chinese meanings must not be German placeholders")
+                    self.assertIn(gloss.get("cefr"), {"B2", "C1", "chunk"})
+
+    def test_b2_wohnen_question_includes_both_evidence_sentences(self):
+        lesson = next(lesson for lesson in self.collection["lessons"] if lesson["id"] == "b2-wohnen")
+        question = lesson["questions"][0]
+        sentences = reader_sentences(lesson["text"])
+        self.assertEqual(question["evidence_sentence_indices"], [2, 3])
+        self.assertIn("klare Fragen zu sammeln", sentences[question["evidence_sentence_indices"][0]])
+        self.assertIn("Entscheidung besser nachvollziehbar", sentences[question["evidence_sentence_indices"][1]])
+
+    def test_b2_beruf_question_evidence_covers_kernarbeitszeit_context(self):
+        lesson = next(lesson for lesson in self.collection["lessons"] if lesson["id"] == "b2-beruf")
+        question = lesson["questions"][0]
+        sentences = reader_sentences(lesson["text"])
+        self.assertEqual(question["evidence_sentence_indices"], [4, 5])
+        self.assertIn("Kernarbeitszeit", sentences[4])
+        self.assertIn("Erreichbarkeit", sentences[5])
+
+    def test_b2_plus_and_c1_lessons_include_inference_or_stance_questions(self):
+        for lesson in self.collection["lessons"]:
+            if lesson["level"] in {"B2+", "C1"}:
+                with self.subTest(lesson=lesson["id"]):
+                    self.assertTrue({q["type"] for q in lesson["questions"]} & {"推断", "立场"})
+
+    def test_correct_choice_is_not_always_the_longest_option(self):
+        questions = [q for lesson in self.collection["lessons"] for q in lesson["questions"] if len(q["options"]) > 2]
+        shorter = sum(len(q["answer"]) < max(map(len, q["options"])) for q in questions)
+        self.assertGreaterEqual(shorter, 5)
+
+    def test_validator_rejects_insufficient_cefr_tags(self):
+        collection = json.loads(json.dumps(self.collection))
+        lesson = collection["lessons"][0]
+        for gloss in lesson["glosses"][:5]:
+            gloss.pop("cefr", None)
+        errors = validate_collection(collection)
+        self.assertTrue(any("requires at least 70%" in error for error in errors))
+
+    def test_optional_stoplist_reports_matching_single_word_glosses(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data").mkdir()
+            (root / "data" / "stoplist.txt").write_text("Hitzebelastung\n", encoding="utf-8")
+            output = io.StringIO()
+            with patch("validate_lessons.ROOT", root), contextlib.redirect_stdout(output):
+                validate_collection(self.collection)
+            self.assertIn("steht in der Stoppliste", output.getvalue())
 
 
 if __name__ == "__main__":

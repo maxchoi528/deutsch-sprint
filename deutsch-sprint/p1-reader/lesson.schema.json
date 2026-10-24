@@ -30,19 +30,21 @@
         "zh": {"type": "string"},
         "de_def": {"type": "string"},
         "collocations": {"type": "array", "items": {"$ref": "#/$defs/collocation"}},
-        "register": {"type": "string"}
+        "register": {"type": "string"},
+        "cefr": {"enum": ["B2", "C1", "chunk"]}
       },
       "additionalProperties": false
     },
     "question": {
       "type": "object",
-      "required": ["type", "q", "options", "answer", "evidence_sentence_index"],
+      "required": ["type", "q", "options", "answer"],
       "properties": {
-        "type": {"enum": ["对错", "选择", "配对"]},
+        "type": {"enum": ["对错", "选择", "配对", "选择（细节）", "推断", "立场"]},
         "q": {"type": "string", "minLength": 1},
         "options": {"type": "array", "minItems": 2, "items": {"type": "string"}},
         "answer": {"type": "string", "minLength": 1},
-        "evidence_sentence_index": {"type": "integer", "minimum": 0}
+        "evidence_sentence_index": {"type": "integer", "minimum": 0},
+        "evidence_sentence_indices": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer", "minimum": 0}}
       },
       "additionalProperties": false
     },

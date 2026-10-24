@@ -24,7 +24,8 @@
               "zh": "减轻高温负担"
             }
           ],
-          "register": "sachlich"
+          "register": "sachlich",
+          "cefr": "C1"
         },
         {
           "id": "h2",
@@ -42,7 +43,8 @@
               "zh": "封闭铺装地面"
             }
           ],
-          "register": "sachlich"
+          "register": "sachlich",
+          "cefr": "C1"
         },
         {
           "id": "h3",
@@ -60,7 +62,8 @@
               "zh": "把整个街区纳入考虑"
             }
           ],
-          "register": "gehoben"
+          "register": "gehoben",
+          "cefr": "chunk"
         },
         {
           "id": "h4",
@@ -78,7 +81,8 @@
               "zh": "尽早让居民参与"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "h5",
@@ -96,7 +100,8 @@
               "zh": "明确职责"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "h6",
@@ -114,7 +119,8 @@
               "zh": "停留环境质量"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "h7",
@@ -132,7 +138,8 @@
               "zh": "认真对待"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "h8",
@@ -150,7 +157,8 @@
               "zh": "公开说明；披露"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "h9",
@@ -168,7 +176,8 @@
               "zh": "被权衡"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "h10",
@@ -186,7 +195,8 @@
               "zh": "忽视；未顾及"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "h11",
@@ -204,7 +214,8 @@
               "zh": "行动能力受限"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "h12",
@@ -222,7 +233,8 @@
               "zh": "起作用；有影响"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "chunk"
         },
         {
           "id": "h13",
@@ -240,7 +252,8 @@
               "zh": "荒废；失于维护"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "h14",
@@ -258,7 +271,8 @@
               "zh": "被及早纳入；尽早参与"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -284,15 +298,19 @@
           "evidence_sentence_index": 7
         },
         {
-          "type": "配对",
-          "q": "Was macht einen kühlen Innenhof im Alltag tatsächlich zugänglich?",
+          "type": "立场",
+          "q": "Welche Planungsposition passt zur Argumentation des Textes?",
           "options": [
-            "Ein stufenlos erreichbarer Zugang.",
-            "Eine dekorative Bepflanzung.",
-            "Ein höherer Zaun."
+            "Kühlorte müssen erreichbar und gepflegt sein.",
+            "Eine hohe Begrünungsquote reicht auch ohne geklärte Pflege aus.",
+            "Die Nutzung öffentlicher Flächen sollte sich vor allem an Parkplätzen orientieren."
           ],
-          "answer": "Ein stufenlos erreichbarer Zugang.",
-          "evidence_sentence_index": 10
+          "answer": "Kühlorte müssen erreichbar und gepflegt sein.",
+          "evidence_sentence_index": 10,
+          "evidence_sentence_indices": [
+            10,
+            12
+          ]
         }
       ],
       "summary_zh": "文章认为，城市热适应不能只靠零散增绿，还要公开权衡空间冲突，让居民参与，并明确维护责任和无障碍要求。",
@@ -328,7 +346,8 @@
             }
           ],
           "register": "formal",
-          "plural_note": "通常无复数"
+          "plural_note": "通常无复数",
+          "cefr": "C1"
         },
         {
           "id": "a2",
@@ -346,7 +365,8 @@
               "zh": "演变成持续待命"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "a3",
@@ -365,7 +385,8 @@
             }
           ],
           "register": "formal",
-          "plural_note": "通常无复数"
+          "plural_note": "通常无复数",
+          "cefr": "C1"
         },
         {
           "id": "a4",
@@ -383,7 +404,8 @@
               "zh": "定期提供反馈"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "a5",
@@ -401,7 +423,8 @@
               "zh": "保障信息获取"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "a6",
@@ -419,7 +442,8 @@
               "zh": "说得不全面；过于简单"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "a7",
@@ -437,7 +461,8 @@
               "zh": "提供；配备"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "a8",
@@ -455,7 +480,8 @@
               "zh": "决策流程"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "a9",
@@ -473,7 +499,8 @@
               "zh": "持续待命状态"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "chunk"
         },
         {
           "id": "a10",
@@ -491,7 +518,8 @@
               "zh": "使……受益"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "a11",
@@ -509,7 +537,8 @@
               "zh": "不必要的追问"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "chunk"
         },
         {
           "id": "a12",
@@ -527,7 +556,8 @@
               "zh": "过于复杂的；负担过重的"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "chunk"
         },
         {
           "id": "a13",
@@ -545,7 +575,8 @@
               "zh": "反复出现的"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "a14",
@@ -563,7 +594,8 @@
               "zh": "照护责任"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "a15",
@@ -581,7 +613,8 @@
               "zh": "非正式交流"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -607,15 +640,18 @@
           "evidence_sentence_index": 5
         },
         {
-          "type": "配对",
-          "q": "Was soll eine regelmäßige Rückmeldung leisten?",
+          "type": "推断",
+          "q": "Welche Schlussfolgerung zieht der Text aus regelmäßiger Rückmeldung?",
           "options": [
-            "Sie zeigt, ob Vereinbarungen funktionieren.",
-            "Sie ersetzt jede Teamentscheidung.",
-            "Sie misst nur die Anwesenheit."
+            "Regelmäßige Rückmeldungen zeigen, ob Absprachen geändert werden müssen.",
+            "Kurze Abstimmungen sollten immer in ausführlichen Protokollen festgehalten werden.",
+            "Die Zahl der Anwesenheitstage entscheidet allein über eine gelungene Zusammenarbeit."
           ],
-          "answer": "Sie zeigt, ob Vereinbarungen funktionieren.",
-          "evidence_sentence_index": 14
+          "answer": "Regelmäßige Rückmeldungen zeigen, ob Absprachen geändert werden müssen.",
+          "evidence_sentence_index": 14,
+          "evidence_sentence_indices": [
+            14
+          ]
         }
       ],
       "summary_zh": "文章指出，混合办公需要共同约定联络、信息记录和决策方式；规则既要保证协作，也要保护专注时间与信任。",
@@ -653,7 +689,8 @@
               "zh": "把困难转移到屏幕上"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "v2",
@@ -671,7 +708,8 @@
               "zh": "把数据录入限制在必要范围内"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "v3",
@@ -690,7 +728,8 @@
             }
           ],
           "register": "formal",
-          "plural_note": "通常无复数"
+          "plural_note": "通常无复数",
+          "cefr": "C1"
         },
         {
           "id": "v4",
@@ -708,7 +747,8 @@
               "zh": "能够了解办理进度"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "v5",
@@ -726,7 +766,8 @@
               "zh": "认真对待使用者反馈"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "C1"
         },
         {
           "id": "v6",
@@ -744,7 +785,8 @@
               "zh": "纸质对应版本"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "v7",
@@ -762,7 +804,8 @@
               "zh": "整个办理流程"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "v8",
@@ -780,7 +823,8 @@
               "zh": "专业术语"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "C1"
         },
         {
           "id": "v9",
@@ -798,7 +842,8 @@
               "zh": "必要范围"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "v10",
@@ -816,7 +861,8 @@
               "zh": "被重复询问／录入"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "v11",
@@ -834,7 +880,8 @@
               "zh": "额外工作量"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "v12",
@@ -852,7 +899,8 @@
               "zh": "仔细核查"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "v13",
@@ -870,7 +918,8 @@
               "zh": "不同的知识水平"
             }
           ],
-          "register": "neutral"
+          "register": "neutral",
+          "cefr": "chunk"
         },
         {
           "id": "v14",
@@ -888,7 +937,8 @@
               "zh": "相同的条件"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         },
         {
           "id": "v15",
@@ -906,7 +956,8 @@
               "zh": "可联系到的替代方式"
             }
           ],
-          "register": "formal"
+          "register": "formal",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -932,14 +983,14 @@
           "evidence_sentence_index": 9
         },
         {
-          "type": "配对",
-          "q": "Welche Informationen sind für die Nachverfolgung eines digitalen Vorgangs wichtig?",
+          "type": "推断",
+          "q": "Welche Schlussfolgerung ergibt sich aus den genannten Anforderungen an digitale Dienste?",
           "options": [
-            "Wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.",
-            "Wie viele Pflichtfelder andere Formulare enthalten.",
-            "Welche Papierformulare vollständig abgeschafft werden."
+            "Zuständigkeit und Bearbeitungsstand müssen erkennbar sein.",
+            "Ein einheitliches Formular macht zusätzliche Hilfe grundsätzlich überflüssig.",
+            "Mehr Pflichtfelder verbessern automatisch die Verständlichkeit."
           ],
-          "answer": "Wer Rückfragen beantwortet und wie sich der Bearbeitungsstand verfolgen lässt.",
+          "answer": "Zuständigkeit und Bearbeitungsstand müssen erkennbar sein.",
           "evidence_sentence_index": 14
         }
       ],
@@ -973,7 +1024,8 @@
           "de_def": "sich gehetzt oder zu einer schnellen Entscheidung gedrängt fühlen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g01"
+          "id": "b2-wohnen-g01",
+          "cefr": "chunk"
         },
         {
           "surface": "Besichtigungstermin",
@@ -985,7 +1037,8 @@
           "de_def": "Termin, bei dem man eine Wohnung vor Ort ansehen kann",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g02"
+          "id": "b2-wohnen-g02",
+          "cefr": "B2"
         },
         {
           "surface": "ersten Eindruck",
@@ -997,19 +1050,22 @@
           "de_def": "erste persönliche Wahrnehmung von einer Person oder Sache",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g03"
+          "id": "b2-wohnen-g03",
+          "cefr": "chunk"
         },
         {
           "surface": "Nebenkosten",
           "lemma": "Nebenkosten",
           "pos": "Nomen, Plural",
           "article": "die",
-          "plural": "Nebenkosten",
+          "plural": "",
           "zh": "房租之外的附加费用",
           "de_def": "regelmäßige Kosten zusätzlich zur Grundmiete",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g04"
+          "id": "b2-wohnen-g04",
+          "cefr": "B2",
+          "plural_note": "仅复数"
         },
         {
           "surface": "Kaution",
@@ -1021,7 +1077,8 @@
           "de_def": "Geldbetrag, der zu Beginn eines Mietverhältnisses hinterlegt wird",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g05"
+          "id": "b2-wohnen-g05",
+          "cefr": "B2"
         },
         {
           "surface": "Nachfrage stellen",
@@ -1038,7 +1095,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-wohnen-g06"
+          "id": "b2-wohnen-g06",
+          "cefr": "chunk"
         },
         {
           "surface": "Unterlagen",
@@ -1050,7 +1108,8 @@
           "de_def": "Dokumente, die für eine Bewerbung oder Prüfung gebraucht werden",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g07"
+          "id": "b2-wohnen-g07",
+          "cefr": "B2"
         },
         {
           "surface": "Wohnungsbewerbung",
@@ -1062,7 +1121,8 @@
           "de_def": "Zusammenstellung der Angaben und Dokumente für eine Wohnungssuche",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g08"
+          "id": "b2-wohnen-g08",
+          "cefr": "B2"
         },
         {
           "surface": "Angaben zu erfinden",
@@ -1074,7 +1134,8 @@
           "de_def": "Informationen nennen, die nicht der Wahrheit entsprechen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g09"
+          "id": "b2-wohnen-g09",
+          "cefr": "chunk"
         },
         {
           "surface": "mündliche Absprachen",
@@ -1086,7 +1147,8 @@
           "de_def": "Vereinbarung, die nicht schriftlich festgehalten wurde",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g10"
+          "id": "b2-wohnen-g10",
+          "cefr": "chunk"
         },
         {
           "surface": "Rückmeldung",
@@ -1098,7 +1160,8 @@
           "de_def": "Antwort oder kurze Information zu einer Anfrage",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g11"
+          "id": "b2-wohnen-g11",
+          "cefr": "B2"
         },
         {
           "surface": "Übergangszeit",
@@ -1110,19 +1173,24 @@
           "de_def": "begrenzte Zeit zwischen zwei Lebenssituationen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-wohnen-g12"
+          "id": "b2-wohnen-g12",
+          "cefr": "B2"
         }
       ],
       "questions": [
         {
           "type": "对错",
-          "q": "Vorab gesammelte Fragen können die Entscheidung nachvollziehbarer machen.",
+          "q": "Vorab gesammelte Fragen helfen, eine Wohnungsentscheidung besser zu begründen.",
           "options": [
             "对",
             "错"
           ],
           "answer": "对",
-          "evidence_sentence_index": 3
+          "evidence_sentence_index": 3,
+          "evidence_sentence_indices": [
+            2,
+            3
+          ]
         },
         {
           "type": "选择",
@@ -1136,14 +1204,14 @@
           "evidence_sentence_index": 12
         },
         {
-          "type": "配对",
-          "q": "Wozu kann eine Übergangszeit beitragen?",
+          "type": "选择（细节）",
+          "q": "Wozu kann eine Übergangszeit bei der Wohnungssuche beitragen?",
           "options": [
-            "Sie hilft, verschiedene Entscheidungen zu vergleichen.",
-            "Sie garantiert eine Zusage für die Wohnung.",
-            "Sie ersetzt die Prüfung des Mietvertrags."
+            "Sie ermöglicht, mehrere Angebote zu vergleichen, bevor man zusagt.",
+            "Sie macht eine Prüfung der Vertragsangaben entbehrlich.",
+            "Sie verlängert automatisch die Frist für eine Bewerbung."
           ],
-          "answer": "Sie hilft, verschiedene Entscheidungen zu vergleichen.",
+          "answer": "Sie ermöglicht, mehrere Angebote zu vergleichen, bevor man zusagt.",
           "evidence_sentence_index": 15
         }
       ],
@@ -1172,7 +1240,8 @@
           "de_def": "vereinbarter Zeitraum, in dem Beschäftigte erreichbar sein sollen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g01"
+          "id": "b2-beruf-g01",
+          "cefr": "B2"
         },
         {
           "surface": "Erreichbarkeit",
@@ -1185,7 +1254,8 @@
           "collocations": [],
           "register": "neutral",
           "plural_note": "通常无复数",
-          "id": "b2-beruf-g02"
+          "id": "b2-beruf-g02",
+          "cefr": "B2"
         },
         {
           "surface": "Rücksprache halten",
@@ -1197,7 +1267,8 @@
           "de_def": "kurz mit einer anderen Person sprechen, bevor man entscheidet",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g03"
+          "id": "b2-beruf-g03",
+          "cefr": "chunk"
         },
         {
           "surface": "Aufgabenverteilung",
@@ -1209,7 +1280,8 @@
           "de_def": "Zuordnung von Aufgaben zu verschiedenen Personen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g04"
+          "id": "b2-beruf-g04",
+          "cefr": "B2"
         },
         {
           "surface": "Überblick behalten",
@@ -1226,7 +1298,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-beruf-g05"
+          "id": "b2-beruf-g05",
+          "cefr": "chunk"
         },
         {
           "surface": "Übergabe",
@@ -1238,7 +1311,8 @@
           "de_def": "Weitergabe einer Aufgabe oder Information",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g06"
+          "id": "b2-beruf-g06",
+          "cefr": "B2"
         },
         {
           "surface": "Punkte kurz abstimmen",
@@ -1250,7 +1324,8 @@
           "de_def": "gemeinsam klären, wie man weiter vorgeht",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g07"
+          "id": "b2-beruf-g07",
+          "cefr": "chunk"
         },
         {
           "surface": "Tagesordnung",
@@ -1262,7 +1337,8 @@
           "de_def": "Liste der Themen einer Besprechung",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g08"
+          "id": "b2-beruf-g08",
+          "cefr": "B2"
         },
         {
           "surface": "Besprechungsregel",
@@ -1274,7 +1350,8 @@
           "de_def": "gemeinsame Vereinbarung für den Ablauf einer Besprechung",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g09"
+          "id": "b2-beruf-g09",
+          "cefr": "B2"
         },
         {
           "surface": "Unterbrechungen",
@@ -1286,7 +1363,8 @@
           "de_def": "kurze Pausen oder Störungen während einer Tätigkeit",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g10"
+          "id": "b2-beruf-g10",
+          "cefr": "B2"
         },
         {
           "surface": "Verbindlichkeit",
@@ -1299,7 +1377,8 @@
           "collocations": [],
           "register": "neutral",
           "plural_note": "通常无复数",
-          "id": "b2-beruf-g11"
+          "id": "b2-beruf-g11",
+          "cefr": "B2"
         },
         {
           "surface": "Erwartungen sichtbar",
@@ -1311,19 +1390,24 @@
           "de_def": "deutlich zeigen, was Personen voneinander erwarten",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-beruf-g12"
+          "id": "b2-beruf-g12",
+          "cefr": "chunk"
         }
       ],
       "questions": [
         {
           "type": "对错",
-          "q": "Während der Kernarbeitszeit sollen Beschäftigte möglichst schwer erreichbar sein.",
+          "q": "Während der festgelegten Kernarbeitszeit sollen Beschäftigte möglichst schwer erreichbar sein.",
           "options": [
             "对",
             "错"
           ],
           "answer": "错",
-          "evidence_sentence_index": 5
+          "evidence_sentence_index": 5,
+          "evidence_sentence_indices": [
+            4,
+            5
+          ]
         },
         {
           "type": "选择",
@@ -1337,15 +1421,19 @@
           "evidence_sentence_index": 10
         },
         {
-          "type": "配对",
-          "q": "Wie hilft die Besprechungsregel dem Team?",
+          "type": "推断",
+          "q": "Welche Schlussfolgerung lässt sich aus der Besprechungsregel ziehen?",
           "options": [
-            "Sie macht am Anfang deutlich, was entschieden werden muss.",
-            "Sie verlangt für jedes Thema ein Treffen.",
-            "Sie kontrolliert die Arbeitszeit jeder Person."
+            "Die Regel gibt jedem Treffen einen klaren Ausgangspunkt.",
+            "Eine feste Tagesordnung macht flexible Arbeitszeiten unmöglich.",
+            "Offene Fragen müssen unabhängig von ihrer Bedeutung sofort besprochen werden."
           ],
-          "answer": "Sie macht am Anfang deutlich, was entschieden werden muss.",
-          "evidence_sentence_index": 15
+          "answer": "Die Regel gibt jedem Treffen einen klaren Ausgangspunkt.",
+          "evidence_sentence_index": 15,
+          "evidence_sentence_indices": [
+            15,
+            16
+          ]
         }
       ],
       "summary_zh": "这个虚构团队通过核心联络时段、任务清单和明确的会议议程改善混合办公。共同规则要让责任与期望清楚可见，也要给专注工作留出空间，并随任务变化进行调整。",
@@ -1361,7 +1449,7 @@
       "title": "Lerngruppen funktionieren mit einem klaren Ziel",
       "level": "B2",
       "genre": "Informationstext",
-      "text": "Eine Lerngruppe kann beim Lernen helfen, wenn die Teilnehmenden wissen, was sie gemeinsam erreichen möchten. Ohne ein klares {Lernziel|b2-bildung-g01} wird oft lange über einzelne Fragen gesprochen, während wichtige Themen liegen bleiben. Deshalb lohnt es sich, vor jedem Treffen den {Lernstoff einzuteilen|b2-bildung-g02}.\n\nZu Beginn kann die Gruppe einen {Zeitrahmen festlegen|b2-bildung-g03}. Eine Person fasst kurz zusammen, was schon bekannt ist. Danach bearbeiten die Teilnehmenden eine {Aufgabe allein|b2-bildung-g04} und vergleichen anschließend ihre {Beispiele|b2-bildung-g05}. So wird sichtbar, welche {Lösungswege|b2-bildung-g06} ähnlich sind und an welcher Stelle noch Unsicherheit besteht.\n\nWer etwas nicht versteht, sollte eine {Verständnisfrage stellen|b2-bildung-g07} können. Eine gute Gruppe behandelt solche Fragen nicht als Störung. Sie helfen dabei, eine {Lücke zu schließen|b2-bildung-g08}, bevor sie beim nächsten Thema größer wird. Manchmal reicht eine Erklärung; manchmal muss die Gruppe ein einfacheres Beispiel finden.\n\nAuch der {Lernfortschritt|b2-bildung-g09} lässt sich gemeinsam prüfen. Am Ende nennt jede Person eine Sache, die nun klarer ist, und eine Frage für das nächste Treffen. Eine kurze {Lernnotiz|b2-bildung-g10} hält diese Punkte fest. So können sich alle auf den nächsten Termin {vorbereiten|b2-bildung-g11} und sehen, was bereits erledigt wurde.\n\nDie Gruppe muss nicht jede Aufgabe gemeinsam lösen. Für längere Texte kann es sinnvoll sein, Abschnitte aufzuteilen und die Ergebnisse später zusammenzuführen. Wichtig ist, dass jede Person Gelegenheit bekommt, etwas zu erklären. Dadurch gewinnt die Gruppe einen {besseren Überblick|b2-bildung-g12}, und niemand bleibt nur still dabei.",
+      "text": "Eine Lerngruppe kann beim Lernen helfen, wenn die Teilnehmenden wissen, was sie gemeinsam erreichen möchten. Ohne ein klares {Lernziel|b2-bildung-g01} wird oft lange über einzelne Fragen gesprochen, während wichtige Themen liegen bleiben. Deshalb lohnt es sich, vor jedem Treffen den {Lernstoff einzuteilen|b2-bildung-g02}.\n\nZu Beginn kann die Gruppe einen {Zeitrahmen festlegen|b2-bildung-g03}. Eine Person fasst kurz zusammen, was schon bekannt ist. Danach erarbeiten die Teilnehmenden zunächst {eigenständig einen Lösungsweg|b2-bildung-g04} und vergleichen anschließend ihre {Lösungsansätze|b2-bildung-g05}. So wird sichtbar, welche {Lösungswege|b2-bildung-g06} ähnlich sind und an welcher Stelle noch Unsicherheit besteht.\n\nWer etwas nicht versteht, sollte eine {Verständnisfrage stellen|b2-bildung-g07} können. Eine gute Gruppe behandelt solche Fragen nicht als Störung. Sie helfen dabei, eine {Lücke zu schließen|b2-bildung-g08}, bevor sie beim nächsten Thema größer wird. Manchmal reicht eine Erklärung; manchmal muss die Gruppe ein einfacheres Beispiel finden.\n\nAuch der {Lernfortschritt|b2-bildung-g09} lässt sich gemeinsam prüfen. Am Ende nennt jede Person eine Sache, die nun klarer ist, und eine Frage für das nächste Treffen. Eine kurze {Lernnotiz|b2-bildung-g10} hält diese Punkte fest. So können sich alle {auf den nächsten Termin einstellen|b2-bildung-g11} und sehen, was bereits erledigt wurde.\n\nDie Gruppe muss nicht jede Aufgabe gemeinsam lösen. Für längere Texte kann es sinnvoll sein, Abschnitte aufzuteilen und die Ergebnisse später zusammenzuführen. Wichtig ist, dass jede Person Gelegenheit bekommt, etwas zu erklären. Dadurch kann die Gruppe Zusammenhänge besser {erfassen|b2-bildung-g12}, und niemand bleibt nur still dabei.",
       "glosses": [
         {
           "surface": "Lernziel",
@@ -1373,7 +1461,8 @@
           "de_def": "konkretes Ergebnis, das man beim Lernen erreichen möchte",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g01"
+          "id": "b2-bildung-g01",
+          "cefr": "B2"
         },
         {
           "surface": "Lernstoff einzuteilen",
@@ -1385,7 +1474,8 @@
           "de_def": "Inhalte in kleinere, planbare Teile aufteilen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g02"
+          "id": "b2-bildung-g02",
+          "cefr": "chunk"
         },
         {
           "surface": "Zeitrahmen festlegen",
@@ -1397,31 +1487,35 @@
           "de_def": "bestimmen, wie viel Zeit für eine Aufgabe vorgesehen ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g03"
+          "id": "b2-bildung-g03",
+          "cefr": "chunk"
         },
         {
-          "surface": "Aufgabe allein",
-          "lemma": "Aufgabe allein bearbeiten",
+          "surface": "eigenständig einen Lösungsweg",
+          "lemma": "einen Lösungsweg eigenständig erarbeiten",
           "pos": "Wendung",
           "article": "",
           "plural": "",
-          "zh": "独立完成一道任务",
-          "de_def": "eine Übung ohne direkte Hilfe lösen",
+          "zh": "独立构思解决路径",
+          "de_def": "ohne direkte Hilfe einen Weg zur Lösung entwickeln",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g04"
+          "id": "b2-bildung-g04",
+          "plural_note": "",
+          "cefr": "chunk"
         },
         {
-          "surface": "Beispiele",
-          "lemma": "Beispiel",
-          "pos": "Nomen, neutral",
-          "article": "das",
-          "plural": "Beispiele",
-          "zh": "例子",
-          "de_def": "konkrete Fälle, an denen man eine Erklärung oder Regel verstehen kann",
+          "surface": "Lösungsansätze",
+          "lemma": "Lösungsansatz",
+          "pos": "Nomen, maskulin",
+          "article": "der",
+          "plural": "Lösungsansätze",
+          "zh": "解决思路；解题方法",
+          "de_def": "Vorschläge oder Wege, mit denen ein Problem bearbeitet werden kann",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g05"
+          "id": "b2-bildung-g05",
+          "cefr": "B2"
         },
         {
           "surface": "Lösungswege",
@@ -1433,7 +1527,8 @@
           "de_def": "Schritte, mit denen man zu einer Antwort kommt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g06"
+          "id": "b2-bildung-g06",
+          "cefr": "B2"
         },
         {
           "surface": "Verständnisfrage stellen",
@@ -1445,7 +1540,8 @@
           "de_def": "eine Frage stellen, weil etwas noch unklar ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g07"
+          "id": "b2-bildung-g07",
+          "cefr": "chunk"
         },
         {
           "surface": "Lücke zu schließen",
@@ -1462,7 +1558,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-bildung-g08"
+          "id": "b2-bildung-g08",
+          "cefr": "chunk"
         },
         {
           "surface": "Lernfortschritt",
@@ -1474,7 +1571,8 @@
           "de_def": "Verbesserung des eigenen Wissens oder Könnens",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g09"
+          "id": "b2-bildung-g09",
+          "cefr": "B2"
         },
         {
           "surface": "Lernnotiz",
@@ -1486,31 +1584,36 @@
           "de_def": "kurze schriftliche Erinnerung an wichtige Lernpunkte",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g10"
+          "id": "b2-bildung-g10",
+          "cefr": "B2"
         },
         {
-          "surface": "vorbereiten",
-          "lemma": "sich vorbereiten",
+          "surface": "auf den nächsten Termin einstellen",
+          "lemma": "sich auf etwas einstellen",
           "pos": "Wendung",
           "article": "",
           "plural": "",
-          "zh": "做准备",
-          "de_def": "vorher nötige Informationen oder Materialien ansehen",
+          "zh": "为下一次活动做好准备；调整预期",
+          "de_def": "sich gedanklich oder organisatorisch auf eine kommende Situation vorbereiten",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g11"
+          "id": "b2-bildung-g11",
+          "plural_note": "",
+          "cefr": "chunk"
         },
         {
-          "surface": "besseren Überblick",
-          "lemma": "Überblick gewinnen",
-          "pos": "Wendung",
+          "surface": "erfassen",
+          "lemma": "Zusammenhänge erfassen",
+          "pos": "Verbverbindung",
           "article": "",
           "plural": "",
-          "zh": "更全面地了解情况",
-          "de_def": "die wichtigsten Teile eines Themas verstehen",
+          "zh": "理解并把握关联",
+          "de_def": "mehrere Informationen in ihrer Beziehung verstehen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-bildung-g12"
+          "id": "b2-bildung-g12",
+          "plural_note": "",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -1536,14 +1639,14 @@
           "evidence_sentence_index": 9
         },
         {
-          "type": "配对",
-          "q": "Was hält die Lernnotiz fest?",
+          "type": "选择（细节）",
+          "q": "Was kann eine Lernnotiz laut Text festhalten?",
           "options": [
-            "Was klarer geworden ist und welche Frage noch offen ist.",
-            "Nur die Namen der Teilnehmenden.",
-            "Alle Aufgaben für das Semester."
+            "Was inzwischen klarer ist und welche Frage noch offenbleibt.",
+            "Nur die Aufgaben, die von der Gruppe nicht bearbeitet wurden.",
+            "Ausschließlich den Termin und die Namen der Teilnehmenden."
           ],
-          "answer": "Was klarer geworden ist und welche Frage noch offen ist.",
+          "answer": "Was inzwischen klarer ist und welche Frage noch offenbleibt.",
           "evidence_sentence_index": 12
         }
       ],
@@ -1560,7 +1663,7 @@
       "title": "Wenn der Anschluss nicht klappt",
       "level": "B2+",
       "genre": "Leserbrief",
-      "text": "Sehr geehrte Redaktion, vor kurzem war ich auf dem Weg zu einem Besuch und mein Zug kam später als geplant an. Dadurch konnte ich die {vorgesehene Verbindung|b2-reisen-g01} nicht erreichen. Zunächst wusste ich nicht, ob ein anderer Zug dieselbe Strecke fährt oder ob ich eine längere Pause einplanen muss.\n\nAuf dem Bahnsteig war eine {Durchsage|b2-reisen-g02} zu hören, aber sie enthielt nur wenige Einzelheiten. Ich sah deshalb im {Fahrplan|b2-reisen-g03} nach und suchte nach einer {Alternative|b2-reisen-g04}. Gleichzeitig fragte ich am {Informationsschalter|b2-reisen-g05} nach, ob mein Ticket für die andere Verbindung gilt. Diese kurze Auskunft machte die weitere {Reiseplanung|b2-reisen-g06} deutlich einfacher.\n\nBei einer längeren {Verspätung|b2-reisen-g07} sollten Reisende wichtige Informationen notieren. Dazu gehören die tatsächliche Ankunftszeit und die gewählte Strecke. Wer wegen der Änderung zusätzliche Kosten hatte, kann prüfen, ob sich eine {Erstattung beantragen|b2-reisen-g08} lässt. Welche Möglichkeiten bestehen, hängt jedoch von Ticket und Situation ab. Deshalb sollte man die Hinweise des Anbieters genau lesen.\n\nAuch der {Ersatzverkehr|b2-reisen-g09} kann eine passende Lösung sein, wenn Züge nicht weiterfahren. Dabei ist es hilfreich, auf den {Abfahrtsort|b2-reisen-g10} und die nächste Haltestelle zu achten. Ein {Fahrplanwechsel|b2-reisen-g11} oder eine kurzfristige Änderung kann die gewohnte Route verändern.\n\nMeiner Meinung nach sollten Informationen zu Verspätungen einfach auffindbar sein. Reisende können selbst nachfragen und ihre Möglichkeiten vergleichen. So lässt sich eher entscheiden, ob man wartet, eine andere Verbindung nimmt oder die Reise später {fortsetzt|b2-reisen-g12}.",
+      "text": "Sehr geehrte Redaktion, vor kurzem war ich auf dem Weg zu einem Besuch und mein Zug kam später als geplant an. Dadurch konnte ich die {vorgesehene Verbindung|b2-reisen-g01} nicht erreichen. Zunächst wusste ich nicht, ob ein anderer Zug dieselbe Strecke fährt oder ob ich eine längere Pause einplanen muss.\n\nAuf dem Bahnsteig war eine {Durchsage|b2-reisen-g02} zu hören, aber sie enthielt nur wenige Einzelheiten. Ich sah deshalb im {Fahrplan|b2-reisen-g03} nach und suchte nach einer {Ausweichverbindung|b2-reisen-g04}. Gleichzeitig fragte ich am {Informationsschalter|b2-reisen-g05} nach, ob mein Ticket für die andere Verbindung gilt. Diese kurze Auskunft machte die weitere {Reiseplanung|b2-reisen-g06} deutlich einfacher.\n\nBei einer längeren {Verspätung|b2-reisen-g07} sollten Reisende wichtige Informationen notieren. Dazu gehören die tatsächliche Ankunftszeit und die gewählte Strecke. Wer wegen der Änderung zusätzliche Kosten hatte, kann prüfen, ob sich eine {Erstattung beantragen|b2-reisen-g08} lässt. Welche Möglichkeiten bestehen, hängt jedoch von Ticket und Situation ab. Deshalb sollte man die Hinweise des Anbieters genau lesen.\n\nAuch der {Ersatzverkehr|b2-reisen-g09} kann eine passende Lösung sein, wenn Züge nicht weiterfahren. Dabei ist es hilfreich, auf den {Abfahrtsort|b2-reisen-g10} und die nächste Haltestelle zu achten. Ein {Fahrplanwechsel|b2-reisen-g11} oder eine kurzfristige Änderung kann die gewohnte Route verändern.\n\nMeiner Meinung nach sollten Informationen zu Verspätungen einfach auffindbar sein. Reisende können selbst nachfragen und ihre Möglichkeiten vergleichen. So lässt sich eher entscheiden, ob man wartet, eine andere Verbindung nimmt oder die Reise später {fortsetzt|b2-reisen-g12}.",
       "glosses": [
         {
           "surface": "vorgesehene Verbindung",
@@ -1572,7 +1675,8 @@
           "de_def": "geplante Fahrt zwischen zwei Orten, oft mit Umstieg",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g01"
+          "id": "b2-reisen-g01",
+          "cefr": "chunk"
         },
         {
           "surface": "Durchsage",
@@ -1584,7 +1688,8 @@
           "de_def": "öffentliche mündliche Information über Lautsprecher",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g02"
+          "id": "b2-reisen-g02",
+          "cefr": "B2"
         },
         {
           "surface": "Fahrplan",
@@ -1596,19 +1701,21 @@
           "de_def": "Übersicht mit Abfahrts- und Ankunftszeiten",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g03"
+          "id": "b2-reisen-g03",
+          "cefr": "B2"
         },
         {
-          "surface": "Alternative",
-          "lemma": "Alternative",
+          "surface": "Ausweichverbindung",
+          "lemma": "Ausweichverbindung",
           "pos": "Nomen, feminin",
           "article": "die",
-          "plural": "Alternativen",
-          "zh": "替代选择",
-          "de_def": "andere Möglichkeit, die man statt der ursprünglichen Wahl nutzen kann",
+          "plural": "Ausweichverbindungen",
+          "zh": "替代线路；绕行连接",
+          "de_def": "Verbindung, die genutzt werden kann, wenn die geplante Route nicht verfügbar ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g04"
+          "id": "b2-reisen-g04",
+          "cefr": "B2"
         },
         {
           "surface": "Informationsschalter",
@@ -1620,7 +1727,8 @@
           "de_def": "Ort, an dem Reisende Auskunft erhalten",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g05"
+          "id": "b2-reisen-g05",
+          "cefr": "B2"
         },
         {
           "surface": "Reiseplanung",
@@ -1632,7 +1740,8 @@
           "de_def": "Vorbereitung einer Reise und ihrer einzelnen Wege",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g06"
+          "id": "b2-reisen-g06",
+          "cefr": "B2"
         },
         {
           "surface": "Verspätung",
@@ -1644,7 +1753,8 @@
           "de_def": "spätere Ankunft oder Abfahrt als angekündigt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g07"
+          "id": "b2-reisen-g07",
+          "cefr": "B2"
         },
         {
           "surface": "Erstattung beantragen",
@@ -1661,7 +1771,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-reisen-g08"
+          "id": "b2-reisen-g08",
+          "cefr": "chunk"
         },
         {
           "surface": "Ersatzverkehr",
@@ -1674,7 +1785,8 @@
           "collocations": [],
           "register": "neutral",
           "plural_note": "通常无复数",
-          "id": "b2-reisen-g09"
+          "id": "b2-reisen-g09",
+          "cefr": "B2"
         },
         {
           "surface": "Abfahrtsort",
@@ -1686,7 +1798,8 @@
           "de_def": "Ort, an dem eine Fahrt beginnt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g10"
+          "id": "b2-reisen-g10",
+          "cefr": "B2"
         },
         {
           "surface": "Fahrplanwechsel",
@@ -1698,7 +1811,8 @@
           "de_def": "Änderung der Zeiten oder Verbindungen im Fahrplan",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g11"
+          "id": "b2-reisen-g11",
+          "cefr": "B2"
         },
         {
           "surface": "fortsetzt",
@@ -1710,7 +1824,8 @@
           "de_def": "eine begonnene Strecke weiterfahren",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-reisen-g12"
+          "id": "b2-reisen-g12",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -1736,15 +1851,19 @@
           "evidence_sentence_index": 9
         },
         {
-          "type": "配对",
-          "q": "Worauf sollte man beim Ersatzverkehr achten?",
+          "type": "推断",
+          "q": "Welche Vorgehensweise ist angesichts der beschriebenen Verspätung sinnvoll?",
           "options": [
-            "Auf Abfahrtsort und nächste Haltestelle.",
-            "Nur auf die Farbe des Busses.",
-            "Auf die ursprüngliche Sitzplatznummer."
+            "Angaben zu Zeiten und Strecke sollten festgehalten werden.",
+            "Eine Erstattung kann unabhängig von Ticket und Situation zugesagt werden.",
+            "Hinweise des Anbieters können entfallen, wenn ein anderer Zug fährt."
           ],
-          "answer": "Auf Abfahrtsort und nächste Haltestelle.",
-          "evidence_sentence_index": 13
+          "answer": "Angaben zu Zeiten und Strecke sollten festgehalten werden.",
+          "evidence_sentence_index": 13,
+          "evidence_sentence_indices": [
+            7,
+            8
+          ]
         }
       ],
       "summary_zh": "这封虚构读者来信讲述错过接续车次后的处理思路：核对时刻表、询问车票适用范围，并记录延误和额外费用。退款与替代交通的具体安排须查看相应车票和运营方说明。",
@@ -1772,7 +1891,8 @@
           "de_def": "sinnvoll sein, etwas wieder funktionsfähig zu machen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g01"
+          "id": "b2-konsum-g01",
+          "cefr": "chunk"
         },
         {
           "surface": "Garantie",
@@ -1784,7 +1904,8 @@
           "de_def": "vertragliche Zusage zu bestimmten Leistungen bei einem Produkt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g02"
+          "id": "b2-konsum-g02",
+          "cefr": "B2"
         },
         {
           "surface": "Lebensdauer",
@@ -1796,7 +1917,8 @@
           "de_def": "Zeitraum, in dem ein Gegenstand verwendet werden kann",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g03"
+          "id": "b2-konsum-g03",
+          "cefr": "B2"
         },
         {
           "surface": "Kaufentscheidung",
@@ -1808,7 +1930,8 @@
           "de_def": "Entscheidung, ob und welches Produkt man kauft",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g04"
+          "id": "b2-konsum-g04",
+          "cefr": "B2"
         },
         {
           "surface": "im Voraus vergleicht",
@@ -1820,7 +1943,8 @@
           "de_def": "Möglichkeiten prüfen, bevor man sich entscheidet",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g05"
+          "id": "b2-konsum-g05",
+          "cefr": "chunk"
         },
         {
           "surface": "Ersatzteile",
@@ -1832,7 +1956,8 @@
           "de_def": "Einzelteile, die beschädigte Teile eines Geräts ersetzen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g06"
+          "id": "b2-konsum-g06",
+          "cefr": "B2"
         },
         {
           "surface": "Überblick",
@@ -1844,7 +1969,8 @@
           "de_def": "kurze Übersicht über die wichtigsten Informationen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g07"
+          "id": "b2-konsum-g07",
+          "cefr": "B2"
         },
         {
           "surface": "Aufwand und Nutzen abwägen",
@@ -1856,7 +1982,8 @@
           "de_def": "prüfen, ob Zeit und Arbeit im Verhältnis zum Nutzen stehen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g08"
+          "id": "b2-konsum-g08",
+          "cefr": "chunk"
         },
         {
           "surface": "weiterverwenden",
@@ -1868,7 +1995,8 @@
           "de_def": "einen Gegenstand nach einer ersten Nutzung noch einmal benutzen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g09"
+          "id": "b2-konsum-g09",
+          "cefr": "chunk"
         },
         {
           "surface": "fachgerecht zurückgeben",
@@ -1880,7 +2008,8 @@
           "de_def": "einen Gegenstand passend zu den geltenden Regeln zurückgeben",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g10"
+          "id": "b2-konsum-g10",
+          "cefr": "chunk"
         },
         {
           "surface": "Verpackung",
@@ -1892,7 +2021,8 @@
           "de_def": "Material, das ein Produkt schützt oder enthält",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-konsum-g11"
+          "id": "b2-konsum-g11",
+          "cefr": "B2"
         },
         {
           "surface": "Beschwerde einreichen",
@@ -1909,7 +2039,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-konsum-g12"
+          "id": "b2-konsum-g12",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -1935,14 +2066,14 @@
           "evidence_sentence_index": 5
         },
         {
-          "type": "配对",
-          "q": "Was sollte eine Beschwerde enthalten?",
+          "type": "选择（细节）",
+          "q": "Welche Information gehört laut Text in eine sachliche Beschwerde?",
           "options": [
-            "Eine sachliche Beschreibung des Fehlers.",
-            "Eine Forderung ohne Erklärung.",
-            "Eine Bewertung anderer Käufer."
+            "Eine konkrete Beschreibung des Fehlers und des bisherigen Lösungsversuchs.",
+            "Eine pauschale Bewertung des Anbieters ohne Angaben zum Gerät.",
+            "Eine Forderung, deren Bezug zum Kauf nicht erläutert wird."
           ],
-          "answer": "Eine sachliche Beschreibung des Fehlers.",
+          "answer": "Eine konkrete Beschreibung des Fehlers und des bisherigen Lösungsversuchs.",
           "evidence_sentence_index": 13
         }
       ],
@@ -1971,7 +2102,8 @@
           "de_def": "nachsehen, wer eine Information veröffentlicht hat und wie sie belegt ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g01"
+          "id": "b2-medien-g01",
+          "cefr": "chunk"
         },
         {
           "surface": "ursprünglichen Beitrag",
@@ -1983,7 +2115,8 @@
           "de_def": "Text oder Nachricht, die zuerst veröffentlicht wurde",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g02"
+          "id": "b2-medien-g02",
+          "cefr": "chunk"
         },
         {
           "surface": "Überschrift",
@@ -1995,7 +2128,8 @@
           "de_def": "kurzer Titel über einem Text oder Beitrag",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g03"
+          "id": "b2-medien-g03",
+          "cefr": "B2"
         },
         {
           "surface": "Bildunterschrift",
@@ -2007,7 +2141,8 @@
           "de_def": "kurzer Text, der ein Bild erklärt oder beschreibt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g04"
+          "id": "b2-medien-g04",
+          "cefr": "B2"
         },
         {
           "surface": "Zusammenhangs",
@@ -2019,7 +2154,8 @@
           "de_def": "Verbindung zwischen einzelnen Informationen oder Ereignissen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g05"
+          "id": "b2-medien-g05",
+          "cefr": "B2"
         },
         {
           "surface": "Behauptung belegen",
@@ -2036,7 +2172,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-medien-g06"
+          "id": "b2-medien-g06",
+          "cefr": "chunk"
         },
         {
           "surface": "weiterleiten",
@@ -2048,7 +2185,8 @@
           "de_def": "eine Nachricht an andere Personen schicken",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g07"
+          "id": "b2-medien-g07",
+          "cefr": "chunk"
         },
         {
           "surface": "Gegenprobe",
@@ -2060,7 +2198,8 @@
           "de_def": "zusätzliche Prüfung, mit der man eine Aussage vergleicht",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g08"
+          "id": "b2-medien-g08",
+          "cefr": "B2"
         },
         {
           "surface": "unabhängige Quelle",
@@ -2072,7 +2211,8 @@
           "de_def": "Informationsanbieter, der nicht direkt von der Aussage abhängig ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g09"
+          "id": "b2-medien-g09",
+          "cefr": "chunk"
         },
         {
           "surface": "Korrekturen",
@@ -2084,7 +2224,8 @@
           "de_def": "Änderungen, mit denen Fehler verbessert werden",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g10"
+          "id": "b2-medien-g10",
+          "cefr": "B2"
         },
         {
           "surface": "Unsicherheit kenntlich machen",
@@ -2096,7 +2237,8 @@
           "de_def": "deutlich sagen, dass eine Information noch nicht sicher ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g11"
+          "id": "b2-medien-g11",
+          "cefr": "chunk"
         },
         {
           "surface": "Vermutung",
@@ -2108,7 +2250,8 @@
           "de_def": "Annahme, für die noch kein ausreichender Beleg vorliegt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-medien-g12"
+          "id": "b2-medien-g12",
+          "cefr": "B2"
         }
       ],
       "questions": [
@@ -2134,15 +2277,19 @@
           "evidence_sentence_index": 6
         },
         {
-          "type": "配对",
-          "q": "Was ist bei einem Beitrag ohne Belege sinnvoll?",
+          "type": "推断",
+          "q": "Welche Handlung passt zur beschriebenen Prüfung von Beiträgen?",
           "options": [
-            "Den Beitrag nicht sofort weiterleiten.",
-            "Ihn als sicher zu behandeln.",
-            "Die Überschrift als Beweis zu verwenden."
+            "Unbelegte Beiträge zuerst gegenprüfen.",
+            "Eine häufig geteilte Überschrift ist ein ausreichender Nachweis.",
+            "Ein passendes Bild bestätigt die Behauptung auch ohne weitere Quelle."
           ],
-          "answer": "Den Beitrag nicht sofort weiterleiten.",
-          "evidence_sentence_index": 10
+          "answer": "Unbelegte Beiträge zuerst gegenprüfen.",
+          "evidence_sentence_index": 10,
+          "evidence_sentence_indices": [
+            10,
+            11
+          ]
         }
       ],
       "summary_zh": "阅读网络内容时，应检查原始来源，比较标题、图片说明和正文背景，并寻找可核对的证据。没有证据不等于一定错误，但转发前应交叉核查，对尚未确定的内容说明不确定性。",
@@ -2170,7 +2317,8 @@
           "de_def": "ohne Bezahlung Zeit oder Fähigkeiten für eine gemeinsame Aufgabe einsetzen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g01"
+          "id": "b2-ehrenamt-g01",
+          "cefr": "chunk"
         },
         {
           "surface": "Aufgabe zu übernehmen",
@@ -2182,7 +2330,8 @@
           "de_def": "zustimmen, für eine bestimmte Tätigkeit verantwortlich zu sein",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g02"
+          "id": "b2-ehrenamt-g02",
+          "cefr": "chunk"
         },
         {
           "surface": "Einweisung erhalten",
@@ -2194,7 +2343,8 @@
           "de_def": "vor Beginn wichtige Informationen und Anleitungen bekommen",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g03"
+          "id": "b2-ehrenamt-g03",
+          "cefr": "chunk"
         },
         {
           "surface": "Ansprechperson",
@@ -2206,7 +2356,8 @@
           "de_def": "Person, an die man sich mit Fragen wenden kann",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g04"
+          "id": "b2-ehrenamt-g04",
+          "cefr": "B2"
         },
         {
           "surface": "Verantwortung",
@@ -2219,7 +2370,8 @@
           "collocations": [],
           "register": "neutral",
           "plural_note": "通常无复数",
-          "id": "b2-ehrenamt-g05"
+          "id": "b2-ehrenamt-g05",
+          "cefr": "B2"
         },
         {
           "surface": "Einsatzplan",
@@ -2231,7 +2383,8 @@
           "de_def": "Übersicht, wer wann eine Aufgabe übernimmt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g06"
+          "id": "b2-ehrenamt-g06",
+          "cefr": "B2"
         },
         {
           "surface": "absprechen",
@@ -2243,7 +2396,8 @@
           "de_def": "mit anderen klären, wer was und wann macht",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g07"
+          "id": "b2-ehrenamt-g07",
+          "cefr": "chunk"
         },
         {
           "surface": "Grenze ziehen",
@@ -2255,7 +2409,8 @@
           "de_def": "deutlich machen, was man leisten kann oder möchte",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g08"
+          "id": "b2-ehrenamt-g08",
+          "cefr": "chunk"
         },
         {
           "surface": "Zeitaufwand",
@@ -2268,7 +2423,8 @@
           "collocations": [],
           "register": "neutral",
           "plural_note": "通常无复数",
-          "id": "b2-ehrenamt-g09"
+          "id": "b2-ehrenamt-g09",
+          "cefr": "B2"
         },
         {
           "surface": "Beitrag",
@@ -2280,7 +2436,8 @@
           "de_def": "Teil, den eine Person zu einem gemeinsamen Ziel beiträgt",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g10"
+          "id": "b2-ehrenamt-g10",
+          "cefr": "B2"
         },
         {
           "surface": "Rückmeldung",
@@ -2292,7 +2449,8 @@
           "de_def": "kurze Information darüber, wie etwas gelaufen ist",
           "collocations": [],
           "register": "neutral",
-          "id": "b2-ehrenamt-g11"
+          "id": "b2-ehrenamt-g11",
+          "cefr": "B2"
         },
         {
           "surface": "Zusage macht",
@@ -2309,7 +2467,8 @@
             }
           ],
           "register": "neutral",
-          "id": "b2-ehrenamt-g12"
+          "id": "b2-ehrenamt-g12",
+          "cefr": "chunk"
         }
       ],
       "questions": [
@@ -2335,14 +2494,14 @@
           "evidence_sentence_index": 5
         },
         {
-          "type": "配对",
-          "q": "Was schützt davor, nach kurzer Zeit ganz aufzuhören?",
+          "type": "选择（细节）",
+          "q": "Was kann dazu beitragen, dass Freiwillige länger engagiert bleiben?",
           "options": [
-            "Ein realistischer Zeitaufwand.",
-            "Eine zusätzliche Aufgabe ohne Absprache.",
-            "Eine Zusage, die man nicht einhalten kann."
+            "Ein realistischer Zeitaufwand und klar abgesprochene Aufgaben.",
+            "Eine möglichst hohe Zahl an festen Einsätzen pro Woche.",
+            "Die Erwartung, kurzfristig immer zusätzliche Aufgaben zu übernehmen."
           ],
-          "answer": "Ein realistischer Zeitaufwand.",
+          "answer": "Ein realistischer Zeitaufwand und klar abgesprochene Aufgaben.",
           "evidence_sentence_index": 14
         }
       ],
