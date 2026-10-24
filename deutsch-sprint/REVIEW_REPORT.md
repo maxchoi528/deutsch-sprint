@@ -64,3 +64,8 @@
 - 实际检查：`python3 -m unittest tests.test_p7_practice -v`（5 项通过）；`python3 p7-practice/build.py`；`python3 tests/smoke_browser.py`（通过）。
 - 未验证：无真实录音语料/真人口试，也未对系统语音在所有设备上的表现进行实机测试。
 
+# R6 复审落实（2026-10-24）
+- 新增 P5 `--selftest`，模型目录可由 `--model` 指定；静音音频测试不宣称真实识别或麦克风通过。README 说明模型预下载、HF_ENDPOINT 配置方式、pip 索引变量和排错步骤。
+- 实际检查：`python3 -m unittest tests.test_p5_shadow -v`（2 项通过）；`python3 p5-shadow/app.py --selftest --model ./models/nonexistent` 在当前缺少 faster-whisper 环境下输出中文依赖错误并退出 1；`python3 -m py_compile p5-shadow/app.py` 通过。
+- 未验证：真实 faster-whisper 模型、真实音频识别和物理麦克风仍未运行。
+
