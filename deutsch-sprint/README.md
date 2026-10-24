@@ -5,6 +5,7 @@
 ## 当前内容
 
 1. **P6 冲刺仪表盘**：[index.html](index.html)。记录日常学习、模考和错误日志；总览新增 16 周 syllabus 任务卡，包含语法、P1 推荐课件（点击直达）、口语、写作、复盘和五项今日任务。任务勾选与当日打卡一起存储。周复盘按起始日分 W0/W1…并用三态显示规则。W4、W9、W13 是个人内部门槛，不是 Goethe 官方评分。旧版 JSON 可导入，旧关卡勾选会安全忽略；导出记录上次备份时间。
+   错误日志支持粘贴 P3/P4 Markdown 或 TSV 错误表，预览后去重导入；复制提示词按钮会复制对应完整 Markdown 文件。
 2. **P2 Anki 卡片工厂**：[anki-factory/README.md](anki-factory/README.md)。使用 Python 标准库，将 P1 课件 JSON 和 P6 错误日志导出为四种带 UTF-8 BOM 的 CSV；支持 `--stats`。
 3. **P1 B2–C1 精读器**：[p1-reader/index.html](p1-reader/index.html)。现有 10 篇原创课件：3 篇 C1 文章、7 篇 B2/B2+ 文章。每篇至少 12 个正文词块标记，并有 3 道带证据句的理解题。新增 B2/B2+ 文章已补齐中文释义、实际摘要、语法提示和搭配产出；首次使用默认进入 B2。所有德语内容标为「AI 生成 · 仅作练习」；7 篇新增课件仍是 `ai-generated-unreviewed`，导师抽检清单见 [review-checklist.md](p1-reader/review-checklist.md)。
 4. **P3 口语教练**：[speaking-coach.md](p3-p4-prompts/speaking-coach.md)。复制到对话中使用。

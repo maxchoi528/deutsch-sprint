@@ -12,7 +12,14 @@ if issues:
 template = (ROOT / "dashboard.template.html").read_text(encoding="utf-8")
 syllabus = json.loads((ROOT / "syllabus.json").read_text(encoding="utf-8"))
 payload = json.dumps(syllabus, ensure_ascii=False, separators=(",", ":")).replace("</script", "<\\/script")
-if template.count("__SYLLABUS_JSON__") != 1:
-    raise SystemExit("dashboard.template.html 必须恰好包含一个 syllabus 占位符")
-(ROOT / "index.html").write_text(template.replace("__SYLLABUS_JSON__", payload), encoding="utf-8")
+prompts = {
+    "__P3_PROMPT_JSON__": json.dumps((ROOT / "p3-p4-prompts" / "speaking-coach.md").read_text(encoding="utf-8"), ensure_ascii=False),
+    "__P4_PROMPT_JSON__": json.dumps((ROOT / "p3-p4-prompts" / "writing-coach.md").read_text(encoding="utf-8"), ensure_ascii=False),
+}
+replacements = {"__SYLLABUS_JSON__": payload, **prompts}
+for marker, value in replacements.items():
+    if template.count(marker) != 1:
+        raise SystemExit(f"dashboard.template.html 必须恰好包含一个 {marker} 占位符")
+    template = template.replace(marker, value)
+(ROOT / "index.html").write_text(template, encoding="utf-8")
 print(f"生成 {ROOT / 'index.html'}（{len(syllabus['weeks'])} 周计划）")

@@ -135,6 +135,8 @@
     .syllabus-task > span { display: grid; gap: 3px; min-width: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
     .syllabus-task strong { color: var(--ink); font-size: 12px; }
     .syllabus-task.is-done { border-color: var(--accent); background: var(--accent-soft); }
+    .prompt-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+    .error-import-panel textarea { width: 100%; min-height: 112px; resize: vertical; font: 12px/1.55 ui-monospace, SFMono-Regular, Consolas, monospace; }
     .block-name { font-weight: 650; font-size: 13px; }
     .block-meta { color: var(--muted); font-size: 11px; }
     .minutes-input, .field input, .field select, .field textarea, .inline-number { width: 100%; min-height: 40px; padding: 8px 10px; color: var(--ink); border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
@@ -263,6 +265,7 @@
       .syllabus-meta { grid-template-columns: 1fr; }
       .syllabus-tasks { grid-template-columns: 1fr; }
       .syllabus-task:last-child { grid-column: auto; }
+      .prompt-actions { width: 100%; }
       .block-name { font-size: 12px; }
       .block-meta { font-size: 10px; }
       .minutes-input { font-size: 12px; }
@@ -302,6 +305,7 @@
   </dialog>
 
   <script type="application/json" id="syllabus-data">__SYLLABUS_JSON__</script>
+  <script type="application/json" id="prompt-data">{"speaking":__P3_PROMPT_JSON__,"writing":__P4_PROMPT_JSON__}</script>
   <script type="application/json" id="app-config">
   {
     "title": "Deutsch Sprint",
@@ -332,6 +336,7 @@
     'use strict';
     const CONFIG = JSON.parse(document.getElementById('app-config').textContent);
     const SYLLABUS = JSON.parse(document.getElementById('syllabus-data').textContent).weeks;
+    const PROMPT_TEXTS = JSON.parse(document.getElementById('prompt-data').textContent);
     const STORAGE_KEY = 'deutschSprint.dashboard.v1';
     const SKILLS = [
       {id:'reading', label:'阅读 Lesen', color:'#ba7543'},
@@ -346,6 +351,8 @@
     let selectedReviewWeek = null;
     let toastTimer;
     let needsInitialSetup = false;
+    let errorPasteText = '';
+    let pendingErrorImport = null;
 
     const today = () => localDateKey(new Date());
     function localDateKey(date) {
@@ -774,9 +781,56 @@
       const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);
       const max=top[0]?.[1]||1;
       return `<div class="page-heading"><div><h2>错误日志</h2><p>记录原句、修正和规则；每周挑高频错误转成产出卡。</p></div><button class="primary-button" data-action="add-error">＋ 记一条错误</button></div>
+        ${renderErrorImport()}
         <div class="main-two-col" style="margin-top:0"><section class="panel"><div class="panel-heading"><div><h3>高频错误 Top 5</h3><p>按日志条数统计，不代表错误严重度。</p></div></div>${top.length?`<div class="error-type-bars">${top.map(([type,count])=>`<div class="error-bar-row"><span>${esc(type)}</span><div class="bar-track"><i style="width:${Math.max(5,Math.round(count/max*100))}%"></i></div><b>${count}</b></div>`).join('')}</div>`:`<div class="chart-empty" style="min-height:130px">记录错误后，会自动统计出现次数最多的五类。</div>`}</section>
         <section class="panel"><div class="panel-heading"><div><h3>近六周记录节奏</h3><p>按错误发生日期统计每周条数。</p></div></div>${renderErrorTrend()}</section></div>
         <section class="panel"><div class="panel-heading"><div><h3>全部错误</h3><p>单条可复制为 P2 错误卡 JSON。</p></div><span class="tag">${state.errors.length} 条</span></div><div class="table-wrap"><table><thead><tr><th>日期</th><th>类型</th><th>我的原句</th><th>修正</th><th>规则</th><th>操作</th></tr></thead><tbody>${sorted.length?sorted.map(e=>`<tr><td>${fmtDate(e.date,{month:'short',day:'numeric'})}</td><td><span class="tag warn">${esc(e.type)}</span></td><td>${esc(e.original)}</td><td>${esc(e.correction)}</td><td>${esc(e.rule)}</td><td><button class="table-action" data-copy-error="${esc(e.id)}">复制卡片</button> <button class="table-action delete" data-delete-error="${esc(e.id)}" aria-label="删除错误记录">删除</button></td></tr>`).join(''):`<tr><td colspan="6" class="empty-row">还没有记录。每次写作或口语订正后，挑最值得复用的一条记下来。</td></tr>`}</tbody></table></div></section>`;
+    }
+    function renderErrorImport() {
+      const preview=pendingErrorImport;
+      return `<section class="panel error-import-panel"><div class="panel-heading"><div><h3>粘贴导入 P3/P4 错误表</h3><p>支持 Markdown 表格或制表符表格，列为：类型｜我的原句｜修正｜一句话规则。先预览再导入。</p></div><div class="prompt-actions"><button class="table-action" data-copy-prompt="speaking">复制 P3 提示词</button><button class="table-action" data-copy-prompt="writing">复制 P4 提示词</button></div></div><label class="field"><span>错误表内容</span><textarea id="error-import-text" rows="5" placeholder="类型｜我的原句｜修正｜一句话规则">${esc(errorPasteText)}</textarea></label><div class="form-actions" style="justify-content:flex-start"><button class="quiet-button" data-action="preview-error-import">预览导入</button><span id="error-import-status" class="small-muted" role="status" aria-live="polite">${preview?`预览：${preview.records.length} 条新记录，${preview.duplicates} 条重复`:'粘贴批改反馈后先预览。'}</span></div>${preview?.records.length?`<div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>类型</th><th>我的原句</th><th>修正</th><th>一句话规则</th></tr></thead><tbody>${preview.records.map(row=>`<tr><td>${esc(row.type)}</td><td>${esc(row.original)}</td><td>${esc(row.correction)}</td><td>${esc(row.rule)}</td></tr>`).join('')}</tbody></table></div><div class="form-actions"><button class="primary-button" data-action="import-errors">导入 ${preview.records.length} 条新记录</button></div>`:''}`;
+    }
+    function splitTableRow(line,delimiter) {
+      if(delimiter==='tab')return line.split('\t').map(cell=>cell.trim());
+      let value=line.trim();if(value.startsWith('|'))value=value.slice(1);if(value.endsWith('|'))value=value.slice(0,-1);
+      return value.split(/(?<!\\)\|/).map(cell=>cell.replace(/\\\|/g,'|').trim());
+    }
+    function parseErrorTable(source) {
+      const lines=String(source||'').replace(/```[^\n]*|```/g,'').split(/\r?\n/).map(line=>line.trim()).filter(Boolean);
+      const delimiter=lines.some(line=>line.includes('|'))?'pipe':lines.some(line=>line.includes('\t'))?'tab':null;
+      if(!delimiter)return {error:'没有识别到 Markdown 管道表格或制表符分隔表格。'};
+      const split=(line)=>splitTableRow(line,delimiter==='pipe'?'pipe':'tab');
+      const headerIndex=lines.findIndex(line=>{const cells=split(line).map(cell=>cell.toLowerCase().replace(/[：:]/g,'').replace(/\s+/g,''));return cells.length>=4&&cells.some(x=>['类型','错误类型','kategorie'].includes(x))&&cells.some(x=>['我的原句','原句','fehlerhafterausdruck'].includes(x))&&cells.some(x=>['修正','修正句','korrektur'].includes(x))&&cells.some(x=>['一句话规则','规则','regel'].includes(x));});
+      if(headerIndex<0)return {error:'表头未识别。请使用“类型｜我的原句｜修正｜一句话规则”四列。'};
+      const header=split(lines[headerIndex]).map(cell=>cell.toLowerCase().replace(/[：:]/g,'').replace(/\s+/g,''));
+      const aliases=[['类型','错误类型','kategorie'],['我的原句','原句','fehlerhafterausdruck'],['修正','修正句','korrektur'],['一句话规则','规则','regel']];
+      const indices=aliases.map(names=>header.findIndex(cell=>names.includes(cell)));
+      const rows=[];
+      for(const line of lines.slice(headerIndex+1)){
+        if(delimiter==='pipe'&&/^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(line))continue;
+        const cells=split(line);if(cells.every(cell=>!cell))continue;
+        if(indices.some(index=>index<0||!cells[index]))return {error:'有一行缺少类型、原句、修正或规则；未导入任何记录。'};
+        rows.push({type:cells[indices[0]],original:cells[indices[1]],correction:cells[indices[2]],rule:cells[indices[3]],date:today()});
+      }
+      if(!rows.length)return {error:'表头之后没有可导入的数据行。'};
+      const key=row=>[row.type,row.original,row.correction,row.rule].map(value=>String(value).trim().toLocaleLowerCase()).join('\u0000');
+      const seen=new Set(state.errors.map(key));let duplicates=0;const records=[];
+      rows.forEach(row=>{const id=key(row);if(seen.has(id)){duplicates++;return;}seen.add(id);records.push(row)});
+      return {records,duplicates};
+    }
+    function previewErrorImport() {
+      errorPasteText=document.getElementById('error-import-text')?.value||'';
+      const parsed=parseErrorTable(errorPasteText);
+      if(parsed.error){pendingErrorImport={records:[],duplicates:0,error:parsed.error};renderAll();document.getElementById('error-import-status').textContent=parsed.error;return;}
+      pendingErrorImport=parsed;renderAll();
+      const status=document.getElementById('error-import-status');if(status)status.textContent=`预览：${parsed.records.length} 条新记录，${parsed.duplicates} 条重复记录将跳过。`;
+    }
+    function importPendingErrors() {
+      if(!pendingErrorImport?.records.length)return;
+      const current=new Set(state.errors.map(row=>[row.type,row.original,row.correction,row.rule].map(value=>String(value).trim().toLocaleLowerCase()).join('\u0000')));
+      const additions=pendingErrorImport.records.filter(row=>!current.has([row.type,row.original,row.correction,row.rule].map(value=>String(value).trim().toLocaleLowerCase()).join('\u0000')));
+      additions.forEach(row=>state.errors.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),...row}));
+      const count=additions.length;errorPasteText='';pendingErrorImport=null;persist(false);renderAll();showToast(`已导入 ${count} 条错误；重复记录已跳过`);
     }
     function renderErrorTrend() {
       const current=weekRange();
@@ -952,6 +1006,11 @@
       if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(()=>showToast('P2 错误卡 JSON 已复制')).catch(()=>fallbackCopy(text));
       else fallbackCopy(text);
     }
+    function copyPrompt(which) {
+      const text=PROMPT_TEXTS[which];if(!text)return;
+      if(navigator.clipboard?.writeText)navigator.clipboard.writeText(text).then(()=>showToast(`P${which==='speaking'?3:4} 提示词已复制`)).catch(()=>fallbackCopy(text));
+      else fallbackCopy(text);
+    }
     function fallbackCopy(text) {
       const area=document.createElement('textarea'); area.value=text; area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();
       try{document.execCommand('copy');showToast('P2 错误卡 JSON 已复制');}catch{prompt('复制以下 P2 错误卡 JSON：',text);} area.remove();
@@ -965,6 +1024,8 @@
       if (action==='theme') {state.settings.theme=effectiveTheme()==='dark'?'light':'dark';persist(false);renderAll();}
       if (action==='add-mock') openMockDialog();
       if (action==='add-error') openErrorDialog();
+      if (action==='preview-error-import') previewErrorImport();
+      if (action==='import-errors') importPendingErrors();
       if (action==='edit-gates') {currentView='review';renderAll();document.querySelector('.gate-editor')?.scrollIntoView({behavior:'smooth',block:'start'});}
       if (action==='clear-data') {
         if(confirm('确定删除当前浏览器里的全部记录吗？此操作不能撤销。')) {localStorage.removeItem(STORAGE_KEY);state=defaultState();persist(false);currentView='overview';renderAll();showToast('本地记录已清除');}
@@ -977,6 +1038,8 @@
       if(delError&&confirm('删除这条错误记录？')) {state.errors=state.errors.filter(e=>e.id!==delError);persist(false);renderAll();showToast('错误记录已删除');}
       const copy=event.target.closest('[data-copy-error]')?.dataset.copyError;
       if(copy)copyError(copy);
+      const prompt=event.target.closest('[data-copy-prompt]')?.dataset.copyPrompt;
+      if(prompt)copyPrompt(prompt);
     });
     document.addEventListener('change', event => {
       if(event.target.id==='review-week'){selectedReviewWeek=event.target.value===''?null:Number(event.target.value);renderAll();return;}

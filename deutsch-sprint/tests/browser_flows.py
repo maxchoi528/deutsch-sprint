@@ -199,12 +199,36 @@ def extra_flows(browser, base_url, errors):
     print('PASS: P6 weekly syllabus checklist persistence and direct link to the selected P1 lesson.')
 
     mobile_dashboard = browser.new_page(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
-    mobile_dashboard.add_init_script("""() => { const d=new Date();const key=d.toLocaleDateString('sv-SE');localStorage.setItem('deutschSprint.dashboard.v1',JSON.stringify({schemaVersion:3,settings:{startDate:key,w1Start:key,theme:'light'},checkins:{},gates:{w4:{},w9:{},w13:{}},mocks:[],errors:[]})); }""")
+    mobile_dashboard.add_init_script("""(() => { const d=new Date();const key=d.toLocaleDateString('sv-SE');localStorage.setItem('deutschSprint.dashboard.v1',JSON.stringify({schemaVersion:3,settings:{startDate:key,w1Start:key,theme:'light'},checkins:{},gates:{w4:{},w9:{},w13:{}},mocks:[],errors:[]})); })();""")
     mobile_dashboard.goto(base_url + '/index.html')
     assert mobile_dashboard.locator('[data-syllabus-task]').count() == 5
     assert mobile_dashboard.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'P6 syllabus overflows a mobile viewport'
     mobile_dashboard.close()
     print('PASS: P6 weekly plan remains usable without horizontal overflow at mobile width.')
+
+    error_page = browser.new_page()
+    error_page.add_init_script("""(() => { const d=new Date();const key=d.toLocaleDateString('sv-SE');localStorage.setItem('deutschSprint.dashboard.v1',JSON.stringify({schemaVersion:3,settings:{startDate:key,w1Start:key,theme:'light'},checkins:{},gates:{w4:{},w9:{},w13:{}},mocks:[],errors:[]})); })();""")
+    error_page.goto(base_url + '/index.html')
+    error_page.locator('[data-view="errors"]').click()
+    error_page.locator('#error-import-text').fill('| 类型 | 我的原句 | 修正 | 一句话规则 |\n| --- | --- | --- | --- |\n| 词序 | Heute ich lerne. | Heute lerne ich. | 主句变位动词通常放在第二位。 |\n| 词序 | Heute ich lerne. | Heute lerne ich. | 主句变位动词通常放在第二位。 |')
+    error_page.locator('[data-action="preview-error-import"]').click()
+    assert '1 条新记录，1 条重复记录' in error_page.locator('#error-import-status').inner_text()
+    error_page.locator('[data-action="import-errors"]').click()
+    assert len(saved(error_page, P6)['errors']) == 1, 'Markdown import should deduplicate repeated rows'
+    error_page.locator('#error-import-text').fill('类型\t我的原句\t修正\t一句话规则\n词序\tHeute ich lerne.\tHeute lerne ich.\t主句变位动词通常放在第二位。')
+    error_page.locator('[data-action="preview-error-import"]').click()
+    assert '0 条新记录，1 条重复记录' in error_page.locator('#error-import-status').inner_text()
+    error_page.context.grant_permissions(['clipboard-read', 'clipboard-write'], origin=base_url)
+    expected_prompt = (ROOT / 'p3-p4-prompts/speaking-coach.md').read_text(encoding='utf-8')
+    error_page.locator('[data-copy-prompt="speaking"]').click()
+    error_page.wait_for_function('navigator.clipboard.readText().then(text => text.length > 0)')
+    assert error_page.evaluate('navigator.clipboard.readText()') == expected_prompt
+    expected_prompt = (ROOT / 'p3-p4-prompts/writing-coach.md').read_text(encoding='utf-8')
+    error_page.locator('[data-copy-prompt="writing"]').click()
+    error_page.wait_for_function('navigator.clipboard.readText().then(text => text.length > 0)')
+    assert error_page.evaluate('navigator.clipboard.readText()') == expected_prompt
+    print('PASS: P6 Markdown/TSV error import preview, deduplication and exact P3/P4 prompt copy.')
+    error_page.close()
 
     mobile = browser.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
     page = mobile.new_page()

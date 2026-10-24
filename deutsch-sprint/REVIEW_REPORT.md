@@ -75,3 +75,8 @@
 - 实际检查：`python3 validate_syllabus.py`；`python3 build_dashboard.py`；`python3 p1-reader/build_reader.py`；`python3 -m unittest tests.test_syllabus -v`（3 项通过）；`python3 tests/smoke_browser.py`（通过含桌面/手机任务检查和直接课件路由）。
 - 未解决：每日任务按同一周主题重复，使用者可按实际进度调整；本工具不自动适配临时休息日。
 
+# R8 复审落实（2026-10-24）
+- 错误表导入解析 Markdown 管道表格及 TSV，支持先预览再确认、明确表头/缺字段错误、并以类型/原句/修正/规则去重。复制 P3/P4 按钮取源 Markdown 原文。
+- 实际检查：`python3 build_dashboard.py`；`python3 -m unittest tests.test_dashboard_features -v`（2 项通过）；`python3 tests/smoke_browser.py` 通过，含两种表格格式、去重预览与剪贴板逐字一致性验证。
+- 已知边界：导入器要求字段表头可识别，不会从任意散文中猜测错题行；日期采用导入当天。
+

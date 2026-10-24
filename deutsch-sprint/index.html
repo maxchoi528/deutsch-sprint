@@ -135,6 +135,8 @@
     .syllabus-task > span { display: grid; gap: 3px; min-width: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
     .syllabus-task strong { color: var(--ink); font-size: 12px; }
     .syllabus-task.is-done { border-color: var(--accent); background: var(--accent-soft); }
+    .prompt-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+    .error-import-panel textarea { width: 100%; min-height: 112px; resize: vertical; font: 12px/1.55 ui-monospace, SFMono-Regular, Consolas, monospace; }
     .block-name { font-weight: 650; font-size: 13px; }
     .block-meta { color: var(--muted); font-size: 11px; }
     .minutes-input, .field input, .field select, .field textarea, .inline-number { width: 100%; min-height: 40px; padding: 8px 10px; color: var(--ink); border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
@@ -263,6 +265,7 @@
       .syllabus-meta { grid-template-columns: 1fr; }
       .syllabus-tasks { grid-template-columns: 1fr; }
       .syllabus-task:last-child { grid-column: auto; }
+      .prompt-actions { width: 100%; }
       .block-name { font-size: 12px; }
       .block-meta { font-size: 10px; }
       .minutes-input { font-size: 12px; }
@@ -302,6 +305,7 @@
   </dialog>
 
   <script type="application/json" id="syllabus-data">{"schemaVersion":1,"weeks":[{"week":1,"stage":"A","grammar_theme":"Kasus、支配介词动词与 Wechselpräpositionen","reading_lesson_id":"b2-wohnen","speaking_topic":"Wohnungssuche und faire Mietbedingungen","writing_task_type":"短评：合适住房与租房条件","review_points":"支配介词格；位置与方向格；从句中介词动词搭配","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":2,"stage":"A","grammar_theme":"从句语序：dass / weil / obwohl / während / indem 与 Relativsatz","reading_lesson_id":"b2-beruf","speaking_topic":"Hybride Arbeit und klare Teamregeln","writing_task_type":"邮件：提出团队协作建议","review_points":"从属连词动词后置；关系代词格；主句括号","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":3,"stage":"A","grammar_theme":"Passiv：Vorgangs-/Zustandspassiv 与 Passiversatz","reading_lesson_id":"b2-medien","speaking_topic":"Digitale Informationen zuverlässig prüfen","writing_task_type":"说明文：解释信息核验流程","review_points":"werden/sein + Partizip II；lassen sich；man 句式转换","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":4,"stage":"A","grammar_theme":"Konjunktiv II；核对 W4 内部门槛","reading_lesson_id":"b2-bildung","speaking_topic":"Lernen mit realistischen Wochenzielen","writing_task_type":"论坛帖：表达建议、假设与让步","review_points":"礼貌请求；不可实现条件；würde 与强变化动词","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":5,"stage":"B","grammar_theme":"Nominalisierung 与 Nominalstil","reading_lesson_id":"b2-ehrenamt","speaking_topic":"Freiwilliges Engagement und eigene Grenzen","writing_task_type":"正式邮件：说明参与条件","review_points":"动词名词化；介词短语；名词化与动词化互换","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":6,"stage":"B","grammar_theme":"Partizipialattribute 与 erweiterte Attribute","reading_lesson_id":"b2-reisen","speaking_topic":"Reisen bei Verspätungen und Anschlussproblemen","writing_task_type":"报道摘要：描述出行方案及限制","review_points":"第一/第二分词作定语；前置长定语拆解；关系从句改写","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":7,"stage":"B","grammar_theme":"Funktionsverbgefüge 与固定表达","reading_lesson_id":"b2-konsum","speaking_topic":"Reparieren, Kaufen und bewusste Entscheidungen","writing_task_type":"评论：权衡修理与购买","review_points":"eine Entscheidung treffen；in Betracht ziehen；zur Verfügung stehen","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":8,"stage":"B","grammar_theme":"Konjunktiv I 与 indirekte Rede（转述）","reading_lesson_id":"b2-beruf","speaking_topic":"Berichte aus dem hybriden Arbeitsalltag","writing_task_type":"采访整理：中性转述观点","review_points":"Konjunktiv I 变位；替代式 Konjunktiv II；间接问句","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":9,"stage":"B","grammar_theme":"Konnektoren 与论证结构；核对 W9 内部门槛","reading_lesson_id":"b2-medien","speaking_topic":"Mediennutzung und unterschiedliche Interessen","writing_task_type":"议论文：提出主张、反方与回应","review_points":"因果、让步、对照、结果连接词；段落论证链","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周语法主题练习，并精读推荐课件，摘录可复用词块。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"精听一段材料，复述主旨并核对遗漏信息。","writing":"完成本周写作任务类型，收集批改反馈并重写重点句。"}},{"week":10,"stage":"C","grammar_theme":"考试模式：限时 Lesen/Hören；Schreiben 两项共用 75 分钟；配对口试","reading_lesson_id":"b2-wohnen","speaking_topic":"Öffentliche Räume und Wohnen","writing_task_type":"限时论坛文章 + 正式邮件","review_points":"阅读定位与推断；听力笔记；双任务时间分配","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周限时阅读练习，复盘定位/推断依据；推荐课件用于补弱。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"完成本周限时听力练习，写关键词并复盘干扰项。","writing":"按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"}},{"week":11,"stage":"C","grammar_theme":"考试模式：混合题型阅读/听力与配对讨论","reading_lesson_id":"b2-bildung","speaking_topic":"Weiterbildung und lebenslanges Lernen","writing_task_type":"限时观点文：论证与回应","review_points":"按题型分配时间；理由—例证—限制；口试接话","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周限时阅读练习，复盘定位/推断依据；推荐课件用于补弱。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"完成本周限时听力练习，写关键词并复盘干扰项。","writing":"按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"}},{"week":12,"stage":"C","grammar_theme":"考试模式：完整写作流程与模考复盘","reading_lesson_id":"b2-reisen","speaking_topic":"Mobilität, Zeitplanung und Alternativen","writing_task_type":"正式投诉/请求邮件 + 观点短文","review_points":"草拟、检查、修订；连接词准确性；听力摘要","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"完成本周限时阅读练习，复盘定位/推断依据；推荐课件用于补弱。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"完成本周限时听力练习，写关键词并复盘干扰项。","writing":"按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"}},{"week":13,"stage":"C","grammar_theme":"两套完整模考判断（若可用）；核对 W13 关卡","reading_lesson_id":"b2-medien","speaking_topic":"Digitale Öffentlichkeit und Medienkompetenz","writing_task_type":"限时综合输出与修订","review_points":"两套模考间留恢复时间；逐项复盘，不临时补新语法","daily_tasks":{"anki":"复习所有到期卡；新卡控制在可稳定复习的数量。","deep":"安排两套完整模考中的 Lesen；两套之间留恢复和复盘时间。","speaking":"围绕本周话题主动表达，记录停顿处与至少一条修正。","listening":"安排两套完整模考中的 Hören，并复盘错误原因。","writing":"按本周考试任务训练；写作两项合计使用一个 75 分钟时段。"}},{"week":14,"stage":"D","grammar_theme":"减量：维持复习与弱项练习；确认报考与材料","reading_lesson_id":"b2-ehrenamt","speaking_topic":"Engagement, Verantwortung und Alltag","writing_task_type":"短篇表达：总结个人立场","review_points":"复习高频错误；轻量听读；确认考试安排","daily_tasks":{"anki":"复习到期卡，不集中增加新卡。","deep":"轻量阅读与弱项回顾；W16 加一篇长文摘要作为 C2 阅读预备。","speaking":"做短时、低压力表达，保持流利度，不新增高强度模拟。","listening":"选择熟悉难度的材料轻听并复述主旨。","writing":"做提纲或短段改写；优先回看已批改文本。"}},{"week":15,"stage":"D","grammar_theme":"减量与缓冲：睡眠、节奏、已掌握内容回收","reading_lesson_id":"b2-konsum","speaking_topic":"Konsum, Reparatur und Nachhaltigkeit","writing_task_type":"限时提纲练习，不追求新难点","review_points":"回顾个人错误表；口语框架；减少新卡","daily_tasks":{"anki":"复习到期卡，不集中增加新卡。","deep":"轻量阅读与弱项回顾；W16 加一篇长文摘要作为 C2 阅读预备。","speaking":"做短时、低压力表达，保持流利度，不新增高强度模拟。","listening":"选择熟悉难度的材料轻听并复述主旨。","writing":"做提纲或短段改写；优先回看已批改文本。"}},{"week":16,"stage":"D","grammar_theme":"考试缓冲；建立 C2 阅读预备习惯","reading_lesson_id":"stadt-hitze","speaking_topic":"Stadtentwicklung und öffentliche Debatten","writing_task_type":"C2 预备：长文摘要与观点回应","review_points":"保持轻量输入；归档学习记录；规划后续 C2 阅读","daily_tasks":{"anki":"复习到期卡，不集中增加新卡。","deep":"轻量阅读与弱项回顾；W16 加一篇长文摘要作为 C2 阅读预备。","speaking":"做短时、低压力表达，保持流利度，不新增高强度模拟。","listening":"选择熟悉难度的材料轻听并复述主旨。","writing":"做提纲或短段改写；优先回看已批改文本。"}}]}</script>
+  <script type="application/json" id="prompt-data">{"speaking":"# P3 · Goethe C1 口语教练\n\n把下面的提示词复制到新对话。建议固定一位对话伙伴，并把每次结束的错误表贴回 P6 错误日志。\n\n## 可直接使用的提示词\n\n```text\n你是 Goethe-Zertifikat C1 Sprechen 的考官兼谈话伙伴。我是成人学习者，当前约 B1–B1+，目标是在 16 周内提高到 C1。\n\n语言与互动规则\n- 全程使用德语；你自己的表达保持在 B2 上限到 C1 之间。\n- 先询问我今天的主题和时长，默认 20 分钟。若我没有主题，提供一个社会话题和两个立场角度。\n- 不要打断我的独白。先让我讲 2–3 分钟，再用 2–3 个追问推动解释、举例或回应反方。\n- 讨论阶段你扮演持相反观点的搭档，进行 5–8 轮论证；观点清楚但不故意刁难。\n- 每 3–4 轮，选择我一个值得改正的错误，用自然的正确句子重述（recast），暂时不解释规则。\n- 如果我停顿，不要代替我完成句子；可用一个简短追问或表达框架帮我继续。\n- 不替我整段回答，不夸大水平，也不编造 Goethe 官方分数。\n\n结束后用中文给出：\n1. 错误表：类型｜我的原句｜自然修正｜一句话规则。只列本次真实出现的例子。\n2. 我用得好的 3 个表达。\n3. 可替换的更高级表达 5 条，说明语域与适用情境。\n4. 流利度观察：停顿、重复、中文/英文夹杂；只依据本次对话，不伪装成精确测量。\n5. 明天一个 10–15 分钟的针对性任务。\n\n如果本轮是文字对话而非语音，不要声称测量了发音、真实停顿或语速。\n```\n\n## 三个可直接练习的话题\n\n- Sollten Innenstädte weitgehend autofrei werden?\n- Welche Regeln brauchen hybride Teams, damit Flexibilität nicht zu ständiger Erreichbarkeit wird?\n- Sollten öffentliche Dienstleistungen vollständig digital angeboten werden?\n\n## 限制\n\n文字模式不能可靠判断发音、实际停顿和音量；AI 的纠错需要你再与导师或可信语料核对。该教练用于练习，不提供官方评分。\n","writing":"# P4 · Goethe C1 写作批改\n\n把提示词复制到新对话，再粘贴任务和作文。它按计划要求先给提示，等你自己订正后再提供参考改写。\n\n## 可直接使用的提示词\n\n```text\n你是 Goethe-Zertifikat C1 Schreiben 的训练反馈员。我的德语约 B1–B1+，目标是 16 周内提高到 C1。请用中文解释、德语举例；不冒充官方评分员。\n\n工作流程\n1. 先用简短中文复述任务，并列出我必须完成的内容要点。\n2. 核对我的文章是否回应了每个要点。分项评价：内容完成度、连贯与结构、词汇范围与准确、语法结构范围与准确、语域。每项给 1–2 句文本证据。\n3. 总体只给“约 B2 / 接近 C1 / C1”的区间判断，说明不确定性；不得编造精确分数或考试结果。\n4. 逐句标注问题：原句｜类型（格/词序/介词/冠词/搭配/语域/连贯）｜提示。第一轮只给提示，不直接给正确答案；尽量让我自己发现问题。\n5. 停下来等我提交订正稿。收到后再提供参考改写，并逐处说明改写原因；保留我原本想表达的观点，不替我凭空增加论据。\n6. 总结本次错误类型，给 3 个针对性小练习。\n7. 最后给一个语域转换练习：把正式信息改为聊天消息，或把口语消息改为正式信息。\n\n准确性要求\n- 不编造 Goethe 评分细则、官方分数、引用或事实。\n- 区分明确语法错误、表达不自然和可选的风格建议。\n- 若任务说明或作文上下文不足，指出具体缺失，不自行补造。\n```\n\n## 三个练习任务模板\n\n1. **论坛观点帖**：讨论工作日缩短是否能提高工作质量。说明立场、提出理由、回应一个反方观点，并给出结论。\n2. **正式信息**：向课程机构询问一次课程变更的原因、对已报名学员的影响、可选替代方案及回复期限。\n3. **语域转换**：将一封正式投诉邮件改写为发给熟悉同事的聊天消息，保留问题、请求和期限，但调整称呼、句式和礼貌程度。\n\n## 限制\n\nAI 反馈不是官方阅卷结果。正式考试准备时仍需按当次考试版本的官方任务和评分标准复核；建议把高频错误写入 P6 日志，再挑选几条制作 P2 错误卡。\n"}</script>
   <script type="application/json" id="app-config">
   {
     "title": "Deutsch Sprint",
@@ -332,6 +336,7 @@
     'use strict';
     const CONFIG = JSON.parse(document.getElementById('app-config').textContent);
     const SYLLABUS = JSON.parse(document.getElementById('syllabus-data').textContent).weeks;
+    const PROMPT_TEXTS = JSON.parse(document.getElementById('prompt-data').textContent);
     const STORAGE_KEY = 'deutschSprint.dashboard.v1';
     const SKILLS = [
       {id:'reading', label:'阅读 Lesen', color:'#ba7543'},
@@ -346,6 +351,8 @@
     let selectedReviewWeek = null;
     let toastTimer;
     let needsInitialSetup = false;
+    let errorPasteText = '';
+    let pendingErrorImport = null;
 
     const today = () => localDateKey(new Date());
     function localDateKey(date) {
@@ -774,9 +781,56 @@
       const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);
       const max=top[0]?.[1]||1;
       return `<div class="page-heading"><div><h2>错误日志</h2><p>记录原句、修正和规则；每周挑高频错误转成产出卡。</p></div><button class="primary-button" data-action="add-error">＋ 记一条错误</button></div>
+        ${renderErrorImport()}
         <div class="main-two-col" style="margin-top:0"><section class="panel"><div class="panel-heading"><div><h3>高频错误 Top 5</h3><p>按日志条数统计，不代表错误严重度。</p></div></div>${top.length?`<div class="error-type-bars">${top.map(([type,count])=>`<div class="error-bar-row"><span>${esc(type)}</span><div class="bar-track"><i style="width:${Math.max(5,Math.round(count/max*100))}%"></i></div><b>${count}</b></div>`).join('')}</div>`:`<div class="chart-empty" style="min-height:130px">记录错误后，会自动统计出现次数最多的五类。</div>`}</section>
         <section class="panel"><div class="panel-heading"><div><h3>近六周记录节奏</h3><p>按错误发生日期统计每周条数。</p></div></div>${renderErrorTrend()}</section></div>
         <section class="panel"><div class="panel-heading"><div><h3>全部错误</h3><p>单条可复制为 P2 错误卡 JSON。</p></div><span class="tag">${state.errors.length} 条</span></div><div class="table-wrap"><table><thead><tr><th>日期</th><th>类型</th><th>我的原句</th><th>修正</th><th>规则</th><th>操作</th></tr></thead><tbody>${sorted.length?sorted.map(e=>`<tr><td>${fmtDate(e.date,{month:'short',day:'numeric'})}</td><td><span class="tag warn">${esc(e.type)}</span></td><td>${esc(e.original)}</td><td>${esc(e.correction)}</td><td>${esc(e.rule)}</td><td><button class="table-action" data-copy-error="${esc(e.id)}">复制卡片</button> <button class="table-action delete" data-delete-error="${esc(e.id)}" aria-label="删除错误记录">删除</button></td></tr>`).join(''):`<tr><td colspan="6" class="empty-row">还没有记录。每次写作或口语订正后，挑最值得复用的一条记下来。</td></tr>`}</tbody></table></div></section>`;
+    }
+    function renderErrorImport() {
+      const preview=pendingErrorImport;
+      return `<section class="panel error-import-panel"><div class="panel-heading"><div><h3>粘贴导入 P3/P4 错误表</h3><p>支持 Markdown 表格或制表符表格，列为：类型｜我的原句｜修正｜一句话规则。先预览再导入。</p></div><div class="prompt-actions"><button class="table-action" data-copy-prompt="speaking">复制 P3 提示词</button><button class="table-action" data-copy-prompt="writing">复制 P4 提示词</button></div></div><label class="field"><span>错误表内容</span><textarea id="error-import-text" rows="5" placeholder="类型｜我的原句｜修正｜一句话规则">${esc(errorPasteText)}</textarea></label><div class="form-actions" style="justify-content:flex-start"><button class="quiet-button" data-action="preview-error-import">预览导入</button><span id="error-import-status" class="small-muted" role="status" aria-live="polite">${preview?`预览：${preview.records.length} 条新记录，${preview.duplicates} 条重复`:'粘贴批改反馈后先预览。'}</span></div>${preview?.records.length?`<div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>类型</th><th>我的原句</th><th>修正</th><th>一句话规则</th></tr></thead><tbody>${preview.records.map(row=>`<tr><td>${esc(row.type)}</td><td>${esc(row.original)}</td><td>${esc(row.correction)}</td><td>${esc(row.rule)}</td></tr>`).join('')}</tbody></table></div><div class="form-actions"><button class="primary-button" data-action="import-errors">导入 ${preview.records.length} 条新记录</button></div>`:''}`;
+    }
+    function splitTableRow(line,delimiter) {
+      if(delimiter==='tab')return line.split('\t').map(cell=>cell.trim());
+      let value=line.trim();if(value.startsWith('|'))value=value.slice(1);if(value.endsWith('|'))value=value.slice(0,-1);
+      return value.split(/(?<!\\)\|/).map(cell=>cell.replace(/\\\|/g,'|').trim());
+    }
+    function parseErrorTable(source) {
+      const lines=String(source||'').replace(/```[^\n]*|```/g,'').split(/\r?\n/).map(line=>line.trim()).filter(Boolean);
+      const delimiter=lines.some(line=>line.includes('|'))?'pipe':lines.some(line=>line.includes('\t'))?'tab':null;
+      if(!delimiter)return {error:'没有识别到 Markdown 管道表格或制表符分隔表格。'};
+      const split=(line)=>splitTableRow(line,delimiter==='pipe'?'pipe':'tab');
+      const headerIndex=lines.findIndex(line=>{const cells=split(line).map(cell=>cell.toLowerCase().replace(/[：:]/g,'').replace(/\s+/g,''));return cells.length>=4&&cells.some(x=>['类型','错误类型','kategorie'].includes(x))&&cells.some(x=>['我的原句','原句','fehlerhafterausdruck'].includes(x))&&cells.some(x=>['修正','修正句','korrektur'].includes(x))&&cells.some(x=>['一句话规则','规则','regel'].includes(x));});
+      if(headerIndex<0)return {error:'表头未识别。请使用“类型｜我的原句｜修正｜一句话规则”四列。'};
+      const header=split(lines[headerIndex]).map(cell=>cell.toLowerCase().replace(/[：:]/g,'').replace(/\s+/g,''));
+      const aliases=[['类型','错误类型','kategorie'],['我的原句','原句','fehlerhafterausdruck'],['修正','修正句','korrektur'],['一句话规则','规则','regel']];
+      const indices=aliases.map(names=>header.findIndex(cell=>names.includes(cell)));
+      const rows=[];
+      for(const line of lines.slice(headerIndex+1)){
+        if(delimiter==='pipe'&&/^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(line))continue;
+        const cells=split(line);if(cells.every(cell=>!cell))continue;
+        if(indices.some(index=>index<0||!cells[index]))return {error:'有一行缺少类型、原句、修正或规则；未导入任何记录。'};
+        rows.push({type:cells[indices[0]],original:cells[indices[1]],correction:cells[indices[2]],rule:cells[indices[3]],date:today()});
+      }
+      if(!rows.length)return {error:'表头之后没有可导入的数据行。'};
+      const key=row=>[row.type,row.original,row.correction,row.rule].map(value=>String(value).trim().toLocaleLowerCase()).join('\u0000');
+      const seen=new Set(state.errors.map(key));let duplicates=0;const records=[];
+      rows.forEach(row=>{const id=key(row);if(seen.has(id)){duplicates++;return;}seen.add(id);records.push(row)});
+      return {records,duplicates};
+    }
+    function previewErrorImport() {
+      errorPasteText=document.getElementById('error-import-text')?.value||'';
+      const parsed=parseErrorTable(errorPasteText);
+      if(parsed.error){pendingErrorImport={records:[],duplicates:0,error:parsed.error};renderAll();document.getElementById('error-import-status').textContent=parsed.error;return;}
+      pendingErrorImport=parsed;renderAll();
+      const status=document.getElementById('error-import-status');if(status)status.textContent=`预览：${parsed.records.length} 条新记录，${parsed.duplicates} 条重复记录将跳过。`;
+    }
+    function importPendingErrors() {
+      if(!pendingErrorImport?.records.length)return;
+      const current=new Set(state.errors.map(row=>[row.type,row.original,row.correction,row.rule].map(value=>String(value).trim().toLocaleLowerCase()).join('\u0000')));
+      const additions=pendingErrorImport.records.filter(row=>!current.has([row.type,row.original,row.correction,row.rule].map(value=>String(value).trim().toLocaleLowerCase()).join('\u0000')));
+      additions.forEach(row=>state.errors.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),...row}));
+      const count=additions.length;errorPasteText='';pendingErrorImport=null;persist(false);renderAll();showToast(`已导入 ${count} 条错误；重复记录已跳过`);
     }
     function renderErrorTrend() {
       const current=weekRange();
@@ -952,6 +1006,11 @@
       if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(()=>showToast('P2 错误卡 JSON 已复制')).catch(()=>fallbackCopy(text));
       else fallbackCopy(text);
     }
+    function copyPrompt(which) {
+      const text=PROMPT_TEXTS[which];if(!text)return;
+      if(navigator.clipboard?.writeText)navigator.clipboard.writeText(text).then(()=>showToast(`P${which==='speaking'?3:4} 提示词已复制`)).catch(()=>fallbackCopy(text));
+      else fallbackCopy(text);
+    }
     function fallbackCopy(text) {
       const area=document.createElement('textarea'); area.value=text; area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();
       try{document.execCommand('copy');showToast('P2 错误卡 JSON 已复制');}catch{prompt('复制以下 P2 错误卡 JSON：',text);} area.remove();
@@ -965,6 +1024,8 @@
       if (action==='theme') {state.settings.theme=effectiveTheme()==='dark'?'light':'dark';persist(false);renderAll();}
       if (action==='add-mock') openMockDialog();
       if (action==='add-error') openErrorDialog();
+      if (action==='preview-error-import') previewErrorImport();
+      if (action==='import-errors') importPendingErrors();
       if (action==='edit-gates') {currentView='review';renderAll();document.querySelector('.gate-editor')?.scrollIntoView({behavior:'smooth',block:'start'});}
       if (action==='clear-data') {
         if(confirm('确定删除当前浏览器里的全部记录吗？此操作不能撤销。')) {localStorage.removeItem(STORAGE_KEY);state=defaultState();persist(false);currentView='overview';renderAll();showToast('本地记录已清除');}
@@ -977,6 +1038,8 @@
       if(delError&&confirm('删除这条错误记录？')) {state.errors=state.errors.filter(e=>e.id!==delError);persist(false);renderAll();showToast('错误记录已删除');}
       const copy=event.target.closest('[data-copy-error]')?.dataset.copyError;
       if(copy)copyError(copy);
+      const prompt=event.target.closest('[data-copy-prompt]')?.dataset.copyPrompt;
+      if(prompt)copyPrompt(prompt);
     });
     document.addEventListener('change', event => {
       if(event.target.id==='review-week'){selectedReviewWeek=event.target.value===''?null:Number(event.target.value);renderAll();return;}
