@@ -80,3 +80,8 @@
 - 实际检查：`python3 build_dashboard.py`；`python3 -m unittest tests.test_dashboard_features -v`（2 项通过）；`python3 tests/smoke_browser.py` 通过，含两种表格格式、去重预览与剪贴板逐字一致性验证。
 - 已知边界：导入器要求字段表头可识别，不会从任意散文中猜测错题行；日期采用导入当天。
 
+# R9 复审落实（2026-10-24）
+- 新增 `b2-reparaturtreff`、`b2-kernarbeitszeit`、`b2-weiterbildung-interview`、`b2-bibliothek-nominalstil`、`b2-fahrgastbericht`、`b2-nachbarschaftsangebot` 六篇原创课件；每篇 220–320 词、16 个词块左右、3 道题。报道数字明确虚构，访谈整理声明不存在真实访谈或受访者。
+- 更新 lesson schema 和 validator，单篇/数组/集合文件均可用 `--file` 校验。新增 `AUTHORING_PROMPT.md`、文本骨架工具、受验证的合并重建工具、导师姓名/日期签核工具。`p1-reader/local/` 已忽略；合并工具拒绝 `user-provided` 内容进入公开课件集合。
+- 实际检查：`python3 p1-reader/validate_lessons.py`；单篇验证（unittest + CLI）；`python3 p1-reader/build_reader.py` 生成 16 篇；`python3 -m unittest tests.test_authoring_tools -v`（5 项通过）；`python3 tests/smoke_browser.py` 通过，覆盖 16 篇内容渲染和无页面错误。
+- 未解决：六篇均未经导师/母语者审校，抽检句子与词条已列入 `p1-reader/review-checklist.md`；本轮未对所有德语文本进行母语级校对。

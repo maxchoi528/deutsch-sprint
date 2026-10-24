@@ -62,7 +62,11 @@
         "summary_zh": {"type": "string"},
         "grammar_focus": {"type": "array", "items": {"type": "string"}},
         "recycled_words": {"type": "array", "items": {"type": "string"}},
-        "review_status": {"const": "ai-generated-unreviewed"}
+        "review_status": {"enum": ["ai-generated-unreviewed", "tutor-reviewed"]},
+        "source": {"enum": ["original-ai", "user-provided"]},
+        "grammar_target": {"type": "string", "minLength": 1},
+        "reviewed_by": {"type": "string", "minLength": 1},
+        "reviewed_at": {"type": "string", "format": "date"}
       },
       "additionalProperties": false
     }

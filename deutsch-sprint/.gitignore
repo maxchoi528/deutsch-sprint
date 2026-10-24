@@ -1,3 +1,4 @@
 __pycache__/
 *.py[cod]
 anki-factory/my-export/
+/p1-reader/local/

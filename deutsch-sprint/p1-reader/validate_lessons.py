@@ -3,6 +3,7 @@
 
 import json
 import math
+import argparse
 import re
 import sys
 from pathlib import Path
@@ -46,6 +47,17 @@ def validate_collection(collection):
         if not isinstance(text, str):
             errors.append(f"{lesson_id}: text must be a string")
             continue
+        if lesson.get("source") is not None and lesson.get("source") not in {"original-ai", "user-provided"}:
+            errors.append(f"{lesson_id}: source must be original-ai or user-provided")
+        if lesson.get("grammar_target") is not None and not str(lesson.get("grammar_target")).strip():
+            errors.append(f"{lesson_id}: grammar_target must not be empty")
+        if lesson.get("review_status") not in {None, "ai-generated-unreviewed", "tutor-reviewed"}:
+            errors.append(f"{lesson_id}: unsupported review_status")
+        if lesson.get("review_status") == "tutor-reviewed":
+            if not str(lesson.get("reviewed_by", "")).strip():
+                errors.append(f"{lesson_id}: tutor-reviewed lesson needs reviewed_by")
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(lesson.get("reviewed_at", ""))):
+                errors.append(f"{lesson_id}: tutor-reviewed lesson needs reviewed_at YYYY-MM-DD")
 
         glosses = lesson.get("glosses", [])
         tagged = [g.get("cefr") for g in glosses if isinstance(g, dict) and g.get("cefr") in VALID_CEFR]
@@ -129,14 +141,23 @@ def validate_collection(collection):
 
 def validate_file(path=ROOT / "lessons.json"):
     try:
-        collection = json.loads(Path(path).read_text(encoding="utf-8"))
+        value = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         return [f"could not read lesson JSON: {exc}"]
+    if isinstance(value, list):
+        collection = {"lessons": value}
+    elif isinstance(value, dict) and value.get("id"):
+        collection = {"lessons": [value]}
+    else:
+        collection = value
     return validate_collection(collection)
 
 
 def main():
-    errors = validate_file()
+    parser = argparse.ArgumentParser(description="校验 P1 课件集合或单篇 JSON")
+    parser.add_argument("--file", type=Path, help="校验指定课件 JSON；可为集合、数组或单篇 lesson 对象")
+    args = parser.parse_args()
+    errors = validate_file(args.file or ROOT / "lessons.json")
     if errors:
         print("Lesson validation failed:", file=sys.stderr)
         for error in errors:

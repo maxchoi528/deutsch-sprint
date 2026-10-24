@@ -2512,6 +2512,1681 @@
       ],
       "recycled_words": [],
       "review_status": "ai-generated-unreviewed"
+    },
+    {
+      "id": "b2-reparaturtreff",
+      "title": "Ein Treffpunkt für Dinge mit kleinen Fehlern",
+      "level": "B2+",
+      "genre": "Bericht",
+      "grammar_target": "Passiv: Vorgangspassiv, Zustandspassiv und Passiversatz",
+      "source": "original-ai",
+      "text": "Am Samstag öffnete ein neuer {Reparaturtreff|rp1} im ehemaligen Ladenlokal am Marktplatz. Die Initiative wird {ehrenamtlich|rp2} betrieben und richtet sich an Menschen, die kleine Haushaltsgeräte, die sonst {ausrangiert|rp3} würden, nicht sofort ersetzen möchten. Bei der Eröffnung wurde ausdrücklich darauf hingewiesen, dass keine professionelle Werkstatt versprochen wird. Vielmehr sollen Besucherinnen und Besucher gemeinsam prüfen, ob ein Gegenstand noch zu retten ist.\n\nFür die Übungsmeldung wurden alle folgenden Zahlen erfunden: An diesem ersten Termin kamen 28 Personen; 17 Geräte wurden mitgebracht, und neun davon konnten vor Ort repariert werden. Diese Angaben beschreiben keine reale Veranstaltung. Jedes Gerät wurde zunächst kurz angesehen. Danach begann die {Fehlersuche|rp4}; fehlende Schrauben oder Kabel wurden nur dann ersetzt, wenn passende {Ersatzteil|rp5}e vorhanden waren.\n\nEin Radio wurde nach dem Austausch eines lockeren Steckers {wieder instand gesetzt|rp6}. Bei einem Wasserkocher wurde dagegen ein beschädigtes Kabel entdeckt. Weil dadurch ein Risiko entstehen konnte, durfte das Gerät nicht weiter geöffnet werden. Eine {Sicherheitsprüfung|rp8} fand bei jedem reparierten Gegenstand statt. Komplexe elektrische Arbeiten wurden an Fachleute verwiesen. So wurde vermieden, dass Hilfsbereitschaft mit ungesicherter Reparatur verwechselt wird.\n\nDie Organisierenden stellen Werkzeuge bereit und bitten um eine kleine Spende für {Verbrauchsmaterial|rp16}. Menschen mit besonderer {Fachkenntnis|rp7} können ihr Wissen {auf freiwilliger Basis|rp11} weitergeben. Dabei geht es nicht nur um die {Funktionstüchtigkeit|rp12} eines einzelnen Geräts. Auch das {Erfahrungswissen|rp14} der Teilnehmenden wird gesammelt, damit häufige Fehler später leichter erkannt werden.\n\nOb ein solches Angebot dauerhaft bestehen kann, hängt von Raum, Zeit und verlässlicher {Vermittlung|rp9} ab. Der Treff ist zweimal im Monat geplant; diese Frequenz kann sich jedoch ändern. Eine {Zugangsvoraussetzung|rp15} gibt es nicht, doch für bestimmte Geräte ist eine vorherige Anmeldung hilfreich. Vor einem Besuch sollte man klären, welche Gegenstände angenommen werden und ob eine Anmeldung nötig ist. Ziel ist eine längere {Nutzungsdauer|rp10}, nicht die Reparatur um jeden Preis. Wenn eine Reparatur unsicher oder unverhältnismäßig wäre, wird das offen gesagt; das Gerät sollte fachgerecht {entsorgt|rp13} werden.",
+      "glosses": [
+        {
+          "id": "rp1",
+          "surface": "Reparaturtreff",
+          "lemma": "Reparaturtreff",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Reparaturtreffs",
+          "plural_note": "",
+          "zh": "维修活动",
+          "de_def": "Ort, an dem Menschen gemeinsam Dinge reparieren",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp2",
+          "surface": "ehrenamtlich",
+          "lemma": "ehrenamtlich",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "志愿的",
+          "de_def": "ohne Bezahlung und freiwillig ausgeübt",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp3",
+          "surface": "ausrangiert",
+          "lemma": "ausrangieren",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "淘汰、弃置",
+          "de_def": "als nicht mehr brauchbar aussortieren",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp4",
+          "surface": "Fehlersuche",
+          "lemma": "Fehlersuche",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Fehlersuchen",
+          "plural_note": "",
+          "zh": "故障排查",
+          "de_def": "systematisches Suchen nach der Ursache eines Defekts",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp5",
+          "surface": "Ersatzteil",
+          "lemma": "Ersatzteil",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Ersatzteile",
+          "plural_note": "",
+          "zh": "替换零件",
+          "de_def": "Teil, das ein beschädigtes Teil ersetzt",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp6",
+          "surface": "wieder instand gesetzt",
+          "lemma": "instand setzen",
+          "pos": "Funktionsverbgefüge",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "修复",
+          "de_def": "wieder funktionsfähig gemacht",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "rp7",
+          "surface": "Fachkenntnis",
+          "lemma": "Fachkenntnis",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Fachkenntnisse",
+          "plural_note": "",
+          "zh": "专业知识",
+          "de_def": "Wissen und Erfahrung in einem bestimmten Bereich",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp8",
+          "surface": "Sicherheitsprüfung",
+          "lemma": "Sicherheitsprüfung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Sicherheitsprüfungen",
+          "plural_note": "",
+          "zh": "安全检查",
+          "de_def": "Prüfung, ob ein Gegenstand sicher benutzt werden kann",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp9",
+          "surface": "Vermittlung",
+          "lemma": "Vermittlung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "传授、沟通",
+          "de_def": "Weitergabe von Wissen oder Herstellung eines Kontakts",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp10",
+          "surface": "Nutzungsdauer",
+          "lemma": "Nutzungsdauer",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Nutzungsdauern",
+          "plural_note": "",
+          "zh": "使用寿命",
+          "de_def": "Zeitraum, in dem etwas verwendet werden kann",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp11",
+          "surface": "auf freiwilliger Basis",
+          "lemma": "auf freiwilliger Basis",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "以自愿方式",
+          "de_def": "ohne Verpflichtung und ohne Bezahlung",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "rp12",
+          "surface": "Funktionstüchtigkeit",
+          "lemma": "Funktionstüchtigkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "功能完好",
+          "de_def": "Zustand, in dem etwas korrekt funktioniert",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "rp13",
+          "surface": "entsorgt",
+          "lemma": "entsorgen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "处理、丢弃",
+          "de_def": "als Abfall beseitigen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp14",
+          "surface": "Erfahrungswissen",
+          "lemma": "Erfahrungswissen",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "经验知识",
+          "de_def": "Wissen, das durch praktische Erfahrung entsteht",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "rp15",
+          "surface": "Zugangsvoraussetzung",
+          "lemma": "Zugangsvoraussetzung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Zugangsvoraussetzungen",
+          "plural_note": "",
+          "zh": "参与条件",
+          "de_def": "Bedingung, die vor einer Teilnahme erfüllt sein muss",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "rp16",
+          "surface": "Verbrauchsmaterial",
+          "lemma": "Verbrauchsmaterial",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Verbrauchsmaterialien",
+          "plural_note": "",
+          "zh": "消耗材料",
+          "de_def": "Material, das bei einer Tätigkeit nach und nach aufgebraucht wird",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        }
+      ],
+      "summary_zh": "一篇明确标注虚构数字的练习报道，介绍志愿维修活动的流程、安全边界与长期运营条件。",
+      "grammar_focus": [
+        "Vorgangspassiv für Abläufe",
+        "Zustandspassiv für Ergebnisse",
+        "Passiversatz mit „lassen sich“"
+      ],
+      "recycled_words": [
+        "Nutzungsdauer",
+        "Fachkenntnis"
+      ],
+      "review_status": "ai-generated-unreviewed",
+      "questions": [
+        {
+          "type": "选择（细节）",
+          "q": "Was wurde nach dem ersten Blick auf jedes Gerät gemacht?",
+          "options": [
+            "Danach begann die Fehlersuche.",
+            "Jedes Gerät wurde sofort entsorgt.",
+            "Alle Geräte wurden ohne Prüfung geöffnet."
+          ],
+          "answer": "Danach begann die Fehlersuche.",
+          "evidence_sentence_indices": [
+            7
+          ]
+        },
+        {
+          "type": "推断",
+          "q": "Warum wurde ein Gerät nicht weiter geöffnet?",
+          "options": [
+            "Weil ein beschädigtes Kabel ein Risiko darstellen konnte.",
+            "Weil keine Besucher mehr im Raum waren.",
+            "Weil alle Ersatzteile bereits verbraucht waren."
+          ],
+          "answer": "Weil ein beschädigtes Kabel ein Risiko darstellen konnte.",
+          "evidence_sentence_indices": [
+            9,
+            10
+          ]
+        },
+        {
+          "type": "立场",
+          "q": "Welche Haltung vertritt der Bericht zur Reparatur?",
+          "options": [
+            "Reparieren ist sinnvoll, sofern Sicherheit und Aufwand stimmen.",
+            "Jeder Gegenstand muss unabhängig vom Zustand repariert werden.",
+            "Eine Reparatur sollte grundsätzlich Fachleuten vorbehalten bleiben."
+          ],
+          "answer": "Reparieren ist sinnvoll, sofern Sicherheit und Aufwand stimmen.",
+          "evidence_sentence_indices": [
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-kernarbeitszeit",
+      "title": "Eine gemeinsame Zeit, aber keine starre Regel",
+      "level": "B2",
+      "genre": "Leserbrief",
+      "grammar_target": "Konjunktiv II: höfliche Vorschläge, Möglichkeiten und Bedingungen",
+      "source": "original-ai",
+      "text": "Sehr geehrte Redaktion, in unserem Betrieb wird über eine gemeinsame {Anwesenheit|kw8}szeit diskutiert. Ich arbeite gern im Büro, brauche aber an manchen Tagen Ruhe für Aufgaben, die längere Konzentration erfordern. Eine starre Regel für alle würde aus meiner Sicht weder dem Team noch den verschiedenen Lebenssituationen gerecht.\n\nEine begrenzte {Kernarbeitszeit|kw1} könnte helfen, den {Abstimmungsbedarf|kw2} zu bündeln. Wenn alle an zwei festgelegten Stunden erreichbar wären, ließen sich Rückfragen schneller klären. Außerhalb dieses Zeitfensters sollte es jedoch {Spielraum|kw4} geben. Wer früh beginnt, könnte früher aufhören; wer familiäre Verpflichtungen hat, könnte die Arbeitszeit anders verteilen.\n\nVoraussetzung wäre, dass gemeinsame Aufgaben {im Voraus|kw7} geplant werden. Bei einer Besprechung, an der mehrere Bereiche beteiligt sind, müsste die Anwesenheit rechtzeitig angekündigt werden. Für dringende Fälle sollte es eine {Ersatzregelung|kw9} geben. So wäre die {Erreichbarkeit|kw15} {verlässlich|kw3}, ohne dass jede Nachricht sofort beantwortet werden müsste. Auch Beschäftigte mit Betreuungspflichten würden stärker berücksichtigt.\n\nVielleicht ließe sich zunächst eine vierwöchige Erprobung vereinbaren. Danach könnte das Team prüfen, ob weniger {Missverständnis|kw11}se auftreten und ob Aufgaben rechtzeitig abgeschlossen werden. {Ausschlaggebend|kw10} wären nicht die Zahl der Bürotage, sondern klare Zuständigkeiten und die Qualität der Zusammenarbeit. Eine kurze Rückmeldung aller Beteiligten könnte zeigen, wo die Regel angepasst werden müsste.\n\nNatürlich wären unterschiedliche Tätigkeiten zu {berücksichtigen|kw5}. Ein Kundendienst braucht andere Zeiten als eine Aufgabe, die hauptsächlich aus Recherche besteht. Gerade deshalb sollte man keine Lösung als allgemeingültig darstellen. Das Team könnte {Absprachen treffen|kw12}, {Rücksicht nehmen|kw14} und zugleich festhalten, wann eine Antwort wirklich erwartet wird. Eine solche Vereinbarung würde Flexibilität ermöglichen und trotzdem verlässliche Zusammenarbeit sichern. Bei der Umsetzung sollte {Gleichbehandlung|kw13} gewährleistet sein, ohne alle Arbeitsbedingungen gleichzusetzen. Damit könnte sie sowohl Beschäftigten als auch Leitung {entgegenkommen|kw6}.",
+      "glosses": [
+        {
+          "id": "kw1",
+          "surface": "Kernarbeitszeit",
+          "lemma": "Kernarbeitszeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Kernarbeitszeiten",
+          "plural_note": "",
+          "zh": "核心工作时段",
+          "de_def": "gemeinsam festgelegte Zeit, in der alle erreichbar sein sollen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw2",
+          "surface": "Abstimmungsbedarf",
+          "lemma": "Abstimmungsbedarf",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "协调需求",
+          "de_def": "Notwendigkeit, sich mit anderen abzusprechen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw3",
+          "surface": "verlässlich",
+          "lemma": "verlässlich",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "可靠的",
+          "de_def": "so, dass man sich darauf verlassen kann",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw4",
+          "surface": "Spielraum",
+          "lemma": "Spielraum",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Spielräume",
+          "plural_note": "",
+          "zh": "灵活空间",
+          "de_def": "Möglichkeit, Entscheidungen unterschiedlich zu treffen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw5",
+          "surface": "berücksichtigen",
+          "lemma": "berücksichtigen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "考虑到",
+          "de_def": "bei einer Entscheidung beachten",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw6",
+          "surface": "entgegenkommen",
+          "lemma": "entgegenkommen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "体谅、让步",
+          "de_def": "auf die Wünsche einer anderen Person eingehen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw7",
+          "surface": "im Voraus",
+          "lemma": "im Voraus",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "提前",
+          "de_def": "vor einem bestimmten Zeitpunkt",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "kw8",
+          "surface": "Anwesenheit",
+          "lemma": "Anwesenheit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "在场",
+          "de_def": "Zustand, an einem Ort persönlich da zu sein",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw9",
+          "surface": "Ersatzregelung",
+          "lemma": "Ersatzregelung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Ersatzregelungen",
+          "plural_note": "",
+          "zh": "替代安排",
+          "de_def": "Vereinbarung für den Fall, dass die normale Lösung nicht möglich ist",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw10",
+          "surface": "Ausschlaggebend",
+          "lemma": "ausschlaggebend",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "决定性的",
+          "de_def": "für eine Entscheidung besonders wichtig",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "kw11",
+          "surface": "Missverständnis",
+          "lemma": "Missverständnis",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Missverständnisse",
+          "plural_note": "",
+          "zh": "误解",
+          "de_def": "falsches Verständnis einer Aussage oder Situation",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "kw12",
+          "surface": "Absprachen treffen",
+          "lemma": "eine Absprache treffen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "达成约定",
+          "de_def": "gemeinsame Vereinbarungen festlegen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "kw13",
+          "surface": "Gleichbehandlung",
+          "lemma": "Gleichbehandlung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "平等对待",
+          "de_def": "Behandlung ohne sachlich unbegründete Unterschiede",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "kw14",
+          "surface": "Rücksicht nehmen",
+          "lemma": "Rücksicht nehmen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "体谅、顾及",
+          "de_def": "die Lage und Bedürfnisse anderer beachten",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "kw15",
+          "surface": "Erreichbarkeit",
+          "lemma": "Erreichbarkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "可联系性",
+          "de_def": "Möglichkeit, jemanden zu erreichen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        }
+      ],
+      "summary_zh": "读者来信讨论团队共同在线时段与弹性安排之间的平衡，提出先试行再评估的方案。",
+      "grammar_focus": [
+        "Konjunktiv II mit könnte und wäre",
+        "Höfliche Vorschläge",
+        "Bedingungen mit wenn"
+      ],
+      "recycled_words": [
+        "Kernarbeitszeit",
+        "Absprachen treffen"
+      ],
+      "review_status": "ai-generated-unreviewed",
+      "questions": [
+        {
+          "type": "选择（细节）",
+          "q": "Welche Funktion könnte die gemeinsame Kernarbeitszeit haben?",
+          "options": [
+            "Sie könnte Rückfragen in einem gemeinsamen Zeitfenster bündeln.",
+            "Sie müsste die Arbeitszeiten aller Beschäftigten vollständig vereinheitlichen.",
+            "Sie würde zusätzliche Besprechungen an jedem Abend vorschreiben."
+          ],
+          "answer": "Sie könnte Rückfragen in einem gemeinsamen Zeitfenster bündeln.",
+          "evidence_sentence_indices": [
+            3,
+            4
+          ]
+        },
+        {
+          "type": "推断",
+          "q": "Was soll für dringende Fälle gelten?",
+          "options": [
+            "Es soll eine vorher vereinbarte Ersatzregelung geben.",
+            "Alle Nachrichten müssen sofort beantwortet werden.",
+            "Dringende Fälle sollen grundsätzlich vertagt werden."
+          ],
+          "answer": "Es soll eine vorher vereinbarte Ersatzregelung geben.",
+          "evidence_sentence_indices": [
+            9
+          ]
+        },
+        {
+          "type": "立场",
+          "q": "Wie bewertet der Leserbrief eine einheitliche Lösung?",
+          "options": [
+            "Sie sollte Unterschiede zwischen Tätigkeiten berücksichtigen.",
+            "Sie ist unabhängig vom Arbeitsbereich immer passend.",
+            "Sie sollte vor einer Erprobung dauerhaft festgeschrieben werden."
+          ],
+          "answer": "Sie sollte Unterschiede zwischen Tätigkeiten berücksichtigen.",
+          "evidence_sentence_indices": [
+            17,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-weiterbildung-interview",
+      "title": "Lernen neben dem Beruf: Was ein Kurs leisten kann",
+      "level": "B2+",
+      "genre": "Interviewzusammenfassung",
+      "grammar_target": "Konjunktiv I: indirekte Rede in einer Interviewzusammenfassung",
+      "source": "original-ai",
+      "text": "Die folgende fiktive Interviewzusammenfassung entwirft ein Gespräch mit einer Kursleiterin; es gab kein reales Interview. Sie berichtet über ein {berufsbegleitend|wi1} organisiertes {Weiterbildungsangebot|wi2} für Beschäftigte, die digitale Arbeitsabläufe besser verstehen möchten. Der Kurs dauere zwölf Wochen und kombiniere kurze Präsenztermine mit Aufgaben für zu Hause. Die Teilnehmenden kämen aus unterschiedlichen Berufsfeldern.\n\nAls wichtigste {Voraussetzung|wi3} nenne sie die Bereitschaft, regelmäßig zu üben. Ein bestimmter {Kenntnisstand|wi4} werde nicht verlangt, doch grundlegende Computerkenntnisse seien hilfreich. Die {Anforderung|wi10}en würden vorab transparent gemacht. Vor Kursbeginn würden die eigenen Ziele besprochen, damit Aufgaben an den {Lernfortschritt|wi5} angepasst werden könnten. Wenn jemand bereits passende Erfahrungen mitbringe, könne die {Kursleitung|wi12} diese bei der Planung berücksichtigen.\n\nDie Befragte betone, dass genügend Lernzeit {zur Verfügung stehen|wi6} müsse. Zwei Abende pro Woche seien für viele machbar, während zusätzliche Termine den Alltag erschweren könnten. Deshalb werde ein individueller {Lernrhythmus|wi8} empfohlen. Wer eine Woche aussetze, solle frühzeitig Bescheid geben; gemeinsam könne dann über eine realistische Nacharbeit entschieden werden.\n\nZur Frage nach einem Zertifikat erkläre die Kursleiterin, der Abschluss bestätige die Teilnahme und ein kleines Praxisprojekt. Er garantiere jedoch weder eine Beförderung noch eine bestimmte berufliche Entwicklung. Ob eine {Anrechnung|wi11} von Vorwissen möglich sei, entscheide die Kursleitung nach einer Prüfung der Nachweise. Diese Einschränkung müsse vor der Anmeldung deutlich kommuniziert werden.\n\nAuf die Frage, für wen das Angebot geeignet sei, antworte sie, {eigenständig|wi9}es Arbeiten sei wichtig. Wer es {in Anspruch nehme|wi14}, müsse die vereinbarten Lernzeiten einplanen. Die Lehrenden gäben {Rückmeldung|wi7} und Orientierung, könnten aber nicht jede Aufgabe individuell vorbereiten. Ihre {Einschätzung|wi13} beziehe sich auf den Lernprozess, nicht auf eine spätere Beförderung. Interessierte sollten daher ihre zeitlichen Möglichkeiten prüfen und ein erreichbares {Lernziel|wi15} formulieren. Die Zusammenfassung macht deutlich, dass Weiterbildung eine gemeinsame Verantwortung von Kurs, Betrieb und lernender Person bleibt.",
+      "glosses": [
+        {
+          "id": "wi1",
+          "surface": "berufsbegleitend",
+          "lemma": "berufsbegleitend",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "在职进行的",
+          "de_def": "parallel zur eigenen Berufstätigkeit organisiert",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi2",
+          "surface": "Weiterbildungsangebot",
+          "lemma": "Weiterbildungsangebot",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Weiterbildungsangebote",
+          "plural_note": "",
+          "zh": "继续教育项目",
+          "de_def": "Kurs oder Programm zur Erweiterung beruflicher Kenntnisse",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi3",
+          "surface": "Voraussetzung",
+          "lemma": "Voraussetzung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Voraussetzungen",
+          "plural_note": "",
+          "zh": "前提条件",
+          "de_def": "Bedingung, die für etwas erfüllt sein muss",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi4",
+          "surface": "Kenntnisstand",
+          "lemma": "Kenntnisstand",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Kenntnisstände",
+          "plural_note": "",
+          "zh": "知识水平",
+          "de_def": "Umfang des vorhandenen Wissens",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi5",
+          "surface": "Lernfortschritt",
+          "lemma": "Lernfortschritt",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Lernfortschritte",
+          "plural_note": "",
+          "zh": "学习进展",
+          "de_def": "erkennbare Entwicklung beim Lernen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi6",
+          "surface": "zur Verfügung stehen",
+          "lemma": "zur Verfügung stehen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "可供使用",
+          "de_def": "verfügbar und nutzbar sein",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "wi7",
+          "surface": "Rückmeldung",
+          "lemma": "Rückmeldung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Rückmeldungen",
+          "plural_note": "",
+          "zh": "反馈",
+          "de_def": "Reaktion oder Information als Antwort",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi8",
+          "surface": "Lernrhythmus",
+          "lemma": "Lernrhythmus",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Lernrhythmen",
+          "plural_note": "",
+          "zh": "学习节奏",
+          "de_def": "regelmäßige zeitliche Organisation des Lernens",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi9",
+          "surface": "eigenständig",
+          "lemma": "eigenständig",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "独立自主的",
+          "de_def": "ohne ständige Anleitung selbst organisiert",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi10",
+          "surface": "Anforderung",
+          "lemma": "Anforderung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Anforderungen",
+          "plural_note": "",
+          "zh": "要求",
+          "de_def": "Erwartung an eine Leistung oder Person",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi11",
+          "surface": "Anrechnung",
+          "lemma": "Anrechnung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Anrechnungen",
+          "plural_note": "",
+          "zh": "抵扣、认定",
+          "de_def": "Berücksichtigung einer bereits erbrachten Leistung",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "wi12",
+          "surface": "Kursleitung",
+          "lemma": "Kursleitung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Kursleitungen",
+          "plural_note": "",
+          "zh": "课程负责人",
+          "de_def": "Person, die einen Kurs organisatorisch leitet",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi13",
+          "surface": "Einschätzung",
+          "lemma": "Einschätzung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Einschätzungen",
+          "plural_note": "",
+          "zh": "评估、判断",
+          "de_def": "begründete Beurteilung einer Situation",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "wi14",
+          "surface": "in Anspruch nehme",
+          "lemma": "in Anspruch nehmen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "使用、利用",
+          "de_def": "ein Angebot oder eine Leistung nutzen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "wi15",
+          "surface": "Lernziel",
+          "lemma": "Lernziel",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Lernziele",
+          "plural_note": "",
+          "zh": "学习目标",
+          "de_def": "konkret angestrebtes Ergebnis eines Lernprozesses",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        }
+      ],
+      "summary_zh": "虚构访谈整理介绍在职培训的组织方式、参与条件、证书边界与学习者责任；间接引语用于转述受访者观点。",
+      "grammar_focus": [
+        "Konjunktiv I in indirekter Rede",
+        "Ersatzformen bei Formengleichheit",
+        "Berichtsverben"
+      ],
+      "recycled_words": [
+        "Weiterbildungsangebot",
+        "Lernfortschritt"
+      ],
+      "review_status": "ai-generated-unreviewed",
+      "questions": [
+        {
+          "type": "选择（细节）",
+          "q": "Welche Voraussetzung nennt die Kursleiterin als besonders wichtig?",
+          "options": [
+            "Die Bereitschaft zu regelmäßigem Üben.",
+            "Ein bereits abgeschlossenes Studium.",
+            "Eine tägliche Teilnahme an Präsenzterminen."
+          ],
+          "answer": "Die Bereitschaft zu regelmäßigem Üben.",
+          "evidence_sentence_indices": [
+            4
+          ]
+        },
+        {
+          "type": "推断",
+          "q": "Wer entscheidet über die Anrechnung von Vorwissen?",
+          "options": [
+            "Die Kursleitung prüft die Nachweise.",
+            "Der Betrieb entscheidet ohne Unterlagen.",
+            "Die Teilnehmenden rechnen es selbst an."
+          ],
+          "answer": "Die Kursleitung prüft die Nachweise.",
+          "evidence_sentence_indices": [
+            15
+          ]
+        },
+        {
+          "type": "立场",
+          "q": "Welche Einschränkung wird zum Zertifikat deutlich gemacht?",
+          "options": [
+            "Es bestätigt Teilnahme und Projekt, garantiert aber keine Beförderung.",
+            "Es garantiert eine berufliche Entwicklung.",
+            "Es wird unabhängig von Teilnahme und Projekt vergeben."
+          ],
+          "answer": "Es bestätigt Teilnahme und Projekt, garantiert aber keine Beförderung.",
+          "evidence_sentence_indices": [
+            13,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-bibliothek-nominalstil",
+      "title": "Längere Öffnungszeiten brauchen eine gute Grundlage",
+      "level": "B2+",
+      "genre": "Kommentar",
+      "grammar_target": "Nominalstil: Nominalisierung und Umformulierung in Verbalstil",
+      "source": "original-ai",
+      "text": "Viele Bibliotheken erwägen eine {Verlängerung|bn2} ihrer {Öffnungszeit|bn6}. Die Forderung klingt zunächst einfach: Wer länger öffnen möchte, müsse lediglich die Türen später schließen. Tatsächlich geht es um mehr als die Bereitstellung eines Raums. Eine längere Öffnung beeinflusst Personalplanung, Sicherheit, Energieverbrauch und den {Ressourceneinsatz|bn14} bei verfügbaren {Kapazität|bn5}en.\n\nVor jeder Veränderung sollte eine {Bedarfsermittlung|bn7} stehen. Entscheidend ist nicht nur, wie viele Menschen einen späteren {Zugang|bn3} wünschen, sondern auch, wofür sie die Räume nutzen würden. Für ruhiges Lernen gelten andere Bedingungen als für Veranstaltungen. Ohne klare Regeln kann ein {Nutzungskonflikt|bn9} entstehen, der besonders jene verdrängt, die auf einen stillen Arbeitsplatz angewiesen sind.\n\nAuch die {Vereinbarkeit|bn4} mit dem Alltag der Beschäftigten ist zu berücksichtigen. Eine zusätzliche Öffnungszeit darf nicht stillschweigend zu unbezahlter Mehrarbeit führen. Erforderlich sind transparente Schichtpläne, eine gerechte {Beteiligung|bn8} an der Planung und eine verlässliche Vertretung. Die {Gewährleistung|bn10} eines Angebots setzt folglich die Gewährleistung angemessener Arbeitsbedingungen voraus.\n\nEin zeitlich begrenzter Versuch könnte eine tragfähige {Entscheidungsgrundlage|bn12} schaffen. Dabei sollten Besucherzahlen nicht isoliert bewertet werden. Rückmeldungen zur {Erreichbarkeit|bn11}, zur Atmosphäre und zur tatsächlichen Nutzung sagen mehr über den Nutzen aus. Ebenso wichtig ist die Veröffentlichung der Kosten und der personellen Folgen. Nur so wird die Abwägung {nachvollziehbar|bn15}.\n\nEine längere Öffnung kann sinnvoll sein, wenn sie auf einen belegten Bedarf reagiert und dauerhaft finanzierbar bleibt. Sie ist jedoch kein Selbstzweck. Vor der Einführung sind Zuständigkeiten und Grenzen festzulegen; nach einer Erprobungsphase braucht es eine Auswertung. Die {Aufrechterhaltung|bn13} eines erweiterten Angebots sollte von dieser Prüfung abhängen, nicht von der Erwartung, jede {öffentliche Einrichtung|bn1} müsse jederzeit mehr leisten.",
+      "glosses": [
+        {
+          "id": "bn1",
+          "surface": "öffentliche Einrichtung",
+          "lemma": "öffentliche Einrichtung",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "öffentliche Einrichtungen",
+          "plural_note": "",
+          "zh": "公共机构",
+          "de_def": "staatlich oder kommunal getragene Organisation",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "bn2",
+          "surface": "Verlängerung",
+          "lemma": "Verlängerung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Verlängerungen",
+          "plural_note": "",
+          "zh": "延长",
+          "de_def": "Ausdehnung eines Zeitraums",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "bn3",
+          "surface": "Zugang",
+          "lemma": "Zugang",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Zugänge",
+          "plural_note": "",
+          "zh": "使用机会、入口",
+          "de_def": "Möglichkeit, einen Ort oder ein Angebot zu nutzen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "bn4",
+          "surface": "Vereinbarkeit",
+          "lemma": "Vereinbarkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "兼容性、协调性",
+          "de_def": "Möglichkeit, verschiedene Anforderungen miteinander zu verbinden",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn5",
+          "surface": "Kapazität",
+          "lemma": "Kapazität",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Kapazitäten",
+          "plural_note": "",
+          "zh": "容量、承载力",
+          "de_def": "verfügbare Möglichkeit oder Leistungsfähigkeit",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "bn6",
+          "surface": "Öffnungszeit",
+          "lemma": "Öffnungszeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Öffnungszeiten",
+          "plural_note": "",
+          "zh": "开放时间",
+          "de_def": "Zeitraum, in dem ein Ort zugänglich ist",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "bn7",
+          "surface": "Bedarfsermittlung",
+          "lemma": "Bedarfsermittlung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Bedarfsermittlungen",
+          "plural_note": "",
+          "zh": "需求调查",
+          "de_def": "systematische Feststellung, was benötigt wird",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn8",
+          "surface": "Beteiligung",
+          "lemma": "Beteiligung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Beteiligungen",
+          "plural_note": "",
+          "zh": "参与",
+          "de_def": "Mitwirkung an einer Entscheidung oder Tätigkeit",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "bn9",
+          "surface": "Nutzungskonflikt",
+          "lemma": "Nutzungskonflikt",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Nutzungskonflikte",
+          "plural_note": "",
+          "zh": "使用冲突",
+          "de_def": "Widerspruch zwischen verschiedenen Nutzungsinteressen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn10",
+          "surface": "Gewährleistung",
+          "lemma": "Gewährleistung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Gewährleistungen",
+          "plural_note": "",
+          "zh": "保障",
+          "de_def": "Sicherung, dass etwas zuverlässig möglich ist",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn11",
+          "surface": "Erreichbarkeit",
+          "lemma": "Erreichbarkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "可联系性、可到达性",
+          "de_def": "Möglichkeit, eine Person oder einen Ort zu erreichen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "bn12",
+          "surface": "Entscheidungsgrundlage",
+          "lemma": "Entscheidungsgrundlage",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Entscheidungsgrundlagen",
+          "plural_note": "",
+          "zh": "决策依据",
+          "de_def": "Information, auf der eine Entscheidung beruht",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn13",
+          "surface": "Aufrechterhaltung",
+          "lemma": "Aufrechterhaltung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "维持",
+          "de_def": "Fortsetzung eines bestehenden Zustands",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn14",
+          "surface": "Ressourceneinsatz",
+          "lemma": "Ressourceneinsatz",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Ressourceneinsätze",
+          "plural_note": "",
+          "zh": "资源投入",
+          "de_def": "Verwendung verfügbarer Mittel und Arbeitszeit",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "bn15",
+          "surface": "nachvollziehbar",
+          "lemma": "nachvollziehbar",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "可理解、可追溯",
+          "de_def": "so erklärt, dass der Gedankengang verständlich ist",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        }
+      ],
+      "summary_zh": "评论讨论公共图书馆延长开放时间的条件，强调需求、人员安排、评估与透明决策。",
+      "grammar_focus": [
+        "Nominalisierung von Verben und Adjektiven",
+        "Nominalstil in Sachtexten",
+        "Rückumformung in Verbalstil"
+      ],
+      "recycled_words": [
+        "Bedarfsermittlung",
+        "Vereinbarkeit"
+      ],
+      "review_status": "ai-generated-unreviewed",
+      "questions": [
+        {
+          "type": "选择（细节）",
+          "q": "Was sollte einer Änderung der Öffnungszeiten vorausgehen?",
+          "options": [
+            "Eine Ermittlung des tatsächlichen Bedarfs.",
+            "Eine pauschale Verlängerung für alle Wochentage.",
+            "Die Abschaffung der Personalplanung."
+          ],
+          "answer": "Eine Ermittlung des tatsächlichen Bedarfs.",
+          "evidence_sentence_indices": [
+            4
+          ]
+        },
+        {
+          "type": "推断",
+          "q": "Welche Bedingung wird für längere Öffnung genannt?",
+          "options": [
+            "Sie darf nicht zu unbezahlter Mehrarbeit führen.",
+            "Sie muss unabhängig von Kosten dauerhaft gelten.",
+            "Sie soll ohne Beteiligung des Personals beschlossen werden."
+          ],
+          "answer": "Sie darf nicht zu unbezahlter Mehrarbeit führen.",
+          "evidence_sentence_indices": [
+            9
+          ]
+        },
+        {
+          "type": "立场",
+          "q": "Welche Position vertritt der Kommentar?",
+          "options": [
+            "Längere Öffnung ist an Bedarf, Finanzierung und Auswertung zu binden.",
+            "Öffentliche Einrichtungen sollten immer länger öffnen.",
+            "Eine Erprobung kann eine abschließende Entscheidung nicht unterstützen."
+          ],
+          "answer": "Längere Öffnung ist an Bedarf, Finanzierung und Auswertung zu binden.",
+          "evidence_sentence_indices": [
+            17,
+            18,
+            19
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-fahrgastbericht",
+      "title": "Wenn auf der Reise mehrere Informationen fehlen",
+      "level": "B2",
+      "genre": "Erfahrungsbericht",
+      "grammar_target": "Partizipialattribute: Partizip I/II und erweiterte Attribute",
+      "source": "original-ai",
+      "text": "An einem regnerischen Dienstag wollte ich zu einem Termin in eine Nachbarstadt fahren. Schon am Bahnsteig stand auf der Anzeige, dass mein Zug {verspätet|fr1} sei. Die {wartend|fr4}en Fahrgäste blickten abwechselnd auf ihre Telefone und auf die Tafel. Eine kurze {Durchsage|fr7} nannte einen neuen Zeitpunkt, ließ aber offen, ob der Anschluss noch erreicht werden konnte. Die {Fahrgastinformation|fr6} blieb zunächst unvollständig.\n\nIch prüfte die {angezeigt|fr3}en {Umsteigemöglichkeit|fr5}en und entdeckte eine spätere Verbindung. Gleichzeitig blieb unklar, ob mein Fahrschein dafür gültig war. Die Informationen in der App und auf der Tafel waren nicht gleich formuliert. Statt sofort loszugehen, fragte ich am Schalter nach. Dort wurde erklärt, dass die Verbindung genutzt werden könne, falls der ursprüngliche Zug ausfalle. Bei einer späteren Änderung musste ich noch einmal {nachfragen|fr13}.\n\nAls der Zug schließlich einfuhr, war er bereits {überfüllt|fr2}. Viele Fahrgäste mussten im Gang stehen. Der {Reiseverlauf|fr15} wurde später durch eine Streckensperrung erneut unterbrochen. Ein {angekündigter|fr10} {Ersatzverkehr|fr8} sollte am nächsten Bahnhof bereitstehen, doch die Wegbeschreibung war {unübersichtlich|fr11}. Einige Reisende folgten einer Gruppe, andere suchten selbst nach dem Bus.\n\nHilfreich war eine Mitarbeiterin, die an der Treppe stand und Fragen beantwortete. Sie erklärte den Weg in einfachen Worten und wies darauf hin, dass die {Fahrkartenkontrolle|fr9} im Bus entfalle. Dadurch konnten die meisten Wartenden rechtzeitig umsteigen. Trotzdem entstand {zusätzlicher Zeitaufwand|fr12}, und ich kam deutlich später an.\n\nSeitdem notiere ich bei längeren Fahrten die geplante Ankunft und prüfe eine alternative Route. Das löst keine Verspätung, hilft aber bei Entscheidungen. Besonders wichtig finde ich eine {verlässliche Angabe|fr14} dazu, was mit dem Ticket geschieht und wo der Ersatzverkehr abfährt. Bei einer Störung sollte die nächste Handlung klar erkennbar sein.",
+      "glosses": [
+        {
+          "id": "fr1",
+          "surface": "verspätet",
+          "lemma": "verspäten",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "晚点的",
+          "de_def": "später als geplant eintreffend",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr2",
+          "surface": "überfüllt",
+          "lemma": "überfüllen",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "拥挤的",
+          "de_def": "mit zu vielen Personen oder Dingen gefüllt",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr3",
+          "surface": "angezeigt",
+          "lemma": "anzeigen",
+          "pos": "Partizip II",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "显示的",
+          "de_def": "auf einem Bildschirm oder einer Tafel sichtbar gemacht",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "fr4",
+          "surface": "wartend",
+          "lemma": "warten",
+          "pos": "Partizip I",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "正在等待的",
+          "de_def": "gerade auf etwas oder jemanden wartend",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "fr5",
+          "surface": "Umsteigemöglichkeit",
+          "lemma": "Umsteigemöglichkeit",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Umsteigemöglichkeiten",
+          "plural_note": "",
+          "zh": "换乘机会",
+          "de_def": "Möglichkeit, in ein anderes Verkehrsmittel zu wechseln",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr6",
+          "surface": "Fahrgastinformation",
+          "lemma": "Fahrgastinformation",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Fahrgastinformationen",
+          "plural_note": "",
+          "zh": "乘客信息",
+          "de_def": "Information für Personen, die öffentliche Verkehrsmittel nutzen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr7",
+          "surface": "Durchsage",
+          "lemma": "Durchsage",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Durchsagen",
+          "plural_note": "",
+          "zh": "广播通知",
+          "de_def": "öffentlich hörbare Mitteilung",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr8",
+          "surface": "Ersatzverkehr",
+          "lemma": "Ersatzverkehr",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "替代交通",
+          "de_def": "Verkehrsmittel, das bei einer Unterbrechung ersatzweise eingesetzt wird",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr9",
+          "surface": "Fahrkartenkontrolle",
+          "lemma": "Fahrkartenkontrolle",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Fahrkartenkontrollen",
+          "plural_note": "",
+          "zh": "车票检查",
+          "de_def": "Prüfung, ob Reisende gültige Fahrkarten haben",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr10",
+          "surface": "angekündigter",
+          "lemma": "ankündigen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "预告",
+          "de_def": "vorher mitteilen, dass etwas geschehen wird",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr11",
+          "surface": "unübersichtlich",
+          "lemma": "unübersichtlich",
+          "pos": "Adjektiv",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "不清晰的",
+          "de_def": "schwer zu überblicken oder zu verstehen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr12",
+          "surface": "zusätzlicher Zeitaufwand",
+          "lemma": "zusätzlicher Zeitaufwand",
+          "pos": "固定搭配",
+          "article": "der",
+          "plural": "zusätzliche Zeitaufwände",
+          "plural_note": "",
+          "zh": "额外耗时",
+          "de_def": "Zeit, die über die geplante Dauer hinaus benötigt wird",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "fr13",
+          "surface": "nachfragen",
+          "lemma": "nachfragen",
+          "pos": "Verb",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "询问",
+          "de_def": "um genauere Information bitten",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "fr14",
+          "surface": "verlässliche Angabe",
+          "lemma": "verlässliche Angabe",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "verlässliche Angaben",
+          "plural_note": "",
+          "zh": "可靠信息",
+          "de_def": "Information, auf die man sich verlassen kann",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "fr15",
+          "surface": "Reiseverlauf",
+          "lemma": "Reiseverlauf",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Reiseverläufe",
+          "plural_note": "",
+          "zh": "行程进展",
+          "de_def": "Abfolge und Entwicklung einer Reise",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        }
+      ],
+      "summary_zh": "虚构的个人经历叙述一次晚点和换乘中断，说明乘客信息、替代交通指引与主动询问的重要性。",
+      "grammar_focus": [
+        "Partizip I als Attribut",
+        "Partizip II als Attribut",
+        "Erweiterte Attribute in Erfahrungsberichten"
+      ],
+      "recycled_words": [
+        "Fahrgastinformation",
+        "Umsteigemöglichkeit"
+      ],
+      "review_status": "ai-generated-unreviewed",
+      "questions": [
+        {
+          "type": "选择（细节）",
+          "q": "Was tat die erzählende Person wegen der unklaren Ticketinformation?",
+          "options": [
+            "Sie fragte am Schalter nach.",
+            "Sie kaufte sofort eine neue Fahrkarte.",
+            "Sie stieg ohne Prüfung in einen beliebigen Zug."
+          ],
+          "answer": "Sie fragte am Schalter nach.",
+          "evidence_sentence_indices": [
+            8
+          ]
+        },
+        {
+          "type": "推断",
+          "q": "Was erschwerte den Weg zum Ersatzverkehr?",
+          "options": [
+            "Die Wegbeschreibung war unübersichtlich.",
+            "Der Bus fuhr vor der Streckensperrung ab.",
+            "Die Mitarbeiterin verweigerte jede Auskunft."
+          ],
+          "answer": "Die Wegbeschreibung war unübersichtlich.",
+          "evidence_sentence_indices": [
+            14
+          ]
+        },
+        {
+          "type": "立场",
+          "q": "Welche praktische Folgerung zieht die Person aus der Erfahrung?",
+          "options": [
+            "Eine alternative Route und klare Ticketinformationen sind hilfreich.",
+            "Bei einer Verspätung sollte man auf Nachfragen verzichten.",
+            "Eine Verspätung lässt sich durch Notizen verhindern."
+          ],
+          "answer": "Eine alternative Route und klare Ticketinformationen sind hilfreich.",
+          "evidence_sentence_indices": [
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-nachbarschaftsangebot",
+      "title": "Ein Angebot nutzen, ohne sich zu viel vorzunehmen",
+      "level": "B2+",
+      "genre": "Informationstext",
+      "grammar_target": "Funktionsverbgefüge und feste Verbindungen mit Nomen und Verb",
+      "source": "original-ai",
+      "text": "Ein offenes Nachbarschaftsangebot kann Menschen zusammenbringen, wenn seine Regeln verständlich sind. Vor der Teilnahme sollte man Auskunft darüber erhalten, welche Aktivitäten stattfinden, wer die {Verantwortung übernimmt|nb8} und ob besondere Kenntnisse nötig sind. Für ein erstes Treffen muss man keine besondere {Voraussetzung erfüllen|nb4}. Die Kontaktperson kann bei Bedarf {Auskunft erteilen|nb14}. Eine Anmeldung muss nicht immer erforderlich sein; in kleinen Gruppen kann man jedoch eine {Anmeldung vornehmen|nb3}, damit die Planung erleichtert wird.\n\nWer ein {Angebot|nb1} {in Anspruch nehme|nb2}n möchte, sollte zunächst prüfen, ob die {Teilnahmebedingungen|nb16} zur eigenen Situation passen. Bei Unsicherheit kann man Rücksprache mit der Kontaktperson halten. Bei offenen Fragen können Interessierte {Rücksprache halten|nb6}. Gemeinsam lässt sich dann {eine Entscheidung treffen|nb7}, etwa ob eine regelmäßige Teilnahme möglich ist oder ein einzelner Termin besser passt. Niemand sollte sich zu einer dauerhaften Aufgabe verpflichtet fühlen, nur weil eine erste Anfrage gestellt wurde. Interessierte können {in Betracht ziehen|nb11}, ob ein einzelner Termin zunächst besser passt.\n\nOrganisierende können Materialien {zur Verfügung stellen|nb5} und {Grundkenntnisse vermitteln|nb9}. Dabei ist zu klären, welche Aufgaben von Teilnehmenden übernommen werden dürfen und wann fachliche Unterstützung nötig ist. Bei Aktivitäten mit Werkzeugen oder Lebensmitteln müssen passende Sicherheitsregeln {Anwendung finden|nb10}. Eine kurze Einführung kostet Zeit, verhindert aber, dass Verantwortung unklar bleibt.\n\nAuch die Zugänglichkeit ist zu berücksichtigen. Informationen sollten in klarer Sprache vorliegen; bei Bedarf kann eine Ansprechperson erklären, wie ein Raum erreichbar ist. Für manche Menschen ist ein ruhiger Ort entscheidend, für andere sind flexible Zeiten wichtig. Die {Rücksichtnahme|nb15} auf unterschiedliche Voraussetzungen muss nicht jede Aktivität kompliziert machen. Sie hilft, unnötige Hürden früh zu erkennen.\n\nEin gutes Angebot hängt nicht allein von der Zahl der Teilnehmenden ab. Wichtig ist, dass Erwartungen offen ausgesprochen und Aufgaben realistisch verteilt werden. Interessierte können einen {Beitrag leisten|nb12}, ohne jede Woche verfügbar zu sein. Wenn die Organisation Grenzen, {Zeitaufwand|nb13} und Ansprechpersonen klar nennt, fällt eine informierte Entscheidung leichter. So kann aus einem ersten Besuch eine passende Form des Mitmachens entstehen.",
+      "glosses": [
+        {
+          "id": "nb1",
+          "surface": "Angebot",
+          "lemma": "Angebot",
+          "pos": "Nomen",
+          "article": "das",
+          "plural": "Angebote",
+          "plural_note": "",
+          "zh": "活动、服务",
+          "de_def": "organisierte Möglichkeit, etwas zu nutzen oder zu tun",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "nb2",
+          "surface": "in Anspruch nehme",
+          "lemma": "in Anspruch nehmen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "使用",
+          "de_def": "eine angebotene Leistung nutzen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb3",
+          "surface": "Anmeldung vornehmen",
+          "lemma": "eine Anmeldung vornehmen",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "Anmeldungen",
+          "plural_note": "",
+          "zh": "办理报名",
+          "de_def": "sich offiziell für eine Teilnahme registrieren",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb4",
+          "surface": "Voraussetzung erfüllen",
+          "lemma": "eine Voraussetzung erfüllen",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "Voraussetzungen",
+          "plural_note": "",
+          "zh": "满足条件",
+          "de_def": "eine festgelegte Bedingung einhalten",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb5",
+          "surface": "zur Verfügung stellen",
+          "lemma": "zur Verfügung stellen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "提供、供使用",
+          "de_def": "etwas für andere nutzbar machen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb6",
+          "surface": "Rücksprache halten",
+          "lemma": "Rücksprache halten",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "沟通确认",
+          "de_def": "mit einer zuständigen Person sprechen, bevor man entscheidet",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb7",
+          "surface": "eine Entscheidung treffen",
+          "lemma": "eine Entscheidung treffen",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "Entscheidungen",
+          "plural_note": "",
+          "zh": "作出决定",
+          "de_def": "zwischen Möglichkeiten auswählen und sich festlegen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb8",
+          "surface": "Verantwortung übernimmt",
+          "lemma": "Verantwortung übernehmen",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "承担责任",
+          "de_def": "für eine Aufgabe oder deren Folgen einstehen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb9",
+          "surface": "Grundkenntnisse vermitteln",
+          "lemma": "Kenntnisse vermitteln",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "传授知识",
+          "de_def": "Wissen erklären und weitergeben",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb10",
+          "surface": "Anwendung finden",
+          "lemma": "Anwendung finden",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "Anwendungen",
+          "plural_note": "",
+          "zh": "得到应用",
+          "de_def": "in der Praxis benutzt werden",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb11",
+          "surface": "in Betracht ziehen",
+          "lemma": "in Betracht ziehen",
+          "pos": "固定搭配",
+          "article": "",
+          "plural": "",
+          "plural_note": "",
+          "zh": "纳入考虑",
+          "de_def": "eine Möglichkeit mitbedenken",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb12",
+          "surface": "Beitrag leisten",
+          "lemma": "einen Beitrag leisten",
+          "pos": "固定搭配",
+          "article": "der",
+          "plural": "Beiträge",
+          "plural_note": "",
+          "zh": "作出贡献",
+          "de_def": "durch eigenes Handeln etwas unterstützen",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb13",
+          "surface": "Zeitaufwand",
+          "lemma": "Zeitaufwand",
+          "pos": "Nomen",
+          "article": "der",
+          "plural": "Zeitaufwände",
+          "plural_note": "",
+          "zh": "耗时",
+          "de_def": "Zeit, die für eine Tätigkeit benötigt wird",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        },
+        {
+          "id": "nb14",
+          "surface": "Auskunft erteilen",
+          "lemma": "Auskunft erteilen",
+          "pos": "固定搭配",
+          "article": "die",
+          "plural": "Auskünfte",
+          "plural_note": "",
+          "zh": "提供信息",
+          "de_def": "Informationen zu einer Frage geben",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "chunk"
+        },
+        {
+          "id": "nb15",
+          "surface": "Rücksichtnahme",
+          "lemma": "Rücksichtnahme",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "",
+          "plural_note": "通常无复数",
+          "zh": "体谅",
+          "de_def": "Beachtung der Lage und Bedürfnisse anderer",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "C1"
+        },
+        {
+          "id": "nb16",
+          "surface": "Teilnahmebedingungen",
+          "lemma": "Teilnahmebedingung",
+          "pos": "Nomen",
+          "article": "die",
+          "plural": "Teilnahmebedingungen",
+          "plural_note": "",
+          "zh": "参与条件",
+          "de_def": "Regeln oder Voraussetzungen, die für die Teilnahme gelten",
+          "collocations": [],
+          "register": "中性书面语",
+          "cefr": "B2"
+        }
+      ],
+      "summary_zh": "说明文介绍如何评估社区活动是否适合自己，并解释组织方应如何明确条件、安全规则和责任。",
+      "grammar_focus": [
+        "Funktionsverbgefüge erkennen",
+        "Verb-Nomen-Verbindungen aktiv verwenden",
+        "Register: neutraler Informationstext"
+      ],
+      "recycled_words": [
+        "Verantwortung übernehmen",
+        "Rücksichtnahme"
+      ],
+      "review_status": "ai-generated-unreviewed",
+      "questions": [
+        {
+          "type": "选择（细节）",
+          "q": "Was sollte vor der Teilnahme geprüft werden?",
+          "options": [
+            "Ob die Teilnahmebedingungen zur eigenen Situation passen.",
+            "Ob man sich sofort zu regelmäßiger Mitarbeit verpflichtet.",
+            "Ob alle Angebote ohne Anmeldung stattfinden."
+          ],
+          "answer": "Ob die Teilnahmebedingungen zur eigenen Situation passen.",
+          "evidence_sentence_indices": [
+            5
+          ]
+        },
+        {
+          "type": "推断",
+          "q": "Warum werden bei Aktivitäten Sicherheitsregeln erwähnt?",
+          "options": [
+            "Damit klar ist, wann fachliche Unterstützung nötig ist.",
+            "Damit Teilnehmende jede Aufgabe allein übernehmen.",
+            "Damit eine Einführung und Zuständigkeiten entfallen."
+          ],
+          "answer": "Damit klar ist, wann fachliche Unterstützung nötig ist.",
+          "evidence_sentence_indices": [
+            13,
+            14
+          ]
+        },
+        {
+          "type": "立场",
+          "q": "Welche Grundidee vermittelt der Informationstext?",
+          "options": [
+            "Klare Erwartungen ermöglichen passende und begrenzte Beteiligung.",
+            "Ein gutes Angebot verlangt jede Woche uneingeschränkte Verfügbarkeit.",
+            "Nur die Zahl der Teilnehmenden bestimmt den Nutzen."
+          ],
+          "answer": "Klare Erwartungen ermöglichen passende und begrenzte Beteiligung.",
+          "evidence_sentence_indices": [
+            21,
+            23,
+            24
+          ]
+        }
+      ]
     }
   ]
 }

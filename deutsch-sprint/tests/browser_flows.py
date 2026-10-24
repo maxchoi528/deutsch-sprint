@@ -313,6 +313,7 @@ def reader_flow(browser, errors):
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto((ROOT / 'p1-reader/index.html').as_uri())
     lessons = json.loads(page.locator('#lesson-data').text_content())['lessons']
+    assert len(lessons) == 16
     for lesson in lessons:
         page.locator(f'[data-lesson="{lesson["id"]}"]').click()
         assert page.locator('.article-box .paragraph').count() == len([p for p in re.split(r'\n+', lesson['text']) if p.strip()])
@@ -330,6 +331,11 @@ def reader_flow(browser, errors):
     assert page.locator('.sentence.evidence').count() >= 2, 'Multi-sentence evidence was not highlighted'
     assert page.locator('.sentence.evidence[data-sentence-index="2"]').count() == 1
     assert page.locator('.sentence.evidence[data-sentence-index="3"]').count() == 1
+    fictional_interview = next(l for l in lessons if l['id'] == 'b2-weiterbildung-interview')
+    page.locator('[data-lesson="b2-weiterbildung-interview"]').click()
+    assert 'AI 生成 · 仅作练习' in page.locator('.badge.ai').inner_text()
+    assert 'Konjunktiv I' in page.locator('.detail-list').inner_text()
+    assert 'fiktive Interviewzusammenfassung' in fictional_interview['text']
     page.reload()
     progress = saved(page, 'deutschSprint.reader.v1')['progress']['b2-wohnen'][-1]
     assert progress['blind'] and progress['score'] == 3
@@ -349,5 +355,5 @@ def reader_flow(browser, errors):
     deadline = saved(page, P7)['attempts']['schreiben']['expiresAt']
     page.reload()
     assert saved(page, P7)['attempts']['schreiben']['expiresAt'] == deadline
-    print('PASS: all 10 P1 lessons, summaries and gloss counts; blind quiz persistence; P6/P7 direct file:// use and toolkit links.')
+    print('PASS: all 16 P1 lessons, summaries and gloss counts; blind quiz persistence; P6/P7 direct file:// use and toolkit links.')
     page.close()

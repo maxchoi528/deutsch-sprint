@@ -119,3 +119,9 @@
 - 新增 P3/P4 完整提示词复制按钮，仪表盘构建时直接从 Markdown 源文件嵌入，避免内容漂移。
 - 检查：`tests.test_dashboard_features` 2 项通过；浏览器通过 Markdown/TSV 导入、重复过滤、P3/P4 剪贴板内容逐字比对。
 
+# R9 · 六篇新课件与自建流程（2026-10-24）
+- P1 新增六篇 220–320 词原创练习，分别聚焦 Passiv、Konjunktiv II/I、Nominalstil、Partizipialattribute 和 Funktionsverbgefüge；虚构数字和访谈情境明确披露。
+- Schema 支持可选 `source`、`grammar_target`、导师审校状态与签核信息；`validate_lessons.py --file` 支持单篇；新增骨架、合并重建和导师签核工具。用户原文目录加入忽略规则，合并工具拒绝把用户文本写入公开集合。
+- 新增作者提示词、工具说明与六篇导师抽检清单。
+- 检查：单篇验证通过；课件校验和 P1 build 通过；作者工具 5 项单测通过；Playwright 遍历 16 篇、摘要和词块，检查新采访状态与阅读器无错误。
+

@@ -12,9 +12,17 @@
 
 ## 示例内容
 
-当前包含 10 篇原创练习：3 篇 C1 长文和 7 篇 B2/B2+ 短文。新增短文每篇 192–231 词，体裁包括建议文、经验分享、说明文、读者来信、评论与虚构访谈整理；主题涉及居住、职场、教育、出行、消费、媒体与志愿活动。每篇至少 12 个正文词块和 3 道理解题。
+当前包含 16 篇练习：3 篇 C1、13 篇 B2/B2+。新增的 6 篇每篇 220–320 词，练习 Passiv、Konjunktiv II/I（明确标注虚构的访谈整理）、Nominalstil、Partizipialattribute 与 Funktionsverbgefüge；体裁包括虚构报道、读者来信、访谈整理、评论、经验分享和说明文。每篇至少 12 个正文词块和 3 道理解题。
 
-所有文本均为 AI 生成的原创练习并标记「AI 生成 · 仅作练习」，不冒充新闻，不使用具名引语。7 篇新增课件标为 `ai-generated-unreviewed`；抽检重点见 [review-checklist.md](review-checklist.md)。正式用于备考前，请让导师或母语者抽检德语表达。
+所有内置文本均为 AI 生成的原创练习并标记「AI 生成 · 仅作练习」，不冒充真实新闻或访谈，不使用真实具名引语；报导中的练习数字明确标为虚构。13 篇新增课件标为 `ai-generated-unreviewed`；抽检重点见 [review-checklist.md](review-checklist.md)。正式用于备考前，请让导师或母语者抽检德语表达。
+
+## 自建课件流程
+
+1. 复制 [AUTHORING_PROMPT.md](AUTHORING_PROMPT.md)，输入主题或你有权使用的自有文本。用户提供的原文请放在 `local/`（已加入 `.gitignore`），不要推送到公开仓库。
+2. 保存输出为单篇 JSON，运行 `python3 validate_lessons.py --file /path/to/new-lesson.json`。
+3. 原创 AI 课件校验通过后，运行 `python3 tools/merge_lessons.py /path/to/new-lesson.json`；工具会检查重复 ID、整篇集合并重建页面。用户提供的原文不会被合并到公开课件集合。
+4. 导师实际完成抽检后，运行 `python3 tools/mark_reviewed.py LESSON_ID --tutor "姓名" --date YYYY-MM-DD` 记录签核并重建页面。
+5. 从纯文本建立带词数和切句索引的草稿，可用 `python3 tools/skeleton_from_text.py article.txt --id draft-id --title "标题" --output skeleton.json`。
 
 ## 数据格式
 
@@ -25,7 +33,7 @@
 
 ## 已知限制
 
-- 目前提供 10 篇课件，尚未覆盖计划中的 12 个主题 × 3 篇；新增 B2/B2+ 文本仍待导师抽检。
+- 目前提供 16 篇课件，尚未覆盖完整的主题语料库；新增 B2/B2+ 文本仍待导师抽检。
 - 题目按答案文本精确匹配；「选择（细节）」是普通单选题标签，不是独立配对交互。
 - 盲读分数只保存在当前浏览器，不含独立备份/导出功能。
 - 导入时做必需字段检查；需要完整校验时可用 JSON Schema 2020-12 验证 `lesson.schema.json`。
