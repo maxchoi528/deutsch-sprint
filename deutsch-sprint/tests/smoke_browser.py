@@ -48,6 +48,36 @@ def main():
             console_errors = []
             page.on("pageerror", lambda error: console_errors.append(str(error)))
 
+            fresh = browser.new_page(viewport={"width": 390, "height": 844})
+            fresh.clock.install(time=__import__('datetime').datetime(2026, 10, 24, 12, 0, 0))
+            fresh.goto(f"{base_url}/index.html", wait_until="load")
+            assert fresh.locator("#start-date-dialog").is_visible(), "First use should request a start date"
+            fresh.locator("#initial-start-date").fill("2026-10-23")
+            fresh.get_by_role("button", name="开始使用").click()
+            stored = fresh.evaluate("JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'))")
+            assert stored["settings"]["w1Start"] == "2026-10-26", "Friday start should align W1 to Monday"
+            fresh.locator('[data-view="review"]').click()
+            assert "W0" in fresh.locator(".page-heading h2").inner_text()
+            assert "10月23日 – 10月25日" in fresh.locator(".page-heading p").inner_text()
+            fresh.clock.set_fixed_time(__import__('datetime').datetime(2026, 11, 1, 12, 0, 0))
+            fresh.reload()
+            assert "W1" in fresh.locator(".hero-bottom").inner_text(), "Sunday should remain in the Monday-started W1"
+            # Saturday and Monday starts exercise the shortest and longest ordinary W0 ranges.
+            for start, expected in [
+                ("2026-10-24", "2026-10-26"),
+                ("2026-10-26", "2026-11-02"),
+            ]:
+                fresh.evaluate("localStorage.removeItem('deutschSprint.dashboard.v1')")
+                fresh.reload()
+                fresh.locator("#initial-start-date").fill(start)
+                fresh.get_by_role("button", name="开始使用").click()
+                stored = fresh.evaluate("JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'))")
+                assert stored["settings"]["w1Start"] == expected
+                from datetime import date as date_class
+                w0_days = (date_class.fromisoformat(expected)-date_class.fromisoformat(start)).days
+                assert w0_days == (2 if start == "2026-10-24" else 7)
+            fresh.close()
+
             page.goto(f"{base_url}/p1-reader/index.html", wait_until="load")
             embedded = json.loads(page.locator("#lesson-data").text_content())
             active_id = page.locator("[data-lesson][aria-current=page]").get_attribute("data-lesson")
@@ -150,7 +180,9 @@ def main():
             assert page.locator('[data-gate-field="w4.reading"]').count() == 1
             assert page.locator('[data-gate-field="w13.mock1.title"]').count() == 1
             migrated = page.evaluate("JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'))")
-            assert migrated["schemaVersion"] == 2, "Legacy backup was not migrated"
+            assert migrated["schemaVersion"] == 3, "Legacy backup was not migrated"
+            legacy_w1 = page.evaluate("d=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+3);return [x.getFullYear(),String(x.getMonth()+1).padStart(2,'0'),String(x.getDate()).padStart(2,'0')].join('-')}", migrated["settings"]["startDate"])
+            assert migrated["settings"]["w1Start"] == legacy_w1, f"Legacy start+3 W1 anchor should be preserved: {migrated['settings']['w1Start']} != {legacy_w1}"
             assert migrated["checkins"] and migrated["errors"][0]["id"] == "legacy-error", "Legacy progress was lost"
             assert isinstance(migrated["gates"]["w4"], dict), "Legacy checkbox gates should be safely ignored"
             assert migrated["lastExportAt"].startswith("2000-01-01"), "Legacy export timestamp was not migrated"
@@ -163,7 +195,8 @@ def main():
                   const checkins = {};
                   for (let i=0;i<5;i++) { const d=new Date(today); d.setDate(d.getDate()-i); checkins[key(d)]={blocks:{},newChunks:0,retention:null,note:''}; }
                   const state=JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'));
-                  state.settings.startDate=key(start); state.checkins=checkins; state.gates={w4:{},w9:{},w13:{}};
+                  state.settings.startDate=key(start); const w1=new Date(start);w1.setDate(w1.getDate()+3);state.settings.w1Start=key(w1);
+                  state.checkins=checkins; state.gates={w4:{},w9:{},w13:{}};
                   localStorage.setItem('deutschSprint.dashboard.v1',JSON.stringify(state));
                 }"""
             )
@@ -178,7 +211,7 @@ def main():
             reader_flow(browser, console_errors)
             assert not console_errors, "Browser errors: " + "; ".join(console_errors)
             browser.close()
-            print("PASS: P1 gloss tooltip and paragraph structure; P6 W0, migration and five-day review; P7 paragraph nesting; no page errors.")
+            print("PASS: P1 gloss tooltip and paragraph structure; P6 first-use date, Monday-aligned W1, legacy migration and five-day review; P7 paragraph nesting; no page errors.")
     finally:
         server.shutdown()
         server.server_close()

@@ -275,11 +275,19 @@
   <input class="hidden" type="file" id="import-file" accept="application/json,.json">
   <dialog id="mock-dialog" aria-labelledby="mock-dialog-title"></dialog>
   <dialog id="error-dialog" aria-labelledby="error-dialog-title"></dialog>
+  <dialog id="start-date-dialog" aria-labelledby="start-date-title">
+    <div class="dialog-inner">
+      <div class="dialog-head"><div><h2 id="start-date-title">设定冲刺起始日</h2><p>首次使用先选今天或实际开始学习的日期。W1 会对齐到之后的周一。</p></div></div>
+      <form id="initial-start-form">
+        <div class="field"><label for="initial-start-date">计划起始日</label><input id="initial-start-date" name="startDate" type="date" required><span class="small-muted">W0 为起始日至 W1 前一天，周复盘按周一至周日计算。</span></div>
+        <div class="form-actions"><button class="primary-button" type="submit">开始使用</button></div>
+      </form>
+    </div>
+  </dialog>
 
   <script type="application/json" id="app-config">
   {
     "title": "Deutsch Sprint",
-    "defaultStartDate": "2026-10-23",
     "diagnosticDays": 3,
     "dailyBlocks": [
       {"id":"anki","label":"Anki 复习 + 新卡","time":"08:30","minutes":60},
@@ -319,6 +327,7 @@
     let currentView = 'overview';
     let selectedReviewWeek = null;
     let toastTimer;
+    let needsInitialSetup = false;
 
     const today = () => localDateKey(new Date());
     function localDateKey(date) {
@@ -337,6 +346,14 @@
       return out;
     }
     function addDays(date, count) { const d = new Date(date); d.setDate(d.getDate() + count); return d; }
+    function firstMondayOnOrAfter(value) {
+      const date = parseDate(value);
+      if (!date) return '';
+      return localDateKey(addDays(date, (8-date.getDay())%7));
+    }
+    function newW1Start(startDate) {
+      return firstMondayOnOrAfter(localDateKey(addDays(parseDate(startDate), 2)));
+    }
     function dateDiffDays(a, b) { return Math.floor((Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()) - Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())) / 86400000); }
     function fmtDate(value, options={month:'short',day:'numeric'}) {
       const date = parseDate(value);
@@ -380,8 +397,8 @@
     }
     function defaultState() {
       return {
-        schemaVersion: 2,
-        settings: {startDate: CONFIG.defaultStartDate, theme: 'system'},
+        schemaVersion: 3,
+        settings: {startDate: '', w1Start: '', theme: 'system'},
         checkins: {},
         gates:emptyGateData(),
         mocks: [],
@@ -393,7 +410,7 @@
       const base = defaultState();
       if (!value || typeof value !== 'object') return base;
       const next = {
-        schemaVersion:2,
+        schemaVersion:3,
         settings:{...base.settings, ...(value.settings || {})},
         checkins:value.checkins && typeof value.checkins === 'object' ? value.checkins : {},
         gates:normalizeGateData(value.gates),
@@ -401,7 +418,15 @@
         errors:Array.isArray(value.errors) ? value.errors : [],
         lastExportAt:typeof (value.lastExportAt||value.exportedAt)==='string' && Number.isFinite(Date.parse(value.lastExportAt||value.exportedAt)) ? (value.lastExportAt||value.exportedAt) : null
       };
-      if (!parseDate(next.settings.startDate)) next.settings.startDate = CONFIG.defaultStartDate;
+      const oldVersion=Number(value.schemaVersion)||1;
+      if (!parseDate(next.settings.startDate)) next.settings.startDate = '';
+      if (!parseDate(next.settings.w1Start)) {
+        next.settings.w1Start = parseDate(next.settings.startDate)
+          ? (oldVersion < 3
+              ? localDateKey(addDays(parseDate(next.settings.startDate), CONFIG.diagnosticDays))
+              : newW1Start(next.settings.startDate))
+          : '';
+      }
       if (!['system','light','dark'].includes(next.settings.theme)) next.settings.theme = 'system';
       Object.keys(next.checkins).forEach(date => {
         const old = next.checkins[date] || {};
@@ -437,16 +462,17 @@
     function loadState() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return defaultState();
+        if (!raw) { needsInitialSetup=true; return defaultState(); }
         const imported=JSON.parse(raw);
         const normalized=normalizeState(imported);
-        if (imported?.schemaVersion!==2) {
+        if (imported?.schemaVersion!==3) {
           try { localStorage.setItem(STORAGE_KEY,JSON.stringify(normalized)); }
           catch (error) { console.warn('无法立即升级本地进度格式；本次仍按兼容格式读取',error); }
         }
         return normalized;
       } catch (error) {
         console.warn('无法读取本地进度数据', error);
+        needsInitialSetup=true;
         return defaultState();
       }
     }
@@ -480,23 +506,27 @@
     }
     function currentSprintWeek(date=today()) {
       const start = parseDate(state.settings.startDate);
+      const w1 = parseDate(state.settings.w1Start);
       const selected = parseDate(date);
-      if (!start || !selected) return {week:0, diagnosticDay:1, phase:'诊断周'};
+      if (!start || !w1 || !selected) return {week:0, diagnosticDay:1, phase:'诊断周'};
       const days = dateDiffDays(selected, start);
       if (days < 0) return {week:0, diagnosticDay:0, phase:'尚未开始'};
-      if (days < CONFIG.diagnosticDays) return {week:0, diagnosticDay:days+1, phase:'诊断与装机'};
-      const week = Math.floor((days - CONFIG.diagnosticDays) / 7) + 1;
+      if (selected < w1) return {week:0, diagnosticDay:days+1, phase:'诊断与装机'};
+      const week = Math.floor(dateDiffDays(selected,w1) / 7) + 1;
       return {week, diagnosticDay:CONFIG.diagnosticDays, phase:stageForWeek(week)?.label || (week > 16 ? '冲刺已结束' : '计划外')};
     }
     function stageForWeek(week) { return CONFIG.stages.find(s => week >= s.start && week <= s.end) || null; }
+    function weekStartForNumber(week) {
+      return week<=0 ? parseDate(state.settings.startDate) : addDays(parseDate(state.settings.w1Start),(week-1)*7);
+    }
     function weekRange(date=today()) {
       const start = parseDate(state.settings.startDate);
+      const w1 = parseDate(state.settings.w1Start);
       const selected = parseDate(date) || new Date();
-      if (!start) return {week:0,start:CONFIG.defaultStartDate,end:localDateKey(addDays(parseDate(CONFIG.defaultStartDate),2))};
-      const days = dateDiffDays(selected,start);
-      if (days < CONFIG.diagnosticDays) return {week:0,start:localDateKey(start),end:localDateKey(addDays(start,CONFIG.diagnosticDays-1))};
-      const week = Math.floor((days-CONFIG.diagnosticDays)/7)+1;
-      const weekStart = addDays(start,CONFIG.diagnosticDays+(week-1)*7);
+      if (!start || !w1) return {week:0,start:'',end:''};
+      if (selected < w1) return {week:0,start:localDateKey(start),end:localDateKey(addDays(w1,-1))};
+      const week = Math.floor(dateDiffDays(selected,w1)/7)+1;
+      const weekStart = addDays(w1,(week-1)*7);
       return {week,start:localDateKey(weekStart),end:localDateKey(addDays(weekStart,6))};
     }
     function rangeDates(start, end) {
@@ -727,8 +757,8 @@
       const first=Math.max(0,current.week-5);
       const weeks=[];
       for(let week=first;week<=current.week;week++){
-        const start=addDays(parseDate(state.settings.startDate),week===0?0:CONFIG.diagnosticDays+(week-1)*7);
-        const end=addDays(start,week===0?CONFIG.diagnosticDays-1:6);
+        const start=weekStartForNumber(week);
+        const end=week===0?addDays(parseDate(state.settings.w1Start),-1):addDays(start,6);
         const a=localDateKey(start), b=localDateKey(end);
         const count=state.errors.filter(e=>e.date>=a&&e.date<=b).length;
         weeks.push({week,a,count});
@@ -749,7 +779,7 @@
     function renderReview() {
       const latest=weekRange();
       const chosen=selectedReviewWeek===null?latest.week:Math.max(0,Math.min(latest.week,selectedReviewWeek));
-      const anchor=localDateKey(addDays(parseDate(state.settings.startDate),chosen===0?0:CONFIG.diagnosticDays+(chosen-1)*7));
+      const anchor=localDateKey(weekStartForNumber(chosen));
       const range=weekRange(anchor);
       const weekOptions=`<option value="" ${selectedReviewWeek===null?'selected':''}>当前周 · W${latest.week}</option>`+Array.from({length:latest.week},(_,i)=>latest.week-1-i).map(week=>`<option value="${week}" ${selectedReviewWeek===week?'selected':''}>W${week}${week===0?' · 诊断期':''}</option>`).join('');
       const current=weekSummary(range.start,range.end);
@@ -814,7 +844,7 @@
     }
     function renderSettings() {
       return `<div class="page-heading"><div><h2>设置与备份</h2><p>设置起跑日期、管理本机主题，并控制数据备份。</p></div></div>
-        <div class="settings-grid"><section class="panel"><div class="panel-heading"><div><h3>冲刺设置</h3><p>计划起始日包含前三天诊断与装机。</p></div></div><form id="settings-form"><div class="field"><label for="start-date">计划起始日</label><input id="start-date" name="startDate" type="date" value="${esc(state.settings.startDate)}"><span class="small-muted">W1 从起始日后第 4 天开始。</span></div><div class="field" style="margin-top:14px"><label for="theme-select">外观</label><select id="theme-select" name="theme"><option value="system" ${state.settings.theme==='system'?'selected':''}>跟随系统</option><option value="light" ${state.settings.theme==='light'?'selected':''}>浅色</option><option value="dark" ${state.settings.theme==='dark'?'selected':''}>深色</option></select></div><div class="form-actions"><button class="primary-button" type="submit">保存设置</button></div></form></section>
+        <div class="settings-grid"><section class="panel"><div class="panel-heading"><div><h3>冲刺设置</h3><p>W0 从起始日开始；W1 与后续周按周一至周日计算。</p></div></div><form id="settings-form"><div class="field"><label for="start-date">计划起始日</label><input id="start-date" name="startDate" type="date" value="${esc(state.settings.startDate)}" required><span class="small-muted">W1 起始日：${fmtDate(state.settings.w1Start,{year:'numeric',month:'long',day:'numeric'})}（起始日后至少 2 天，并对齐周一）。旧记录会保留原 W1 日期。</span></div><div class="field" style="margin-top:14px"><label for="theme-select">外观</label><select id="theme-select" name="theme"><option value="system" ${state.settings.theme==='system'?'selected':''}>跟随系统</option><option value="light" ${state.settings.theme==='light'?'selected':''}>浅色</option><option value="dark" ${state.settings.theme==='dark'?'selected':''}>深色</option></select></div><div class="form-actions"><button class="primary-button" type="submit">保存设置</button></div></form></section>
           <section class="panel"><div class="panel-heading"><div><h3>备份与隐私</h3><p>无账号、无联网同步；浏览器清理可能会删除本地记录。</p></div></div><div class="settings-copy"><ul><li>所有数据保存在此设备浏览器的 localStorage 中。</li><li>导出会生成可读的 JSON 文件，可用于换设备或恢复数据。</li><li>导入会替换当前全部记录；请先导出当前数据。</li><li>分数按你填写的百分比保留，不自动解释为 Goethe 官方成绩。</li></ul>${backupReminder()}</div><div class="form-actions" style="justify-content:flex-start"><button class="primary-button" data-action="export">导出 JSON 备份</button><button class="quiet-button" data-action="import">导入 JSON</button></div></section></div>
         <section class="panel"><div class="panel-heading"><div><h3>学习块</h3><p>按原计划配置的每日学习块；实际时间在今日打卡页调整。</p></div></div>${renderBlockList(getCheckin(today()))}<p class="small-muted" style="margin:12px 0 0">每日主动学习目标约 6.5 小时；散步、做饭与晚间被动输入不计入主动时间。</p></section>
         <section class="panel"><div class="panel-heading"><div><h3>清除本地记录</h3><p>此操作不可撤销；如需保留，请先导出 JSON 备份。</p></div></div><button class="danger-button" data-action="clear-data">清除所有记录</button></section>`;
@@ -846,8 +876,9 @@
     function validateImported(data) {
       const issues=[];
       if (!data || typeof data!=='object' || Array.isArray(data)) return ['JSON 顶层必须是对象'];
-      if (![1,2].includes(data.schemaVersion)) issues.push('schemaVersion 必须为 1 或 2');
+      if (![1,2,3].includes(data.schemaVersion)) issues.push('schemaVersion 必须为 1、2 或 3');
       if (!data.settings || !parseDate(data.settings.startDate)) issues.push('缺少有效 settings.startDate');
+      if (data.settings?.w1Start && !parseDate(data.settings.w1Start)) issues.push('settings.w1Start 日期无效');
       if (data.settings && !['system','light','dark'].includes(data.settings.theme)) issues.push('settings.theme 必须是 system、light 或 dark');
       if (!data.checkins || typeof data.checkins!=='object' || Array.isArray(data.checkins)) issues.push('checkins 必须是日期为键的对象');
       else Object.entries(data.checkins).forEach(([date,c])=>{
@@ -862,7 +893,7 @@
       else data.mocks.forEach((m,i)=>{if(!m||!parseDate(m.date)||!String(m.title||'').trim())issues.push(`模考 ${i+1} 缺少有效日期或标题`);else SKILLS.forEach(s=>{const v=m.scores?.[s.id];if(v!==null&&v!==undefined&&v!==''&&(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>100))issues.push(`模考 ${i+1} 的 ${s.label} 必须为 0–100`)});});
       if (!Array.isArray(data.errors)) issues.push('errors 必须是数组');
       else data.errors.forEach((e,i)=>{if(!e||!parseDate(e.date)||!String(e.type||'').trim()||!String(e.original||'').trim()||!String(e.correction||'').trim()||!String(e.rule||'').trim())issues.push(`错误记录 ${i+1} 缺少日期、类型、原句、修正或规则`)});
-      if (data.schemaVersion===2 && (!data.gates || typeof data.gates!=='object' || Array.isArray(data.gates))) issues.push('schemaVersion 2 的 gates 必须是对象');
+      if (data.schemaVersion>=2 && (!data.gates || typeof data.gates!=='object' || Array.isArray(data.gates))) issues.push('schemaVersion 2+ 的 gates 必须是对象');
       return issues;
     }
     function importData(file) {
@@ -873,7 +904,7 @@
           const issues=validateImported(value);
           if (issues.length) { alert('无法导入：\n\n'+issues.slice(0,8).join('\n')+(issues.length>8?'\n…':'')); return; }
           if (!confirm('导入会替换此浏览器中的所有冲刺记录。建议先导出当前数据。继续导入？')) return;
-          state=normalizeState(value); selectedReviewWeek=null; persist(false); renderAll(); showToast(value.schemaVersion===1?'旧版数据已导入；旧关卡勾选已忽略':'备份已导入');
+          state=normalizeState(value); needsInitialSetup=false; const setupDialog=document.getElementById('start-date-dialog'); if(setupDialog.open)setupDialog.close(); selectedReviewWeek=null; persist(false); renderAll(); showToast(value.schemaVersion===1?'旧版数据已导入；旧关卡勾选已忽略':'备份已导入');
         } catch { alert('无法读取 JSON 文件，请确认文件内容完整。'); }
       };
       reader.readAsText(file);
@@ -958,11 +989,23 @@
       if(event.target.id==='settings-form') {
         event.preventDefault();const fd=new FormData(event.target);const start=String(fd.get('startDate'));
         if(!parseDate(start)){showToast('请选择有效的起始日期');return;}
-        state.settings.startDate=start;selectedReviewWeek=null;state.settings.theme=String(fd.get('theme'));persist(false);renderAll();showToast('设置已保存');
+        state.settings.startDate=start;state.settings.w1Start=newW1Start(start);state.schemaVersion=3;selectedReviewWeek=null;state.settings.theme=String(fd.get('theme'));persist(false);renderAll();showToast('设置已保存');
+        return;
+      }
+      if(event.target.id==='initial-start-form') {
+        event.preventDefault();const fd=new FormData(event.target);const start=String(fd.get('startDate'));
+        if(!parseDate(start)){showToast('请选择有效的起始日期');return;}
+        state.settings.startDate=start;state.settings.w1Start=newW1Start(start);state.schemaVersion=3;needsInitialSetup=false;persist(false);document.getElementById('start-date-dialog').close();renderAll();showToast('起始日已保存，可以开始使用');
       }
     });
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(state.settings.theme==='system')renderAll();});
     renderAll();
+    if(needsInitialSetup) {
+      const setupDialog=document.getElementById('start-date-dialog');
+      document.getElementById('initial-start-date').value=today();
+      setupDialog.addEventListener('cancel',event=>event.preventDefault());
+      setupDialog.showModal();
+    }
   })();
   </script>
 </body>

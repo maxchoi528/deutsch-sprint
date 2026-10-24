@@ -37,7 +37,8 @@ def extra_flows(browser, base_url, errors):
     page.locator('#import-file').set_input_files(dict(name='legacy.json', mimeType='application/json', buffer=json.dumps(legacy).encode()))
     page.wait_for_function("JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1')||'{}').errors?.[0]?.id === 'old-error'")
     value = saved(page, P6)
-    assert value['schemaVersion'] == 2 and value['mocks'][0]['scores']['reading'] == 76
+    assert value['schemaVersion'] == 3 and value['settings']['w1Start'] == (page.evaluate("d=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+3);return x.toLocaleDateString('sv-SE')}", today))
+    assert value['mocks'][0]['scores']['reading'] == 76
     assert value['checkins'][today]['note'] == 'old note'
     assert value['gates']['w4']['reading'] is None
     edit(page, '[data-block-minutes="anki"]', 50)
@@ -61,7 +62,7 @@ def extra_flows(browser, base_url, errors):
     with page.expect_download() as download_info:
         page.locator('[data-action="export"]').first.click()
     exported = json.loads(Path(download_info.value.path()).read_text())
-    assert exported['schemaVersion'] == 2 and exported['errors'][0]['id'] == 'old-error'
+    assert exported['schemaVersion'] == 3 and exported['errors'][0]['id'] == 'old-error'
     assert exported['lastExportAt'] == exported['exportedAt']
     assert not page.locator('.backup-reminder.is-stale').count()
     sys.path.insert(0, str(ROOT / 'anki-factory'))
@@ -80,6 +81,7 @@ def extra_flows(browser, base_url, errors):
           const key=d=>d.toLocaleDateString('sv-SE');
           const state=JSON.parse(localStorage.getItem('deutschSprint.dashboard.v1'));
           const start=new Date();start.setDate(start.getDate()-offset);state.settings.startDate=key(start);
+          const oldW1=new Date(start);oldW1.setDate(oldW1.getDate()+3);state.settings.w1Start=key(oldW1);
           state.checkins={};
           for(let i=0;i<days;i++){const d=new Date();d.setDate(d.getDate()-i);
             state.checkins[key(d)]={blocks:{anki:{done:true,minutes}},retention:null,newChunks:0,note:''};}
@@ -275,6 +277,9 @@ def reader_flow(browser, errors):
     progress = saved(page, 'deutschSprint.reader.v1')['progress']['b2-wohnen'][-1]
     assert progress['blind'] and progress['score'] == 3
     page.goto((ROOT / 'index.html').as_uri())
+    if page.locator('#start-date-dialog').is_visible():
+        page.locator('#initial-start-date').fill(page.evaluate("new Date().toLocaleDateString('sv-SE')"))
+        page.get_by_role('button', name='开始使用').click()
     assert page.locator('[aria-label="学习工具入口"] a').count() == 7
     for href in page.locator('[aria-label="学习工具入口"] a').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))'):
         assert (ROOT / href).is_file()
