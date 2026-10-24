@@ -174,6 +174,15 @@ def extra_flows(browser, base_url, errors):
     seed(page, P7, state)
     assert saved(page, P7)['attempts']['schreiben']['timedOut']
     print('PASS: P7 shared deadline, both drafts, reload, expiry, reset, custom totals and elapsed time.')
+    page.locator('[data-task="hoeren-interview"]').click()
+    assert '40 分钟' in page.locator('.nav-item[aria-current="page"]').inner_text()
+    assert '双人对话/访谈' in page.locator('.panel .help').first.inner_text()
+    page.locator('[data-task="hoeren-vortrag"]').click()
+    assert '单人讲座式' in page.locator('.panel .help').first.inner_text()
+    page.locator('[data-task="sprechen"]').click()
+    assert '配对口试' in page.locator('.notice').inner_text()
+    assert 'etwa 20 Minuten' in page.locator('.notice').inner_text()
+    print('PASS: P7 verified exam duration labels, interview, lecture-style listening and paired-speaking guidance.')
     page.close()
 
     mobile = browser.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)

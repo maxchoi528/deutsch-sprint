@@ -56,7 +56,7 @@
   function timerHtml(value,exam){
     const custom=exam.kind==='writing'&&value.customTiming;
     const seconds=value.startedAt?remaining(value,exam):custom?(value.taskDurations||[35,40]).reduce((sum,minutes)=>sum+(Number(minutes)||0),0)*60:exam.duration_minutes*60;
-    const label=value.startedAt&&!value.submittedAt?(custom?`任务 ${Math.min((value.activeTaskIndex||0)+1,exam.tasks.length)}/${exam.tasks.length} · 剩余时间`:'剩余时间'):`${custom?'自定义分段':`练习 ${exam.duration_minutes} 分钟`}${exam.official_duration_minutes?` · 官网时长参考 ${exam.official_duration_minutes} 分钟（待核实）`:''}`;
+    const label=value.startedAt&&!value.submittedAt?(custom?`任务 ${Math.min((value.activeTaskIndex||0)+1,exam.tasks.length)}/${exam.tasks.length} · 剩余时间`:'剩余时间'):`${custom?'自定义分段':`练习 ${exam.duration_minutes} 分钟`}${exam.official_duration_minutes?` · 已核实（以报考页为准）：官方参考 ${exam.official_duration_minutes} 分钟`:''}`;
     const action=!value.startedAt?'<button class="btn primary" data-action="start">开始限时练习</button>':!value.submittedAt?`${custom&&value.activeTaskIndex<exam.tasks.length-1?'<button class="btn" data-action="next-writing-task">提前结束本题并开始下一题</button>':''}<button class="btn primary" data-action="submit">提交并结束</button>`:'<button class="btn danger" data-action="reset">重置本次练习</button>';
     return `<div class="timer-box"><span class="timer" id="timer" aria-live="off">${value.submittedAt?'已结束':timeText(seconds)}</span><span class="timer-label">${label} · ${modeStatus(value)}</span><div class="timer-actions">${action}</div></div>`;
   }
@@ -69,12 +69,13 @@
     }).join('')}</div>${!value.submittedAt?`<button class="btn primary" data-action="submit" ${started(value)?'':'disabled'}>提交并自动计分</button>${!started(value)?'<p class="help" style="margin-top:8px">开始计时后即可作答。</p>':''}`:`<div class="result-summary"><strong>${value.score}/${exam.questions.length}</strong> · ${Math.round(value.score/exam.questions.length*100)}% 正确</div>`}</section>`;
   }
   function durationNotice(exam){
-    return `<div class="notice">这是缩小版练习，不是整套模考，不用于判断考试水平。${exam.official_duration_minutes?`官网整模块时长仅作参考：${exam.official_duration_minutes} 分钟（本地未核实）。`:''}</div>`;
+    return `<div class="notice">这是缩小版练习，不是整套模考，不用于判断考试水平。${exam.official_duration_minutes?`官方整模块时长参考：${exam.official_duration_minutes} 分钟（已核实，报考前请核对考点信息）。`:''} ${esc(exam.source_note||EXAM.source_note||'')}</div>`;
   }
   function readingView(exam,value){return `${durationNotice(exam)}<section class="panel"><div class="task-prompt">${esc(exam.title)} · AI 生成 · 仅作练习</div><article class="reading-text" lang="de" style="margin-top:14px">${exam.text.split(/\n+/).map(paragraph=>`<p>${esc(paragraph)}</p>`).join('')}</article></section>${objectiveQuestions(exam,value)}`}
   function listeningView(exam,value){
     const active=started(value);
-    return `${durationNotice(exam)}<section class="panel"><h3>听力材料</h3><p class="help">虚构的两人对话练习。播放声音由设备的系统语音合成，不是真实录音；不同设备可能使用在线语音服务。</p>${active?`<button class="btn" data-action="speak-script">播放对话（系统语音）</button> <span class="tiny" id="speech-status" role="status"></span>`:'<div class="notice">开始后可播放听力稿。若设备没有德语语音，可请他人朗读或使用自己有权使用的音频材料。</div>'}${value.submittedAt?`<details style="margin-top:13px"><summary>查看听力稿与逐段证据</summary><article class="script-text" lang="de">${exam.transcript.split(/\n+/).map(paragraph=>`<p>${esc(paragraph)}</p>`).join('')}</article></details>`:''}</section>${objectiveQuestions(exam,value)}`;
+    const solo=/^Sprecher C:/m.test(exam.transcript);
+    return `${durationNotice(exam)}<section class="panel"><h3>听力材料</h3><p class="help">${solo?'虚构的单人讲座式片段。':'虚构的双人对话/访谈练习。'}播放声音由设备的系统语音合成，不是真实录音；语音可用性随设备变化，部分语音可能依赖在线服务。</p>${active?`<button class="btn" data-action="speak-script">播放听力稿（系统语音）</button> <span class="tiny" id="speech-status" role="status"></span>`:'<div class="notice">开始后可播放听力稿。若设备没有德语语音，可请他人朗读或使用自己有权使用的音频材料。</div>'}${value.submittedAt?`<details style="margin-top:13px"><summary>查看听力稿与逐段证据</summary><article class="script-text" lang="de">${exam.transcript.split(/\n+/).map(paragraph=>`<p>${esc(paragraph)}</p>`).join('')}</article></details>`:''}</section>${objectiveQuestions(exam,value)}`;
   }
   function writingView(exam,value){
     const tasks=exam.tasks,activeIndex=Math.min(value.activeTaskIndex||0,tasks.length-1),task=tasks[activeIndex],responses=value.responses||{},response=responses[task.id]||'';
@@ -86,7 +87,7 @@
   }
   function speakingView(exam,value){
     const chosen=Number.isInteger(value.cardIndex)?value.cardIndex:0,card=exam.cards[chosen];
-    return `<section class="panel"><div class="field-row"><div><h3>选择一张话题卡</h3><p class="help">准备立场与理由，再做 2–3 分钟独白和反方讨论。</p></div><select class="card-select" id="card-select" ${value.submittedAt?'disabled':''}>${exam.cards.map((item,index)=>`<option value="${index}" ${index===chosen?'selected':''}>话题 ${index+1} / ${exam.cards.length}</option>`).join('')}</select></div><div class="task-prompt" lang="de">${esc(card.topic)}</div><div class="angles" style="margin-top:12px"><div class="angle"><strong>角度 A</strong><span lang="de">${esc(card.pro)}</span></div><div class="angle"><strong>角度 B</strong><span lang="de">${esc(card.contra)}</span></div></div><label for="speaking-notes" class="tiny" style="display:block;margin-top:16px">关键词笔记（练习时可以留空）</label><textarea class="text-entry" id="speaking-notes" style="min-height:115px" placeholder="支持观点、让步、反驳、总结…" ${started(value)&&!value.submittedAt?'':'disabled'}>${esc(value.notes||'')}</textarea>${value.submittedAt?`<div class="result-summary">本次计时完成 · 关键词 ${wordCount(value.notes||'')} 词。口语质量请用 P3 或真人导师复盘。</div><div class="reflection"><label><input type="checkbox" data-selfcheck="0" ${value.selfcheck?.[0]?'checked':''}><span>我给出了清楚立场与至少两个理由。</span></label><label><input type="checkbox" data-selfcheck="1" ${value.selfcheck?.[1]?'checked':''}><span>我回应了相反角度并做出总结。</span></label></div>`:''}</section>`;
+    return `<section class="panel"><div class="notice">本练习按配对口试组织；官方参考约 20 分钟。话题卡仅用于组织观点练习，不代表官方题目。${esc(exam.source_note||'')}</div><div class="field-row"><div><h3>选择一张话题卡</h3><p class="help">准备立场与理由，再做 2–3 分钟独白和反方讨论。</p></div><select class="card-select" id="card-select" ${value.submittedAt?'disabled':''}>${exam.cards.map((item,index)=>`<option value="${index}" ${index===chosen?'selected':''}>话题 ${index+1} / ${exam.cards.length}</option>`).join('')}</select></div><div class="task-prompt" lang="de">${esc(card.topic)}</div><div class="angles" style="margin-top:12px"><div class="angle"><strong>角度 A</strong><span lang="de">${esc(card.pro)}</span></div><div class="angle"><strong>角度 B</strong><span lang="de">${esc(card.contra)}</span></div></div><label for="speaking-notes" class="tiny" style="display:block;margin-top:16px">关键词笔记（练习时可以留空）</label><textarea class="text-entry" id="speaking-notes" style="min-height:115px" placeholder="支持观点、让步、反驳、总结…" ${started(value)&&!value.submittedAt?'':'disabled'}>${esc(value.notes||'')}</textarea>${value.submittedAt?`<div class="result-summary">本次计时完成 · 关键词 ${wordCount(value.notes||'')} 词。口语质量请用 P3 或真人导师复盘。</div><div class="reflection"><label><input type="checkbox" data-selfcheck="0" ${value.selfcheck?.[0]?'checked':''}><span>我给出了清楚立场与至少两个理由。</span></label><label><input type="checkbox" data-selfcheck="1" ${value.selfcheck?.[1]?'checked':''}><span>我回应了相反角度并做出总结。</span></label></div>`:''}</section>`;
   }
   function practiceDuration(exam){return `${exam.duration_minutes} 分钟练习${exam.official_duration_minutes?` · 官网参考 ${exam.official_duration_minutes} 分钟`:''}`}
   function render(){
@@ -94,7 +95,7 @@
     document.title=`${exam.title} · P7 缩小版练习`;
     const nav=EXAM.sections.map((item,index)=>`<button class="nav-item" data-task="${esc(item.id)}" aria-current="${item.id===exam.id?'page':'false'}"><span class="nav-num">${String(index+1).padStart(2,'0')}</span><span class="nav-title">${esc(item.title)}<span class="nav-sub">${esc(practiceDuration(item))} · ${item.kind==='reading'?'阅读':item.kind==='listening'?'听力':item.kind==='writing'?'写作':'口语'}</span></span></button>`).join('');
     const body=exam.kind==='reading'?readingView(exam,value):exam.kind==='listening'?listeningView(exam,value):exam.kind==='writing'?writingView(exam,value):speakingView(exam,value);
-    app.innerHTML=`<header class="top"><div class="brand"><span class="mark">DS</span><span><strong>Deutsch Sprint</strong><small>C1 supplementary practice</small></span></div><div class="top-actions"><button class="btn" data-action="export">导出练习记录</button></div></header><p class="eyebrow">P7 · ORIGINAL PRACTICE · C1</p><h1>补充练习 · 缩小版</h1><p class="lede">这是缩小版练习，不是整套模考，不用于判断考试水平。阅读与听力自动计分；时长为本地练习设置，官网参考时长尚未在线核实。</p><div class="layout"><nav class="nav" aria-label="练习模块">${nav}<div class="side-note">计时从开始后持续运行，刷新页面也会继续；到时自动提交或推进下一项。模块只保存在本机浏览器。</div></nav><main class="main"><section class="task-head"><div><span class="status-pill">${exam.kind==='reading'?'Lesen':exam.kind==='listening'?'Hören':exam.kind==='writing'?'Schreiben':'Sprechen'}</span><h2 style="margin-top:9px">${esc(exam.title)}</h2><p>${esc(EXAM.label)}</p></div>${timerHtml(value,exam)}</section>${body}<p class="foot">AI 生成 · 仅作练习 · 不代表官方考试题、评分标准或通过结论</p></main></div>`;
+    app.innerHTML=`<header class="top"><div class="brand"><span class="mark">DS</span><span><strong>Deutsch Sprint</strong><small>C1 supplementary practice</small></span></div><div class="top-actions"><button class="btn" data-action="export">导出练习记录</button></div></header><p class="eyebrow">P7 · ORIGINAL PRACTICE · C1</p><h1>补充练习 · 缩小版</h1><p class="lede">这是缩小版练习，不是整套模考，不用于判断考试水平。阅读与听力自动计分；考试时长为 Goethe-Institut 实施规则参考值，报考前请核对考点信息。</p><div class="layout"><nav class="nav" aria-label="练习模块">${nav}<div class="side-note">计时从开始后持续运行，刷新页面也会继续；到时自动提交或推进下一项。模块只保存在本机浏览器。</div></nav><main class="main"><section class="task-head"><div><span class="status-pill">${exam.kind==='reading'?'Lesen':exam.kind==='listening'?'Hören':exam.kind==='writing'?'Schreiben':'Sprechen'}</span><h2 style="margin-top:9px">${esc(exam.title)}</h2><p>${esc(EXAM.label)}</p></div>${timerHtml(value,exam)}</section>${body}<p class="foot">AI 生成 · 仅作练习 · 不代表官方考试题、评分标准或通过结论</p></main></div>`;
     startTicker();
   }
   function startTicker(){if(timer)clearInterval(timer);timer=setInterval(tick,1000);tick()}
@@ -146,16 +147,17 @@
   function speakScript(){
     const exam=section();if(!('speechSynthesis'in window)){toast('此浏览器没有系统语音合成。');return}
     speechSynthesis.cancel();
-    const turns=[...exam.transcript.matchAll(/^Sprecher ([AB]):\s*(.+)$/gm)].map(match=>({speaker:match[1],text:match[2]}));
-    if(!turns.length){toast('没有找到双人对话脚本。');return}
+    const turns=[...exam.transcript.matchAll(/^(?:Sprecherin A|Sprecher B|Sprecher C):\s*(.+)$/gm)].map(match=>({speaker:match[0].startsWith('Sprecherin A:')?'A':match[0].startsWith('Sprecher B:')?'B':'C',text:match[1]}));
+    if(!turns.length){toast('没有找到听力脚本。');return}
     const german=speechSynthesis.getVoices().filter(voice=>voice.lang.toLowerCase().startsWith('de'));
-    const distinct=german.length>1&&german[0].voiceURI!==german[1].voiceURI;
+    const hasTwoSpeakers=turns.some(turn=>turn.speaker==='A')&&turns.some(turn=>turn.speaker==='B');
+    const distinct=hasTwoSpeakers&&german.length>1&&german[0].voiceURI!==german[1].voiceURI;
     const voiceA=german[0]||null,voiceB=distinct?german[1]:voiceA;
     const status=document.getElementById('speech-status');
-    if(status)status.textContent=distinct?'检测到两种德语系统语音，将分别用于 Sprecher A/B。':'只检测到一种可用德语系统语音，本次由同一语音朗读 A/B。系统语音不是真实录音。';
+    if(status)status.textContent=distinct?'检测到两种德语系统语音，将分别用于说话人 A/B。':hasTwoSpeakers?'没有两种可区分的德语系统语音，本次使用单一语音；系统语音不是真实录音。':'本片段为单人讲座式朗读；系统语音不是真实录音。';
     turns.forEach(turn=>{
       const utterance=new SpeechSynthesisUtterance(turn.text);utterance.lang='de-DE';
-      utterance.voice=turn.speaker==='A'?voiceA:voiceB;
+      utterance.voice=turn.speaker==='A'?voiceA:turn.speaker==='B'?voiceB:voiceA;
       utterance.onerror=()=>{if(status)status.textContent='系统语音播放失败；可请他人朗读。'};
       speechSynthesis.speak(utterance);
     });

@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "Ergänzende C1-Übung · frei erstellt, keine offiziellen Prüfungsaufgaben",
+  "source_note": "Offizielle Richtwerte gemäß Goethe-Institut, Durchführungsbestimmungen Goethe-Zertifikat C1: https://www.goethe.de/pro/relaunch/prf/ar/Durchfuehrungsbestimmungen_C1_neu.pdf. Bitte vor der Anmeldung die aktuelle Prüfungsseite des gewählten Prüfungszentrums prüfen.",
   "sections": [
     {
       "id": "lesen",
@@ -71,7 +72,7 @@
       "title": "Hören · Ein geplanter Bürgerdialog",
       "duration_minutes": 15,
       "fictional": true,
-      "transcript": "Fiktiver Gesprächsausschnitt: Zwei Personen aus einer kommunalen Planungsstelle bereiten einen Bürgerdialog vor.\n\nSprecher A: Heute möchten wir besprechen, wie der Bürgerdialog zur Umgestaltung des Platzes vorbereitet wird.\nSprecher B: Dann sollten wir zuerst klären, welche Fragen noch offen sind.\nSprecher A: Genau. Die Veranstaltung soll keinen fertigen Entwurf nachträglich bestätigen lassen.\nSprecher B: Viele Menschen möchten wissen, ob die Wege für Fußgänger und Fahrräder künftig anders verlaufen.\nSprecher A: Außerdem gibt es Fragen dazu, wo kleine Veranstaltungen stattfinden können.\nSprecher B: Der Termin ist an einem Dienstagabend im Nachbarschaftshaus geplant.\nSprecher A: Eine Anmeldung hilft uns bei der Planung, ist aber nicht zwingend.\nSprecher B: Wer an dem Abend nicht kommen kann, darf schriftlich Rückmeldung geben.\nSprecher A: Wir wollen außerdem einen Online-Zugang anbieten.\nSprecher B: Wie gehen wir mit den Beiträgen um?\nSprecher A: Wir ordnen sie nach Themen und veröffentlichen keine Namen in der Zusammenfassung.\nSprecher B: Kann ein Vorschlag direkt umgesetzt werden?\nSprecher A: Nicht unbedingt. Manche Ideen müssen erst auf ihre Folgen und Zuständigkeiten geprüft werden.\nSprecher B: Dann erfährt man trotzdem, was daraus wird?\nSprecher A: Ja. Wir erklären, welche Hinweise in den nächsten Entwurf einfließen und welche vorerst offenbleiben.\nSprecher B: Das klingt nachvollziehbar.\nSprecher A: Nach dem Dialog veröffentlichen wir eine kurze Zusammenfassung mit offenen Fragen, nächsten Schritten und Kontakt.\nSprecher B: Der Dialog ersetzt also nicht die formelle Entscheidung.\nSprecher A: Richtig.\nSprecher A: Er bringt zusätzliche Perspektiven ein und macht die Abwägung verständlicher.\nSprecher B: Dann wissen die Teilnehmenden auch, wie sie später noch Fragen stellen können.",
+      "transcript": "Fiktiver Ausschnitt aus einem Bürgerdialog.\n\nSprecherin A: Heute möchten wir besprechen, wie der Bürgerdialog zur Umgestaltung des Platzes vorbereitet wird.\nSprecher B: Dann sollten wir zuerst klären, welche Fragen noch offen sind.\nSprecherin A: Genau. Die Veranstaltung soll keinen fertigen Entwurf nachträglich bestätigen lassen.\nSprecher B: Viele Menschen möchten wissen, ob die Wege für Fußgänger und Fahrräder künftig anders verlaufen.\nSprecherin A: Außerdem gibt es Fragen dazu, wo kleine Veranstaltungen stattfinden können.\nSprecher B: Der Termin ist an einem Dienstagabend im Nachbarschaftshaus geplant.\nSprecherin A: Eine Anmeldung hilft uns bei der Planung, ist aber nicht zwingend.\nSprecher B: Wer an dem Abend nicht kommen kann, darf schriftlich Rückmeldung geben.\nSprecherin A: Wir wollen außerdem einen Online-Zugang anbieten.\nSprecher B: Wie gehen wir mit den Beiträgen um?\nSprecherin A: Wir ordnen sie nach Themen und veröffentlichen keine Namen in der Zusammenfassung.\nSprecher B: Kann ein Vorschlag direkt umgesetzt werden?\nSprecherin A: Nicht unbedingt. Manche Ideen müssen erst auf ihre Folgen und Zuständigkeiten geprüft werden.\nSprecher B: Dann erfährt man trotzdem, was daraus wird?\nSprecherin A: Ja. Wir erklären, welche Hinweise in den nächsten Entwurf einfließen und welche vorerst offenbleiben.\nSprecher B: Das klingt nachvollziehbar.\nSprecherin A: Nach dem Dialog veröffentlichen wir eine kurze Zusammenfassung mit offenen Fragen, nächsten Schritten und Kontakt.\nSprecher B: Der Dialog ersetzt also nicht die formelle Entscheidung.\nSprecherin A: Richtig. Er bringt zusätzliche Perspektiven ein und macht die Abwägung verständlicher.\nSprecher B: Dann wissen die Teilnehmenden auch, wie sie später noch Fragen stellen können.",
       "questions": [
         {
           "type": "选择",
@@ -107,7 +108,7 @@
         },
         {
           "type": "对错",
-          "q": "Die Gesprächspartnerin sagt, dass jeder Vorschlag sofort umgesetzt wird.",
+          "q": "Sprecherin A sagt, dass jeder Vorschlag sofort umgesetzt wird.",
           "options": [
             "对",
             "错"
@@ -124,10 +125,36 @@
             "Alle Zuständigkeiten auf die Teilnehmenden übertragen."
           ],
           "answer": "Zusätzliche Perspektiven einbringen und die Abwägung verständlicher machen.",
-          "evidence_sentence_index": 23
+          "evidence_sentence_index": 22
         }
       ],
       "official_duration_minutes": 40
+    },
+    {
+      "id": "hoeren-interview",
+      "kind": "listening",
+      "title": "Hören · Interview zur beruflichen Weiterbildung",
+      "duration_minutes": 8,
+      "official_duration_minutes": 40,
+      "fictional": true,
+      "transcript": "Fiktiver Interviewausschnitt.\n\nSprecherin A: Sie haben nach mehreren Jahren im Einzelhandel eine Weiterbildung begonnen. Was war der Auslöser?\nSprecher B: In meinem Betrieb wurden neue digitale Abläufe eingeführt. Ich wollte verstehen, wie sie geplant werden, statt nur einzelne Programme zu bedienen.\nSprecherin A: Wie ließ sich der Kurs mit Ihrer Arbeit vereinbaren?\nSprecher B: Der Unterricht fand an zwei Abenden statt. Trotzdem musste ich mit meiner Leitung frühzeitig klären, wann ich für Lernphasen weniger Schichten übernehmen konnte.\nSprecherin A: Was hat Ihnen beim Lernen besonders geholfen?\nSprecher B: Wir haben an eigenen Arbeitsfällen geübt. Dadurch konnte ich die Begriffe unmittelbar anwenden und gezielte Fragen stellen.\nSprecherin A: Würden Sie anderen dieselbe Weiterbildung empfehlen?\nSprecher B: Nur nach genauer Prüfung. Man sollte klären, ob die Inhalte zum Berufsziel passen und ob genügend Zeit für die Aufgaben bleibt.",
+      "questions": [
+        {"type":"选择","q":"Warum begann Sprecher B die Weiterbildung?","options":["Sprecher B wollte die Planung digitaler Abläufe besser verstehen.","Sprecher B musste den Beruf wechseln.","Sprecher B wollte ausschließlich ein bestimmtes Programm bedienen."],"answer":"Sprecher B wollte die Planung digitaler Abläufe besser verstehen.","evidence_sentence_index":3},
+        {"type":"选择","q":"Was empfiehlt Sprecher B Interessierten vor der Anmeldung?","options":["Inhalte und verfügbares Zeitbudget genau zu prüfen.","Zuerst die Arbeitsstelle zu kündigen.","Nur auf den Unterrichtsort zu achten."],"answer":"Inhalte und verfügbares Zeitbudget genau zu prüfen.","evidence_sentence_index":13}
+      ]
+    },
+    {
+      "id": "hoeren-vortrag",
+      "kind": "listening",
+      "title": "Hören · Kurzvortrag zu Stadtbäumen",
+      "duration_minutes": 7,
+      "official_duration_minutes": 40,
+      "fictional": true,
+      "transcript": "Fiktiver, kurzer Vortragsausschnitt.\n\nSprecher C: Stadtbäume können an heißen Tagen Schatten spenden und die Aufenthaltsqualität eines Platzes verbessern. Ihre Wirkung hängt jedoch vom Standort und von der Pflege ab. Junge Bäume benötigen in trockenen Perioden ausreichend Wasser. Gleichzeitig müssen Leitungen, Wege und die verfügbare Fläche berücksichtigt werden. Eine Pflanzung allein löst daher nicht jedes Problem im Stadtraum. Sinnvoll ist eine längerfristige Planung, die geeignete Arten auswählt und Zuständigkeiten für die Pflege festlegt. Auch die Anwohnerinnen und Anwohner können Hinweise geben, etwa zu besonders heißen Orten oder häufig genutzten Wegen. Solche Rückmeldungen ersetzen keine fachliche Prüfung, können aber bei der Priorisierung helfen.",
+      "questions": [
+        {"type":"选择","q":"Wovon hängt die Wirkung von Stadtbäumen laut Vortrag ab?","options":["Unter anderem von Standort und Pflege.","Ausschließlich von der Zahl der Anwohner.","Nur von der Breite der Wege."],"answer":"Unter anderem von Standort und Pflege.","evidence_sentence_index":2},
+        {"type":"对错","q":"Rückmeldungen aus der Nachbarschaft ersetzen laut Sprecher C die fachliche Prüfung.","options":["对","错"],"answer":"错","evidence_sentence_index":8}
+      ]
     },
     {
       "id": "schreiben",
@@ -135,6 +162,7 @@
       "title": "Schreiben · Zwei Aufgaben",
       "duration_minutes": 75,
       "official_duration_minutes": 75,
+      "source_note": "75 Minuten gelten für das gesamte Schreiben-Modul mit Teil 1 und Teil 2 zusammen.",
       "tasks": [
         {
           "id": "forum",
@@ -177,6 +205,8 @@
       "kind": "speaking",
       "title": "Sprechen · Themenkarten",
       "duration_minutes": 20,
+      "official_duration_minutes": 20,
+      "source_note": "Partnerprüfung: etwa 20 Minuten; Einzelprüfung: etwa 15 Minuten. Diese Übung ist als Partnerprüfung gedacht.",
       "cards": [
         {
           "topic": "Sollten Innenstädte weitgehend autofrei werden?",
