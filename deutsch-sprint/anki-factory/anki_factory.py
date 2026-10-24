@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html
 import hashlib
 import json
 import re
@@ -46,34 +47,61 @@ def strip_markers(text: str) -> str:
     return MARKER_RE.sub(lambda m: m.group(1), text)
 
 
-def sentence_notes(text: str, glosses: list[dict[str, Any]], source: str) -> list[Note]:
-    gloss_ids = {clean(g.get("id")) for g in glosses if clean(g.get("id"))}
+def cloze_extra(glosses: list[dict[str, Any]], source: str) -> str:
+    rows = []
+    for gloss in glosses:
+        lemma = clean(gloss.get("lemma")) or clean(gloss.get("surface"))
+        article = clean(gloss.get("article"))
+        headword = f"{article} {lemma}" if article and lemma and not lemma.lower().startswith(article.lower()+" ") else lemma
+        plural = clean(gloss.get("plural")) or clean(gloss.get("plural_note")) or "—"
+        fields = [
+            f"原形：{headword}", f"复数：{plural}",
+            f"中文：{clean(gloss.get('zh'))}", f"德语解释：{clean(gloss.get('de_def'))}",
+        ]
+        rows.append("<br>".join(html.escape(value) for value in fields if value))
+    rows.append(f"来源：{html.escape(source)}")
+    return "<hr>".join(rows)
+
+
+def sentence_notes(
+    text: str,
+    glosses: list[dict[str, Any]],
+    source: str,
+    cloze_mode: str = "merged",
+) -> list[Note]:
+    gloss_by_id = {clean(g.get("id")): g for g in glosses if clean(g.get("id"))}
     notes: list[Note] = []
     for raw_sentence in SENTENCE_RE.findall(text):
         sentence = raw_sentence.strip()
         matches = list(MARKER_RE.finditer(sentence))
         if not matches:
             continue
-        marked = [m for m in matches if clean(m.group(2)) in gloss_ids]
+        marked = [m for m in matches if clean(m.group(2)) in gloss_by_id]
         if not marked:
             continue
-        # One target per note makes the number of generated Cloze cards match
-        # the number of marked word blocks, even when a sentence has two glosses.
-        for target in marked:
-            clozed = []
-            for match in MARKER_RE.finditer(sentence):
-                surface = clean(match.group(1))
-                clozed.append(
-                    "{{c1::%s}}" % surface if match.start() == target.start() else surface
-                )
+        groups = [[match] for match in marked] if cloze_mode == "single" else [marked[i:i+2] for i in range(0,len(marked),2)]
+        for group in groups:
+            hidden = {match.start(): f"c{index}" for index, match in enumerate(group,1)}
             pieces = []
             cursor = 0
-            for match, replacement in zip(MARKER_RE.finditer(sentence), clozed):
-                pieces.extend((sentence[cursor:match.start()], replacement))
-                cursor = match.end()
-            pieces.append(sentence[cursor:])
+            for match in matches:
+                pieces.append(html.escape(sentence[cursor:match.start()]))
+                surface = clean(match.group(1))
+                cloze = hidden.get(match.start())
+                if cloze:
+                    gloss=gloss_by_id[clean(match.group(2))]
+                    hint=clean(gloss.get("zh"))
+                    if len(hint)>40:
+                        hint=hint[:39].rstrip()+"…"
+                    suffix=f"::{html.escape(hint)}" if hint else ""
+                    pieces.append(f"{{{{{cloze}::{html.escape(surface)}{suffix}}}}}")
+                else:
+                    pieces.append(html.escape(surface))
+                cursor=match.end()
+            pieces.append(html.escape(sentence[cursor:]))
             front = re.sub(r"\s+", " ", "".join(pieces)).strip()
-            notes.append(Note("cloze", front, f"Quelle: {source}", source))
+            extra=cloze_extra([gloss_by_id[clean(match.group(2))] for match in group],source)
+            notes.append(Note("cloze", front, extra, source))
     return notes
 
 
@@ -188,12 +216,12 @@ def extract_errors(data: Any, fallback_source: str, warnings: list[str]) -> list
     return notes
 
 
-def lesson_notes(data: dict[str, Any], path: Path, warnings: list[str]) -> list[Note]:
+def lesson_notes(data: dict[str, Any], path: Path, warnings: list[str], cloze_mode: str = "merged") -> list[Note]:
     source = source_name(data, path)
     glosses = data.get("glosses") if isinstance(data.get("glosses"), list) else []
     glosses = [g for g in glosses if isinstance(g, dict)]
     text = clean(data.get("text"))
-    notes = sentence_notes(text, glosses, source)
+    notes = sentence_notes(text, glosses, source, cloze_mode)
     notes.extend(definition_notes(glosses, source))
     notes.extend(collocation_notes(glosses, source, warnings))
     if not notes:
@@ -255,6 +283,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("inputs", nargs="+", help="P1 课件 JSON 或仪表盘导出的 JSON 备份")
     parser.add_argument("--output", "-o", type=Path, default=Path("anki-export"), help="CSV 输出目录（默认：./anki-export）")
     parser.add_argument("--stats", action="store_true", help="列出各类卡片数量和未标记词条")
+    parser.add_argument("--cloze-mode", choices=("merged", "single"), default="merged", help="合并同句词块挖空（默认，每卡最多两处）或每个词块单独出卡")
     return parser
 
 
@@ -284,7 +313,7 @@ def main(argv: list[str] | None = None) -> int:
         for item in items:
             if isinstance(item, dict) and ("glosses" in item or "text" in item):
                 unmarked.extend((source_name(item, path), gloss) for gloss in unmarked_glosses(item))
-                notes = lesson_notes(item, path, warnings)
+                notes = lesson_notes(item, path, warnings, args.cloze_mode)
             else:
                 notes = extract_errors(item, path.stem, warnings)
             for note in notes:
@@ -312,7 +341,7 @@ def main(argv: list[str] | None = None) -> int:
     for kind, rows in all_notes.items():
         print(f"  {kind:12s} {len(rows):4d}")
     if args.stats:
-        print("统计：")
+        print(f"统计（cloze-mode={args.cloze_mode}）：")
         for kind, rows in all_notes.items():
             print(f"  {kind}: {len(rows)}")
         print("未被标记、因此未生成 cloze 的 gloss：")

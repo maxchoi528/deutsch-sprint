@@ -22,9 +22,28 @@ class AnkiFactoryTests(unittest.TestCase):
             glosses,
             "test",
         )
-        self.assertEqual(len(notes), 3)
+        self.assertEqual(len(notes), 2)
         for note in notes:
             self.assertLessEqual(len(re.findall(r"\{\{c\d+::", note.front)), 2)
+        self.assertIn("{{c1::eins", notes[0].front)
+        self.assertIn("{{c2::zwei", notes[0].front)
+        singles = factory.sentence_notes(
+            "{eins|g1} und {zwei|g2} sowie {drei|g3} bleiben im Satz.",
+            glosses,
+            "test",
+            "single",
+        )
+        self.assertEqual(len(singles), 3)
+        self.assertTrue(all(len(re.findall(r"\{\{c\d+::", note.front)) == 1 for note in singles))
+
+    def test_cloze_hints_and_extra_include_gloss_context_safely(self):
+        glosses = [{"id":"g1","surface":"Möglichkeit","lemma":"Möglichkeit <neu>","article":"die","plural":"Möglichkeiten","zh":"选择 & 机会","de_def":"Eine <Option>.","plural_note":""}]
+        note = factory.sentence_notes("Eine {Möglichkeit|g1} bleibt.", glosses, "Titel & <Quelle>")[0]
+        self.assertIn("{{c1::Möglichkeit::选择 &amp; 机会}}", note.front)
+        self.assertIn("原形：die Möglichkeit &lt;neu&gt;", note.back)
+        self.assertIn("复数：Möglichkeiten", note.back)
+        self.assertIn("德语解释：Eine &lt;Option&gt;.", note.back)
+        self.assertIn("来源：Titel &amp; &lt;Quelle&gt;", note.back)
 
     def test_full_lesson_collection_generates_all_marked_clozes(self):
         collection = json.loads((PROJECT_ROOT / "p1-reader/lessons.json").read_text())
@@ -40,7 +59,8 @@ class AnkiFactoryTests(unittest.TestCase):
                 self.assertEqual(result, 0)
                 with (root / "cards/01-cloze.csv").open(encoding="utf-8-sig", newline="") as handle:
                     notes = list(csv.reader(handle))[1:]
-                self.assertGreaterEqual(len(notes), marked)
+                self.assertLessEqual(len(notes), marked)
+                self.assertTrue(all(len(re.findall(r"\{\{c\d+::", row[0])) <= 2 for row in notes))
                 self.assertNotIn("缺少原句", output.getvalue())
 
     def test_duplicate_notes_are_removed(self):
