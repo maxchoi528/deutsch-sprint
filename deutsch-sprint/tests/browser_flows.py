@@ -273,6 +273,9 @@ def reader_flow(browser, errors):
         page.locator('.question').nth(i).get_by_role('radio', name=question['answer'], exact=True).check()
     page.locator('[data-action="submit-quiz"]').click()
     assert page.locator('.feedback.correct').count() == 3
+    assert page.locator('.sentence.evidence').count() >= 2, 'Multi-sentence evidence was not highlighted'
+    assert page.locator('.sentence.evidence[data-sentence-index="2"]').count() == 1
+    assert page.locator('.sentence.evidence[data-sentence-index="3"]').count() == 1
     page.reload()
     progress = saved(page, 'deutschSprint.reader.v1')['progress']['b2-wohnen'][-1]
     assert progress['blind'] and progress['score'] == 3
